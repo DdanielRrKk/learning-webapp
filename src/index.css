@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .container-main {
+        @apply  w-screen h-screen 
+                flex flex-col justify-center items-center
+                bg-neutral-900
+                text-white;
+    }
+    .container-body {
+        @apply  w-full h-full
+                px-60 py-4
+                grid grid-cols-3 gap-4;
+    }
+
+    .box {
+        @apply  w-52 h-52;
+    }
+    .box img {
+        @apply  w-full h-full rounded-xl;
+    }
+
+
+    .sidebar {
+        @apply  w-1/6 h-screen 
+                flex flex-col justify-start items-start
+                px-6 py-4
+                overflow-y-scroll;
+    }
+    .content {
+        @apply  w-5/6 h-screen
+                px-12 py-4
+                flex flex-col
+                overflow-y-scroll;
+    }
+
+
+    .course-item {
+        @apply  w-full
+                px-2 py-1
+                cursor-pointer;
+    }
+    .course-item p {
+        @apply  py-2 text-base;
+    }
+    .course-item-title {
+        @apply  hover:pl-2;
+    }
+    .course-item-title-selected {
+        @apply  pl-2 bg-neutral-800;
+    }
+    .course-item-breaker {
+        @apply  text-lg text-neutral-500;
+    }
+}
+
+/* S C R O L L B A R   S T Y L E S */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #262626; }
+::-webkit-scrollbar-thumb { background: #404040; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #525252; }
