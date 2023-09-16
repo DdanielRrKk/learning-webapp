@@ -9,7 +9,7 @@ export default function ContentItem({ type, data, onClick = null }) {
         );
 
         case "text": return (
-            <p className="">{data}</p>
+            <p>{data}</p>
         );
 
         case "code": return (
@@ -33,10 +33,8 @@ export default function ContentItem({ type, data, onClick = null }) {
         case "list": return (
             <ul>
                 {data.map((item, index) => (
-                    <li 
-                        key={index}
-                        className="pl-4 py-2">
-                            - {item}
+                    <li key={index} className="pl-4 py-2">
+                        - {item}
                     </li>
                 ))}
             </ul>

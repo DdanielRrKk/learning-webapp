@@ -2,12 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import ContentItem from "../../components/contentItem";
-
-import { 
-    ABOUT_CONTENT,
-    BOXES
-} from '../../helpers/constants';
+import { BOXES } from '../../helpers/constants';
 
 export default function HomePage() {
     return (

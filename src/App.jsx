@@ -10,7 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-function App() {
+export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
@@ -26,5 +26,3 @@ function App() {
   
   return <RouterProvider router={router} />;
 }
-
-export default App

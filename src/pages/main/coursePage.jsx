@@ -12,7 +12,6 @@ export default function CoursePage() {
     
     const [course, setCourse] = React.useState([]);
     const [selectedLessonId, setSelectedLessonId] = React.useState(1);
-
     const [content, setContent] = React.useState([]);
 
     React.useEffect(() => {
