@@ -18,7 +18,7 @@ export default function HomePage() {
                         key={box.id}
                         className="box"
                         to={`/course/${box.courseId}`}>
-                        <img src={box.image} alt={box.text} />
+                        <img src={box.image} alt={box.text} title={box.courseId}/>
                     </Link>
                 ))}
             </div>
