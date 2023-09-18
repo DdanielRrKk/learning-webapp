@@ -2,13 +2,37 @@ import JS from '../assets/js-logo.png';
 import ReactJS from '../assets/react-logo.png';
 import Golang from '../assets/golang-logo.png';
 import Firebase from '../assets/firebase-logo.png';
+import Cobol from '../assets/cobol-logo.png';
+
+
+export const WRITE_PAGE_PLACEHOLDER = `Write your course here...
+
+You can add the content for your lesson by implementing the following pattern:
+line 1: >type of content
+line 2: the content
+
+Example:
+>title
+Hello this is a title
+>text
+This is the text below the title
+>list
+item 1
+item 2
+item 3
+>code
+code 1
+code 2
+code 3
+`;
 
 
 export const BOXES = [
     {   id: 0, courseId: 'javascript', image: JS },
     {   id: 1, courseId: 'react', image: ReactJS },
     {   id: 2, courseId: 'golang', image: Golang },
-    {   id: 3, courseId: 'firebase', image: Firebase }
+    {   id: 3, courseId: 'firebase', image: Firebase },
+    {   id: 4, courseId: 'cobol', image: Cobol },
 ];
 
 
@@ -413,4 +437,95 @@ export const GOLANG_LESSONS = [
 
     { id: 79, title: 'Real-World Projects' }, // title
     { id: 80, title: 'Apply your knowledge by building practical projects in Go', content: [] },
-  ];
+];
+
+// C O B O L   L E S S O N S
+export const COBOL_LESSONS = [
+    { id: 0, title: "Understand COBOL's History and Purpose" }, // title
+    { id: 1, title: 'Learn the history of COBOL and why it was created', content: [] },
+    { id: 2, title: 'Understand its role in legacy systems and enterprise applications', content: [] },
+
+    { id: 3, title: 'Setup COBOL Development Environment' }, // title
+    { id: 4, title: 'Install a COBOL compiler/interpreter like GnuCOBOL or Micro Focus COBOL', content: [] },
+    { id: 5, title: 'Set up an Integrated Development Environment (IDE) or text editor for COBOL coding', content: [] },
+    
+    { id: 6, title: 'COBOL Basics' }, // title
+    { id: 7, title: 'Learn the syntax and structure of COBOL programs', content: [] },
+    { id: 8, title: 'Understand divisions, sections, paragraphs, and statements', content: [] },
+
+    { id: 9, title: 'Data Types and Variables' }, // title
+    { id: 10, title: 'Explore COBOL\'s data types, including numeric, alphanumeric, and usage clauses', content: [] },
+    { id: 11, title: 'Define and declare variables', content: [] },
+    { id: 12, title: 'Understand the concept of levels (level numbers) for data items', content: [] },
+
+    { id: 13, title: 'Arithmetic Operations' }, // title
+    { id: 14, title: 'Perform basic arithmetic operations in COBOL', content: [] },
+    { id: 15, title: 'Learn about computational clauses like COMPUTE and ADD', content: [] },
+
+    { id: 16, title: 'Conditional Statements' }, // title
+    { id: 17, title: 'Implement conditional logic using IF statements', content: [] },
+    { id: 18, title: 'Work with IF-ELSE and nested IF statements', content: [] },
+
+    { id: 19, title: 'Loops and Iteration' }, // title
+    { id: 20, title: 'Use PERFORM loops for repetitive tasks', content: [] },
+    { id: 21, title: 'Understand iterative constructs like PERFORM UNTIL and PERFORM VARYING', content: [] },
+
+    { id: 22, title: 'File Handling' }, // title
+    { id: 23, title: 'Learn how COBOL interacts with files', content: [] },
+    { id: 24, title: 'Read and write data from/to files (e.g., sequential, indexed, relative)', content: [] },
+    { id: 25, title: 'Understand the FILE SECTION and I/O control clauses', content: [] },
+
+    { id: 26, title: 'Data Structures' }, // title
+    { id: 27, title: 'Work with data structures like arrays and records (GROUP items)', content: [] },
+    { id: 28, title: 'Perform operations on structured data', content: [] },
+
+    { id: 29, title: 'Subprograms and Functions' }, // title
+    { id: 30, title: 'Create subprograms (subroutines and functions) in COBOL', content: [] },
+    { id: 31, title: 'Understand the CALL statement to invoke subprograms', content: [] },
+
+    { id: 32, title: 'String Manipulation' }, // title
+    { id: 33, title: 'Manipulate strings and perform string operations', content: [] },
+    { id: 34, title: 'Learn about STRING, UNSTRING, and INSPECT verbs', content: [] },
+
+    { id: 35, title: 'Error Handling' }, // title
+    { id: 36, title: 'Implement error handling and exception handling', content: [] },
+    { id: 37, title: 'Use declaratives for error conditions', content: [] },
+
+    { id: 38, title: 'COBOL Debugging Techniques' }, // title
+    { id: 39, title: 'Learn debugging methods in COBOL', content: [] },
+    { id: 40, title: 'Use debugging tools and techniques available for COBOL', content: [] },
+
+    { id: 41, title: 'COBOL Standards and Best Practices' }, // title
+    { id: 42, title: 'Study COBOL coding standards and best practices', content: [] },
+    { id: 43, title: 'Follow naming conventions and code formatting guidelines', content: [] },
+
+    { id: 44, title: 'COBOL and Modern Development' }, // title
+    { id: 45, title: 'Explore COBOL\'s relevance in modern enterprise systems', content: [] },
+    { id: 46, title: 'Learn about COBOL integration with other languages and technologies', content: [] },
+
+    { id: 47, title: 'Database Access (Optional)' }, // title
+    { id: 48, title: 'Understand COBOL\'s interaction with databases (e.g., SQL databases)', content: [] },
+    { id: 49, title: 'Use embedded SQL or COBOL-specific database access methods', content: [] },
+
+    { id: 50, title: 'COBOL in the Mainframe Environment (Optional)' }, // title
+    { id: 51, title: 'Learn about COBOL usage in mainframe systems', content: [] },
+    { id: 52, title: 'Understand concepts like JCL (Job Control Language) and VSAM', content: [] },
+
+    { id: 53, title: 'Web Services (Optional)' }, // title
+    { id: 54, title: 'Explore COBOL\'s usage in web services development', content: [] },
+    { id: 55, title: 'Learn about RESTful APIs and SOAP services', content: [] },
+
+    { id: 56, title: 'COBOL Migration and Modernization (Optional)' }, // title
+    { id: 57, title: 'Understand strategies for migrating legacy COBOL applications to modern platforms', content: [] },
+    { id: 58, title: 'Explore tools and approaches for COBOL modernization', content: [] },
+
+    { id: 59, title: 'COBOL Community and Resources' }, // title
+    { id: 60, title: 'Join COBOL forums, mailing lists, and communities', content: [] },
+    { id: 61, title: 'Access COBOL documentation and tutorials', content: [] },
+
+    { id: 62, title: 'Continuous Learning' }, // title
+    { id: 63, title: 'Stay updated with new developments and trends in the COBOL ecosystem', content: [] },
+
+    { id: 64, title: 'Real-World Projects' }, // title
+    { id: 65, title: 'Apply your COBOL knowledge by working on real-world COBOL projects', content: [] },
+];

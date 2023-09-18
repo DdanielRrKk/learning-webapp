@@ -8,7 +8,9 @@ import ContentItem from "../../components/contentItem";
 import { 
     JAVASCRIPT_LESSONS,
     REACT_LESSONS,
-    GOLANG_LESSONS
+    GOLANG_LESSONS,
+
+    COBOL_LESSONS
 } from "../../helpers/constants";
 
 export default function CoursePage() {
@@ -24,6 +26,7 @@ export default function CoursePage() {
             case 'react': setCourse(REACT_LESSONS); setContent(REACT_LESSONS[1]?.content); break;
             case 'golang': setCourse(GOLANG_LESSONS); setContent(GOLANG_LESSONS[1]?.content); break;
             // case 'firebase': setCourse(JAVASCRIPT_LESSONS); setContent(JAVASCRIPT_LESSONS[1]?.content); break;
+            case 'cobol': setCourse(COBOL_LESSONS); setContent(COBOL_LESSONS[1]?.content); break;
         }
     }, []);
 

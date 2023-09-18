@@ -23,11 +23,19 @@ export default function HomePage() {
                 ))}
             </div>
 
-            <button
-                className="py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white"
-                onClick={() => console.log('clicked')}>
-                Buy me a Coffee
-            </button>
+            <div className="flex gap-20">
+                <button
+                    className="py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white"
+                    onClick={() => console.log('clicked')}>
+                    Buy me a Coffee
+                </button>
+
+                <Link 
+                    className="py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white"
+                    to={'/write'}>
+                    Write a Course
+                </Link>
+            </div>
         </div>
     );
 }

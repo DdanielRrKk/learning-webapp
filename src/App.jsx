@@ -4,6 +4,7 @@ import ErrorPage from './pages/errorPage';
 
 import HomePage from './pages/main/homePage';
 import CoursePage from './pages/main/coursePage';
+import WritePage from './pages/main/writePage';
 
 import {
   createBrowserRouter,
@@ -20,6 +21,11 @@ export default function App() {
     {
       path: "/course/:courseId",
       element: <CoursePage />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: "/write",
+      element: <WritePage />,
       errorElement: <ErrorPage />
     }
   ]);
