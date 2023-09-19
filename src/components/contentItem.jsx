@@ -4,9 +4,24 @@ import { stackoverflowDark } from 'react-syntax-highlighter/dist/esm/styles/hljs
 
 export default function ContentItem({ type, data }) {
     switch (type) {
-        case "title": return <p className="text-4xl">{data}</p>;
-        case "text": return <p>{data}</p>;
         case "img": return <img className="w-5/6 h-fit" src={data} alt={data}/>;
+        
+        case "title": return (
+            <>
+                {data.map((item, index) => (
+                    <p key={index} className="text-4xl">{item}</p>
+                ))}
+            </>
+        );
+        
+        case "text": return (
+            <>
+                {data.map((item, index) => (
+                    <p key={index}>{item}</p>
+                ))}
+            </>
+        );
+        
         case "code": return (
             <div className="h-fit">
                 <SyntaxHighlighter language="javascript" style={stackoverflowDark}>
@@ -14,6 +29,7 @@ export default function ContentItem({ type, data }) {
                 </SyntaxHighlighter>
             </div>
         );
+        
         case "list": return (
             <ul>
                 {data.map((item, index) => (

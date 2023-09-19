@@ -59,7 +59,11 @@
 
 
     .editor {
-        @apply  w-full h-full p-4 bg-neutral-800 resize-none outline-none;
+        @apply  w-full h-full 
+                p-4 
+                bg-neutral-800 
+                resize-none outline-none
+                overflow-y-scroll;
     }
 }
 

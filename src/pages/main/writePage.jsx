@@ -19,40 +19,36 @@ export default function WritePage() {
         // })
     }
     const handlTransformstringToContent = () => {
+        const array = contentString.split('\n');
+        console.log('array', array);
+
+        let id = 0;
+        let currentType = "text";
+        let currentData = [];
         const resultArray = [];
 
-        const array = contentString.split('\n');
-        let type = '';
-        let dataString = '';
-        let dataArray = [];
-
         for (let i = 0; i < array.length; i++) {
-            let temp = array[i];
-
-            if(temp[0] === '>') {
-                type = temp.substring(1);
-
-                if(resultArray.length !== 0) {
-                    resultArray.push({
-                        id: resultArray[resultArray.length],
-                        type: type,
-                        data: dataArray
-                    });
-
-                    dataString = '';
-                    dataArray = [];
-                }
-            }
+            const str = array[i];
+            
+            if (str.startsWith(">")) currentType = str.slice(1);
             else {
-                if(type === 'list' || type === 'code') {
-                    dataArray.push(temp);
-                }
-                else {
-                    dataString = temp;
+                currentData.push(str);
+            
+                if (i + 1 === array.length || array[i + 1].startsWith(">")) {
+                    resultArray.push({ 
+                        id: id, 
+                        type: currentType, 
+                        data: currentData 
+                    });
+                    
+                    id++;
+                    currentType = "text";
+                    currentData = [];
                 }
             }
         }
 
+        console.log('resultArray', resultArray);
         setContent(resultArray);
     }
 
@@ -68,14 +64,11 @@ export default function WritePage() {
 
             <button 
                 className='h-24 w-24 p-2 absolute bottom-4 bg-neutral-600 rounded-full'
-                onClick={() => {
-                    let temp = contentString.split('\n');
-                    setContent('temp', temp);
-                }}>
+                onClick={handlTransformstringToContent}>
                 Transform
             </button>
 
-            <div className="w-1/2 h-full p-4">
+            <div className="w-1/2 h-full p-4 pb-32 content gap-4">
                 {content.length !== 0 ?
                     <>
                         {content.map((item) => (
@@ -83,7 +76,7 @@ export default function WritePage() {
                         ))}
                     </>
                     :
-                    <p className="text-4xl">Place for visualizing your content</p>}
+                    <p className="text-4xl">Place to visualizing your content</p>}
             </div>
         </div>
     );
