@@ -8,28 +8,20 @@ export default function WritePage() {
     const [contentString, setContentString] = React.useState([]);
     const [content, setContent] = React.useState([]);
 
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+
     const handleChangeContentStrings = (e) => {
         setContentString(e.target.value);
-        let temp = e.target.value.split('\n');
-        console.log('temp', temp);
-        // setContent(...content, {
-        //     id: content[content.length - 1].id + 1,
-        //     type: 'text',
-        //     data: e.target.value
-        // })
+        handlTransformstringToContent();
     }
     const handlTransformstringToContent = () => {
-        if(contentString === '') {
-            setContent([]);
-            return;
-        }
+        if(contentString === '') { setContent([]); return; }
 
         const array = contentString.split('\n');
-        console.log('array', array);
+        // console.log('array', array);
 
-        let id = 0;
-        let currentType = "text";
-        let currentData = [];
+        let id = 0, currentType = "text", currentData = [];
         const resultArray = [];
 
         for (let i = 0; i < array.length; i++) {
@@ -40,11 +32,7 @@ export default function WritePage() {
                 currentData.push(str);
             
                 if (i + 1 === array.length || array[i + 1].startsWith(">")) {
-                    resultArray.push({ 
-                        id: id, 
-                        type: currentType, 
-                        data: currentData 
-                    });
+                    resultArray.push({  id: id, type: currentType, data: currentData });
                     
                     id++;
                     currentType = "text";
@@ -53,12 +41,18 @@ export default function WritePage() {
             }
         }
 
-        console.log('resultArray', resultArray);
+        // console.log('resultArray', resultArray);
         setContent(resultArray);
     }
 
+    const handleClearContentString = () => {
+        setContent([]);
+        setContentString('');
+    }
+
+
     return (
-        <div className='container-main flex-row'>
+        <div className='container-main h-screen flex-row'>
             <div className="w-1/2 h-full">
                 <textarea
                     className="editor"
@@ -67,11 +61,25 @@ export default function WritePage() {
                     onChange={handleChangeContentStrings}/>
             </div>
 
-            <button 
-                className='h-24 w-24 p-2 absolute bottom-4 bg-neutral-600 rounded-full'
-                onClick={handlTransformstringToContent}>
-                Transform
-            </button>
+            <div className='flex flex-col justify-center items-center absolute bottom-4 gap-4 transition-all'>
+                <button 
+                    className={`h-16 w-16 p-2 bg-neutral-600 opacity-90 rounded-full ${!isMenuOpen ? 'hidden' : ''}`}
+                    onClick={handlTransformstringToContent}>
+                    Add
+                </button>
+
+                <button 
+                    className={`h-16 w-16 p-2 bg-neutral-600 opacity-90 rounded-full ${!isMenuOpen ? 'hidden' : ''}`}
+                    onClick={handleClearContentString}>
+                    Clear
+                </button>
+
+                <button 
+                    className='h-20 w-20 p-2 bg-neutral-600 opacity-90 rounded-full'
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    Menu
+                </button>
+            </div>
 
             <div className="w-1/2 h-full p-4 pb-32 content gap-4">
                 {content.length !== 0 ?
