@@ -16,6 +16,7 @@ Example:
 Hello this is a title
 >text
 This is the text below the title
+And this is second text below the title
 >list
 item 1
 item 2
@@ -49,36 +50,42 @@ export const ABOUT_CONTENT = [
 
 // J A V A S C R I P T   L E S S O N S   C O N T E N T
 const LESSON_ID_1_CONTENT = [
-    {   id: 0, type: 'title', data: 'History' },
+    {   id: 0, type: 'title', data: [ 'History' ] },
     {   id: 1, type: 'text',
-        data: 'JavaScript, often abbreviated as JS, is a high-level, interpreted programming language that is widely used for front-end web development.'
+        data: [
+            'JavaScript, often abbreviated as JS, is a high-level, interpreted programming language that is widely used for front-end web development.',
+            'It was created by Brendan Eich in 1995 and originally developed for Netscape Navigator web browser.'
+        ]
     },
-    {   id: 2, type: 'text',
-        data: 'It was created by Brendan Eich in 1995 and originally developed for Netscape Navigator web browser.'
+    {   id: 2, type: 'title', data: [ 'Overview' ] },
+    {   id: 3, type: 'text',
+        data: [
+            'JavaScript is known for its versatility and is primarily used for enhancing web pages by adding interactivity and dynamic behavior.'
+        ]
     },
-    {   id: 3, type: 'title', data: 'Overview' },
-    {   id: 4, type: 'text',
-        data: 'JavaScript is known for its versatility and is primarily used for enhancing web pages by adding interactivity and dynamic behavior.'
-    },
-    {   id: 5, type: 'list',
+    {   id: 4, type: 'list',
         data: [
             'JavaScript is a client-side scripting language',
             'It is used on both the client-side (browser) and server-side (Node.js) of web applications',
             'JavaScript is often abbreviated as JS'
         ]
     },
-    {   id: 6, type: 'code',
+    {   id: 5, type: 'code',
         data: [
             'let a = 5;',
             'console.log(a);'
         ]
     },
-    {   id: 7, type: 'text',
-        data: 'It has evolved over the years and is now commonly used on both the client-side (browser) and server-side (Node.js) of web applications.'
+    {   id: 6, type: 'text',
+        data: [
+            'It has evolved over the years and is now commonly used on both the client-side (browser) and server-side (Node.js) of web applications.'
+        ]
     },
     {
-        id: 8, type: 'img',
-        data: 'https://assets.toptal.io/images?url=https%3A%2F%2Fbs-uploads.toptal.io%2Fblackfish-uploads%2Fcomponents%2Fblog_post_page%2Fcontent%2Fcover_image_file%2Fcover_image%2F1085535%2Fstaging.toptal.net_javascript_functional-programming-javascript-3b5c20a73284cfe018fdde08bd2ef253.png'
+        id: 7, type: 'img',
+        data: [
+            'https://assets.toptal.io/images?url=https%3A%2F%2Fbs-uploads.toptal.io%2Fblackfish-uploads%2Fcomponents%2Fblog_post_page%2Fcontent%2Fcover_image_file%2Fcover_image%2F1085535%2Fstaging.toptal.net_javascript_functional-programming-javascript-3b5c20a73284cfe018fdde08bd2ef253.png'
+        ]
     }
 ];
 
@@ -213,119 +220,119 @@ export const JAVASCRIPT_LESSONS = [
 
 // R E A C T   L E S S O N S
 export const REACT_LESSONS = [
-    {   id: 1, title: 'Prerequisites' }, // title
-    {   id: 2, title: 'Ensure you have a strong understanding of HTML, CSS, and JavaScript, including ES6+ features', content: [] },
+    {   id: 0, title: 'Prerequisites' }, // title
+    {   id: 1, title: 'Ensure you have a strong understanding of HTML, CSS, and JavaScript, including ES6+ features', content: [] },
 
-    {   id: 3, title: 'JavaScript Fundamentals' }, // title
-    {   id: 4, title: 'Review and strengthen your knowledge of JavaScript', content: [] },
+    {   id: 2, title: 'JavaScript Fundamentals' }, // title
+    {   id: 3, title: 'Review and strengthen your knowledge of JavaScript', content: [] },
 
-    {   id: 5, title: 'Introduction to React' }, // title
-    {   id: 6, title: "Understand what React is and why it's used", content: [] },
-    {   id: 7, title: 'Set up your development environment with Node.js and npm/yarn', content: [] },
+    {   id: 4, title: 'Introduction to React' }, // title
+    {   id: 5, title: "Understand what React is and why it's used", content: [] },
+    {   id: 6, title: 'Set up your development environment with Node.js and npm/yarn', content: [] },
 
-    {   id: 8, title: 'JSX (JavaScript XML)' }, // title
-    {   id: 9, title: 'Learn JSX syntax and how it blends HTML with JavaScript', content: [] },
+    {   id: 7, title: 'JSX (JavaScript XML)' }, // title
+    {   id: 8, title: 'Learn JSX syntax and how it blends HTML with JavaScript', content: [] },
 
-    {   id: 10, title: 'Components' }, // title
-    {   id: 11, title: 'Understand React components', content: [] },
-    {   id: 12, title: 'Create functional and class components', content: [] },
-    {   id: 13, title: 'Learn about props and state', content: [] },
-    {   id: 14, title: 'Lifecycle methods for class components (if necessary)', content: [] },
+    {   id: 9, title: 'Components' }, // title
+    {   id: 10, title: 'Understand React components', content: [] },
+    {   id: 11, title: 'Create functional and class components', content: [] },
+    {   id: 12, title: 'Learn about props and state', content: [] },
+    {   id: 13, title: 'Lifecycle methods for class components (if necessary)', content: [] },
 
-    {   id: 15, title: 'State and Props' }, // title
-    {   id: 16, title: 'Understand component state and when to use it', content: [] },
-    {   id: 17, title: 'Learn how to pass data via props', content: [] },
-    {   id: 18, title: 'Use PropTypes for type checking (optional)', content: [] },
+    {   id: 14, title: 'State and Props' }, // title
+    {   id: 15, title: 'Understand component state and when to use it', content: [] },
+    {   id: 16, title: 'Learn how to pass data via props', content: [] },
+    {   id: 17, title: 'Use PropTypes for type checking (optional)', content: [] },
 
-    {   id: 19, title: 'Event Handling' }, // title
-    {   id: 20, title: 'Handle events in React components', content: [] },
-    {   id: 21, title: 'Learn about synthetic events', content: [] },
+    {   id: 18, title: 'Event Handling' }, // title
+    {   id: 19, title: 'Handle events in React components', content: [] },
+    {   id: 20, title: 'Learn about synthetic events', content: [] },
 
-    {   id: 22, title: 'Conditional Rendering' }, // title
-    {   id: 23, title: 'Render components conditionally based on state and props', content: [] },
-    {   id: 24, title: 'Understand the ternary operator and logical &&', content: [] },
+    {   id: 21, title: 'Conditional Rendering' }, // title
+    {   id: 22, title: 'Render components conditionally based on state and props', content: [] },
+    {   id: 23, title: 'Understand the ternary operator and logical &&', content: [] },
 
-    {   id: 25, title: 'Lists and Keys' }, // title
-    {   id: 26, title: 'Render lists of data using map() and provide unique keys', content: [] },
-    {   id: 27, title: 'Understand the importance of keys', content: [] },
+    {   id: 24, title: 'Lists and Keys' }, // title
+    {   id: 25, title: 'Render lists of data using map() and provide unique keys', content: [] },
+    {   id: 26, title: 'Understand the importance of keys', content: [] },
 
-    {   id: 28, title: 'Forms and Controlled Components' }, // title
-    {   id: 29, title: 'Handle form input elements', content: [] },
-    {   id: 30, title: 'Create controlled components', content: [] },
-    {   id: 31, title: 'Learn about controlled vs. uncontrolled components', content: [] },
+    {   id: 27, title: 'Forms and Controlled Components' }, // title
+    {   id: 30, title: 'Handle form input elements', content: [] },
+    {   id: 31, title: 'Create controlled components', content: [] },
+    {   id: 32, title: 'Learn about controlled vs. uncontrolled components', content: [] },
 
-    {   id: 32, title: 'Component Lifecycle' }, // title
-    {   id: 33, title: 'If working with class components, understand lifecycle methods', content: [] },
-    {   id: 34, title: 'ComponentDidMount, ComponentDidUpdate, componentWillUnmount, etc.', content: [] },
+    {   id: 33, title: 'Component Lifecycle' }, // title
+    {   id: 34, title: 'If working with class components, understand lifecycle methods', content: [] },
+    {   id: 35, title: 'ComponentDidMount, ComponentDidUpdate, componentWillUnmount, etc.', content: [] },
 
-    {   id: 35, title: 'React Router (Client-Side Routing)' },  // title
-    {   id: 36, title: 'Implement client-side routing with React Router', content: [] },
-    {   id: 37, title: 'Set up routes and navigation', content: [] },
+    {   id: 36, title: 'React Router (Client-Side Routing)' },  // title
+    {   id: 37, title: 'Implement client-side routing with React Router', content: [] },
+    {   id: 38, title: 'Set up routes and navigation', content: [] },
 
-    {   id: 38, title: 'Styling in React' }, // title
-    {   id: 39, title: 'Learn different methods for styling in React', content: [] },
-    {   id: 40, title: 'Inline styles', content: [] },
-    {   id: 41, title: 'CSS Modules', content: [] },
-    {   id: 42, title: 'Styled-components, Emotion (CSS-in-JS libraries)', content: [] },
+    {   id: 39, title: 'Styling in React' }, // title
+    {   id: 40, title: 'Learn different methods for styling in React', content: [] },
+    {   id: 41, title: 'Inline styles', content: [] },
+    {   id: 42, title: 'CSS Modules', content: [] },
+    {   id: 43, title: 'Styled-components, Emotion (CSS-in-JS libraries)', content: [] },
     
-    {   id: 43, title: 'State Management (Context API and Redux - Optional)' }, // title
-    {   id: 44, title: 'Explore state management options', content: [] },
-    {   id: 45, title: 'Use the Context API for simple state management', content: [] },
-    {   id: 46, title: 'Learn Redux for more complex applications', content: [] },
+    {   id: 44, title: 'State Management (Context API and Redux - Optional)' }, // title
+    {   id: 45, title: 'Explore state management options', content: [] },
+    {   id: 46, title: 'Use the Context API for simple state management', content: [] },
+    {   id: 47, title: 'Learn Redux for more complex applications', content: [] },
 
-    {   id: 47, title: 'Hooks' }, // title
-    {   id: 48, title: 'Understand React hooks (useState, useEffect, useContext, etc.)', content: [] },
-    {   id: 49, title: 'Refactor class components to functional components with hooks', content: [] },
+    {   id: 48, title: 'Hooks' }, // title
+    {   id: 49, title: 'Understand React hooks (useState, useEffect, useContext, etc.)', content: [] },
+    {   id: 50, title: 'Refactor class components to functional components with hooks', content: [] },
 
-    {   id: 50, title: 'Redux (Optional)' }, // title
-    {   id: 51, title: 'Dive deeper into Redux for advanced state management', content: [] },
-    {   id: 52, title: 'Learn about actions, reducers, and the Redux store', content: [] },
+    {   id: 51, title: 'Redux (Optional)' }, // title
+    {   id: 52, title: 'Dive deeper into Redux for advanced state management', content: [] },
+    {   id: 53, title: 'Learn about actions, reducers, and the Redux store', content: [] },
 
-    {   id: 53, title: 'API Requests' }, // title
-    {   id: 54, title: 'Fetch data from APIs using the fetch() method', content: [] },
-    {   id: 55, title: 'Handle asynchronous data using async/await or Promises', content: [] },
+    {   id: 54, title: 'API Requests' }, // title
+    {   id: 55, title: 'Fetch data from APIs using the fetch() method', content: [] },
+    {   id: 56, title: 'Handle asynchronous data using async/await or Promises', content: [] },
 
-    {   id: 56, title: 'Testing' }, // title
-    {   id: 57, title: 'Write unit tests with libraries like Jest and React Testing Library', content: [] },
-    {   id: 58, title: 'Learn about test-driven development (TDD) if desired', content: [] },
+    {   id: 57, title: 'Testing' }, // title
+    {   id: 58, title: 'Write unit tests with libraries like Jest and React Testing Library', content: [] },
+    {   id: 59, title: 'Learn about test-driven development (TDD) if desired', content: [] },
 
-    {   id: 59, title: 'Performance Optimization' }, // title
-    {   id: 60, title: 'Optimize component rendering using PureComponent or memoization', content: [] },
-    {   id: 61, title: 'Lazy loading and code splitting with React.lazy and Suspense', content: [] },
+    {   id: 60, title: 'Performance Optimization' }, // title
+    {   id: 61, title: 'Optimize component rendering using PureComponent or memoization', content: [] },
+    {   id: 62, title: 'Lazy loading and code splitting with React.lazy and Suspense', content: [] },
 
-    {   id: 62, title: 'Error Handling' }, // title
-    {   id: 63, title: 'Implement error boundaries', content: [] },
-    {   id: 64, title: 'Handle errors gracefully in your application', content: [] },
+    {   id: 63, title: 'Error Handling' }, // title
+    {   id: 64, title: 'Implement error boundaries', content: [] },
+    {   id: 65, title: 'Handle errors gracefully in your application', content: [] },
 
-    {   id: 65, title: 'Forms Validation' }, // title
-    {   id: 66, title: 'Implement form validation with custom logic or libraries like Formik or Yup', content: [] },
+    {   id: 66, title: 'Forms Validation' }, // title
+    {   id: 67, title: 'Implement form validation with custom logic or libraries like Formik or Yup', content: [] },
 
-    {   id: 67, title: 'Server-Side Rendering (Next.js - Optional)' }, // title
-    {   id: 68, title: 'Explore server-side rendering with Next.js if building more complex apps', content: [] },
+    {   id: 68, title: 'Server-Side Rendering (Next.js - Optional)' }, // title
+    {   id: 69, title: 'Explore server-side rendering with Next.js if building more complex apps', content: [] },
 
-    {   id: 69, title: 'Web Accessibility (a11y)' }, // title
-    {   id: 70, title: 'Implement accessibility features to ensure your app is usable by everyone', content: [] },
+    {   id: 70, title: 'Web Accessibility (a11y)' }, // title
+    {   id: 71, title: 'Implement accessibility features to ensure your app is usable by everyone', content: [] },
 
-    {   id: 71, title: 'Internationalization and Localization (i18n - Optional)' }, // title
-    {   id: 72, title: 'Learn how to make your app multilingual', content: [] },
+    {   id: 72, title: 'Internationalization and Localization (i18n - Optional)' }, // title
+    {   id: 73, title: 'Learn how to make your app multilingual', content: [] },
 
-    {   id: 73, title: 'Progressive Web Apps (PWAs - Optional)' }, // title
-    {   id: 74, title: 'Turn your app into a Progressive Web App for offline access and more', content: [] },
+    {   id: 74, title: 'Progressive Web Apps (PWAs - Optional)' }, // title
+    {   id: 75, title: 'Turn your app into a Progressive Web App for offline access and more', content: [] },
 
-    {   id: 75, title: 'Deployment' }, // title
-    {   id: 76, title: 'Deploy your React app to platforms like Netlify, Vercel, or AWS', content: [] },
+    {   id: 76, title: 'Deployment' }, // title
+    {   id: 77, title: 'Deploy your React app to platforms like Netlify, Vercel, or AWS', content: [] },
 
-    {   id: 77, title: 'Real-World Projects' }, // title
-    {   id: 78, title: 'Build practical projects to apply your knowledge', content: [] },
+    {   id: 78, title: 'Real-World Projects' }, // title
+    {   id: 79, title: 'Build practical projects to apply your knowledge', content: [] },
 
-    {   id: 79, title: 'Advanced Topics (Optional)' }, // title
-    {   id: 80, title: 'Learn about advanced topics like context, hooks, render props, and more', content: [] },
+    {   id: 80, title: 'Advanced Topics (Optional)' }, // title
+    {   id: 81, title: 'Learn about advanced topics like context, hooks, render props, and more', content: [] },
 
-    {   id: 81, title: 'Best Practices and Patterns' }, // title
-    {   id: 82, title: 'Explore React best practices and common design patterns', content: [] },
+    {   id: 82, title: 'Best Practices and Patterns' }, // title
+    {   id: 83, title: 'Explore React best practices and common design patterns', content: [] },
 
-    {   id: 83, title: 'Stay Updated' }, // title
-    {   id: 84, title: 'Continuously learn about new React features and updates', content: [] }
+    {   id: 84, title: 'Stay Updated' }, // title
+    {   id: 85, title: 'Continuously learn about new React features and updates', content: [] }
 ];
 
 

@@ -5,16 +5,20 @@
 
 @layer components {
     .container-main {
-        @apply  w-screen h-screen 
+        @apply  w-screen min-h-screen max-h-fit
                 flex flex-col justify-center items-center
                 bg-neutral-900
                 text-white
                 overflow-hidden;
     }
     .container-body {
-        @apply  w-full h-full
-                px-60 py-4
-                grid grid-cols-4 gap-4;
+        @apply  w-fit h-fit
+                p-4
+                grid justify-center items-center gap-24
+                xl:grid-cols-4
+                lg:grid-cols-3
+                md:grid-cols-2
+                sm:grid-cols-1 sm:gap-16;
     }
 
     .box {
@@ -26,13 +30,13 @@
 
 
     .sidebar {
-        @apply  w-1/6 h-screen 
+        @apply  w-96 h-screen 
                 flex flex-col justify-start items-start
                 px-6 py-4
                 overflow-y-scroll;
     }
     .content {
-        @apply  w-5/6 h-screen
+        @apply  w-full h-screen
                 px-12 py-4
                 flex flex-col
                 overflow-y-scroll;

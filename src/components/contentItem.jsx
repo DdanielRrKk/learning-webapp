@@ -4,7 +4,13 @@ import { stackoverflowDark } from 'react-syntax-highlighter/dist/esm/styles/hljs
 
 export default function ContentItem({ type, data }) {
     switch (type) {
-        case "img": return <img className="w-5/6 h-fit" src={data} alt={data}/>;
+        case "img": return (
+            <div className="w-full flex justify-center items-center">
+                {data.map((item, index) => (
+                    <img key={index} className="w-4/6 h-fit" src={item} alt={item}/>
+                ))}
+            </div>
+        );
         
         case "title": return (
             <>

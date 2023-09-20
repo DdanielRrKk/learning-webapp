@@ -19,6 +19,11 @@ export default function WritePage() {
         // })
     }
     const handlTransformstringToContent = () => {
+        if(contentString === '') {
+            setContent([]);
+            return;
+        }
+
         const array = contentString.split('\n');
         console.log('array', array);
 
