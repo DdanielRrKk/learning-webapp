@@ -62,12 +62,28 @@
     }
 
 
+    .editor-title {
+        @apply  w-full h-[7%]
+                text-xl font-semibold
+                p-4
+                bg-neutral-800
+                border-b-4 border-neutral-700
+
+                outline-none
+    }
     .editor {
-        @apply  w-full h-full 
+        @apply  w-full h-[93%]
                 p-4 
                 bg-neutral-800 
                 resize-none outline-none
                 overflow-y-scroll;
+    }
+
+
+
+
+    .button-action {
+        @apply  py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white;
     }
 }
 

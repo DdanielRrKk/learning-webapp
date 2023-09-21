@@ -5,9 +5,10 @@ import Firebase from '../assets/firebase-logo.png';
 import Cobol from '../assets/cobol-logo.png';
 
 
-export const WRITE_PAGE_PLACEHOLDER = `Write your course here...
+export const WRITE_PAGE_PLACEHOLDER = `Write your lesson here...
 
-You can add the content for your lesson by implementing the following pattern:
+Every time you make a new line, the content will be visualized on the right. 
+To start writing, implement the following pattern:
 line 1: >type of content
 line 2: the content
 

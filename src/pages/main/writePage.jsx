@@ -5,15 +5,19 @@ import ContentItem from '../../components/contentItem';
 import { WRITE_PAGE_PLACEHOLDER } from '../../helpers/constants';
 
 export default function WritePage() {
+    const [title, setTitle] = React.useState('');
+
     const [contentString, setContentString] = React.useState([]);
     const [content, setContent] = React.useState([]);
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
 
+    const handleTitleChange = (e) => setTitle(e.target.value);
+
     const handleChangeContentStrings = (e) => {
         setContentString(e.target.value);
-        handlTransformstringToContent();
+        if(e.target.value.charAt(e.target.value.length - 1) === '\n') handlTransformstringToContent();
     }
     const handlTransformstringToContent = () => {
         if(contentString === '') { setContent([]); return; }
@@ -41,19 +45,31 @@ export default function WritePage() {
             }
         }
 
-        // console.log('resultArray', resultArray);
+        console.log('resultArray', resultArray);
         setContent(resultArray);
     }
 
     const handleClearContentString = () => {
-        setContent([]);
-        setContentString('');
+        setTitle(''); setContent([]); setContentString(''); setIsMenuOpen(false);
+    }
+
+    const handleSaveContentString = () => {
+        const lessons = localStorage.getItem('lessons') ? JSON.parse(localStorage.getItem('lessons')) : [];
+        lessons.push({ title: title, content: content });
+        localStorage.setItem('lessons', JSON.stringify(lessons));
+        history.back();
     }
 
 
     return (
         <div className='container-main h-screen flex-row'>
-            <div className="w-1/2 h-full">
+            <div className="w-1/2 h-screen">
+                <input 
+                    className="editor-title"
+                    value={title}
+                    onChange={handleTitleChange}
+                    placeholder='Lesson Title'/>
+
                 <textarea
                     className="editor"
                     placeholder={WRITE_PAGE_PLACEHOLDER}
@@ -64,8 +80,8 @@ export default function WritePage() {
             <div className='flex flex-col justify-center items-center absolute bottom-4 gap-4 transition-all'>
                 <button 
                     className={`h-16 w-16 p-2 bg-neutral-600 opacity-90 rounded-full ${!isMenuOpen ? 'hidden' : ''}`}
-                    onClick={handlTransformstringToContent}>
-                    Add
+                    onClick={handleSaveContentString}>
+                    Save
                 </button>
 
                 <button 
@@ -81,7 +97,7 @@ export default function WritePage() {
                 </button>
             </div>
 
-            <div className="w-1/2 h-full p-4 pb-32 content gap-4">
+            <div className="w-1/2 h-full p-4 pb-20 content gap-4">
                 {content.length !== 0 ?
                     <>
                         {content.map((item) => (
@@ -89,7 +105,7 @@ export default function WritePage() {
                         ))}
                     </>
                     :
-                    <p className="text-4xl">Place to visualizing your content</p>}
+                    <p className="text-4xl">Place for visualizing your content</p>}
             </div>
         </div>
     );

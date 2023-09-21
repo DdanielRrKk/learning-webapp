@@ -7,7 +7,7 @@ import { BOXES } from '../../helpers/constants';
 export default function HomePage() {
     return (
         <div className='container-main p-4 gap-10 text-center overflow-y-scroll'>
-            <h1 className=" text-7xl font-semibold">Want to learn programming languages?</h1>
+            <h1 className="text-7xl font-semibold">Want to learn programming languages?</h1>
             <p>PrimeCode Academy allows you to learn programming languages from the comfort of your own home. Weather your goal is to become a full-stack developer or just learn the basics, we have a course for you.</p>
             
             <p className="text-2xl font-semibold">Courses:</p>
@@ -25,14 +25,14 @@ export default function HomePage() {
 
             <div className="flex gap-5 flex-col md:gap-20 md:flex-row">
                 <button
-                    className="py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white"
+                    className="button-action"
                     onClick={() => console.log('clicked')}>
                     Buy me a Coffee
                 </button>
 
                 <Link 
-                    className="py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white"
-                    to={'/write'}>
+                    className="button-action"
+                    to={'/create'}>
                     Write a Course
                 </Link>
             </div>

@@ -4,6 +4,7 @@ import ErrorPage from './pages/errorPage';
 
 import HomePage from './pages/main/homePage';
 import CoursePage from './pages/main/coursePage';
+import CreateCoursePage from './pages/main/createCoursePage';
 import WritePage from './pages/main/writePage';
 
 import {
@@ -21,6 +22,11 @@ export default function App() {
     {
       path: "/course/:courseId",
       element: <CoursePage />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: "/create",
+      element: <CreateCoursePage />,
       errorElement: <ErrorPage />
     },
     {
