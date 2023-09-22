@@ -5,6 +5,7 @@ import ContentItem from '../../components/contentItem';
 import { MAX_LENGTH, WRITE_PAGE_PLACEHOLDER } from '../../helpers/constants';
 
 export default function WritePage() {
+    const [lessonId, setLessonId] = React.useState(null);
     const [title, setTitle] = React.useState('');
 
     const [contentString, setContentString] = React.useState([]);
@@ -13,19 +14,42 @@ export default function WritePage() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
 
+    const handleSetEditorTextFromEditItem = (item) => {
+        setLessonId(item.id);
+        setTitle(item.title);
+        setContent(item.content);
+        setIsMenuOpen(false);
+        
+        let tempStr = '';
+        for (let i = 0; i < item.content.length; i++) {
+            const tempItem = item.content[i];
+            tempStr += `>${tempItem.type}\n`;
+            for (let j = 0; j < tempItem.data.length; j++) tempStr += `${tempItem.data[j]}\n`;
+        }
+        setContentString(tempStr);
+    }
+
+    React.useEffect(() => {
+        const item = JSON.parse(localStorage.getItem('lessonForEdit'));
+        if(item === null) return;
+
+        handleSetEditorTextFromEditItem(item);
+        localStorage.removeItem('lessonForEdit');
+    }, []);
+
+
     const handleTitleChange = (e) => setTitle(e.target.value);
 
     const handleChangeContentStrings = (e) => {
         setContentString(e.target.value);
-        if(e.target.value.charAt(e.target.value.length - 1) === '\n') handlTransformstringToContent();
+        if(e.target.value.charAt(e.target.value.length - 1) === '\n') handlTransformStringToContent();
     }
-    const handlTransformstringToContent = () => {
+    const handlTransformStringToContent = () => {
         if(contentString === '') { setContent([]); return; }
 
         const array = contentString.split('\n');
-        // console.log('array', array);
 
-        let id = 0, currentType = "text", currentData = [];
+        let currentId = 0, currentType = "text", currentData = [];
         const resultArray = [];
 
         for (let i = 0; i < array.length; i++) {
@@ -36,26 +60,27 @@ export default function WritePage() {
                 currentData.push(str);
             
                 if (i + 1 === array.length || array[i + 1].startsWith(">")) {
-                    resultArray.push({  id: id, type: currentType, data: currentData });
+                    resultArray.push({  id: currentId , type: currentType, data: currentData });
                     
-                    id++;
-                    currentType = "text";
-                    currentData = [];
+                    currentId++; currentType = "text"; currentData = [];
                 }
             }
         }
 
-        console.log('resultArray', resultArray);
         setContent(resultArray);
     }
 
-    const handleClearContentString = () => {
-        setTitle(''); setContent([]); setContentString(''); setIsMenuOpen(false);
-    }
+    const handleClearContentString = () => { setTitle(''); setContent([]); setContentString(''); setIsMenuOpen(false); }
 
     const handleSaveContentString = () => {
         const lessons = localStorage.getItem('lessons') ? JSON.parse(localStorage.getItem('lessons')) : [];
-        lessons.push({ id: lessons.length + 1, title: title, content: content });
+
+        if(lessonId === null) lessons.push({ id: lessons.length + 1, title: title, content: content });
+        else {
+            const index = lessons.findIndex((item) => item.id === lessonId);
+            lessons[index] = { id: lessonId, title: title, content: content };
+        }
+
         localStorage.setItem('lessons', JSON.stringify(lessons));
         history.back();
     }

@@ -13,7 +13,7 @@ export default function CreateCoursePage() {
     const [isAddSectionOpen, setIsAddSectionOpen] = React.useState(false);
     const [sectionName, setSectionName] = React.useState('');
 
-    console.log('lessons', lessons);
+    // console.log('lessons', lessons);
 
     React.useEffect(() => {
         // localStorage.removeItem('lessons');
@@ -62,6 +62,7 @@ export default function CreateCoursePage() {
         const tempLesson = array[index];
         array[index] = array[index - 1];
         array[index - 1] = tempLesson;
+
         setLessons(array);
         localStorage.setItem('lessons', JSON.stringify(array));
     }
@@ -73,9 +74,11 @@ export default function CreateCoursePage() {
         const tempLesson = array[index];
         array[index] = array[index + 1];
         array[index + 1] = tempLesson;
+
         setLessons(array);
         localStorage.setItem('lessons', JSON.stringify(array));
     }
+    const handleOpenForEdit = (item) => localStorage.setItem('lessonForEdit', JSON.stringify(item));
 
 
     return (
@@ -141,8 +144,9 @@ export default function CreateCoursePage() {
                         item={lesson}
                         canGoUp={lesson.id === lessons[0].id}
                         canGoDown={lesson.id === lessons[lessons.length - 1].id}
-                        goUp={handleGoUp}
-                        goDown={handleGoDown}/>
+                        goUpHandler={handleGoUp}
+                        goDownHandler={handleGoDown}
+                        openEditHandler={handleOpenForEdit}/>
                 ))}
             </ul>
         </div>

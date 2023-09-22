@@ -1,11 +1,17 @@
 import React from "react";
 
-import { IoCaretUpOutline, IoCaretDownOutline } from "react-icons/io5";
+import { 
+    IoCaretUpOutline, 
+    IoCaretDownOutline,
+    IoPencilSharp 
+} from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
-export default function CreateCourseItem({ item, goUp, goDown, canGoUp, canGoDown }) {
-    const handleGoUp = () => goUp(item.id);
-    const handleGoDown = () => goDown(item.id);
+export default function CreateCourseItem({ canGoUp, canGoDown, item, goUpHandler, goDownHandler, openEditHandler }) {
+    const handleGoUp = () => goUpHandler(item.id);
+    const handleGoDown = () => goDownHandler(item.id);
+    const handleOpenEdit = () => openEditHandler(item);
 
     return (
         <li className="flex">
@@ -17,6 +23,12 @@ export default function CreateCourseItem({ item, goUp, goDown, canGoUp, canGoDow
             <div key={item.id} className="course-item text-3xl cursor-default">
                 <p className={item?.content ? "" : "course-item-breaker"}>{item.title}</p>
             </div>
+
+            {!item?.content ? null : 
+                <Link to={'/write'} onClick={handleOpenEdit}>
+                    <IoPencilSharp className="text-2xl"/>
+                </Link>
+            }
         </li>
     );
 }
