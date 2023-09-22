@@ -5,6 +5,9 @@ import Firebase from '../assets/firebase-logo.png';
 import Cobol from '../assets/cobol-logo.png';
 
 
+export const MAX_LENGTH = 50;
+
+
 export const WRITE_PAGE_PLACEHOLDER = `Write your lesson here...
 
 Every time you make a new line, the content will be visualized on the right. 
@@ -95,7 +98,8 @@ const LESSON_ID_1_CONTENT = [
 export const JAVASCRIPT_LESSONS = [
     {   id: 0, title: 'Introduction to JavaScript' }, // title
     {   id: 1, title: 'Understand what JavaScript is, its history, and its role in web development', content: LESSON_ID_1_CONTENT },
-    {   id: 2, title: 'Setting Up Your Development Environment' },
+    
+    {   id: 2, title: 'Setting Up Your Development Environment' }, // title
     {   id: 3, title: 'Choose a code editor (e.g., VSCode) and install relevant extensions', content: [] },
     {   id: 4, title: "Learn how to use the browser's developer tools for debugging", content: [] },
     

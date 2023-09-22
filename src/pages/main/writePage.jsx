@@ -2,7 +2,7 @@ import React from 'react';
 
 import ContentItem from '../../components/contentItem';
 
-import { WRITE_PAGE_PLACEHOLDER } from '../../helpers/constants';
+import { MAX_LENGTH, WRITE_PAGE_PLACEHOLDER } from '../../helpers/constants';
 
 export default function WritePage() {
     const [title, setTitle] = React.useState('');
@@ -55,7 +55,7 @@ export default function WritePage() {
 
     const handleSaveContentString = () => {
         const lessons = localStorage.getItem('lessons') ? JSON.parse(localStorage.getItem('lessons')) : [];
-        lessons.push({ title: title, content: content });
+        lessons.push({ id: lessons.length + 1, title: title, content: content });
         localStorage.setItem('lessons', JSON.stringify(lessons));
         history.back();
     }
@@ -68,6 +68,7 @@ export default function WritePage() {
                     className="editor-title"
                     value={title}
                     onChange={handleTitleChange}
+                    maxLength={MAX_LENGTH}
                     placeholder='Lesson Title'/>
 
                 <textarea

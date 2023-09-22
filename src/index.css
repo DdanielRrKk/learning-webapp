@@ -85,6 +85,12 @@
     .button-action {
         @apply  py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white;
     }
+    .input-action {
+        @apply  w-full
+                p-4 
+                bg-neutral-800 
+                outline-none;
+    }
 }
 
 /* S C R O L L B A R   S T Y L E S */
