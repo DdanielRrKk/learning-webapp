@@ -13,7 +13,7 @@ export default function CreateCoursePage() {
     const [isAddSectionOpen, setIsAddSectionOpen] = React.useState(false);
     const [sectionName, setSectionName] = React.useState('');
 
-    // console.log('lessons', lessons);
+    console.log('lessons', lessons);
 
     React.useEffect(() => {
         // localStorage.removeItem('lessons');
@@ -47,10 +47,11 @@ export default function CreateCoursePage() {
     }
 
     const handleSaveCourse = () => {
-        const courseObject = {
+        localStorage.removeItem('lessons');
+        // const courseObject = {
             
-        };
-        console.log('courseObject', courseObject);
+        // };
+        // console.log('courseObject', courseObject);
     }
 
 
@@ -59,9 +60,15 @@ export default function CreateCoursePage() {
         const index = array.findIndex((item) => item.id === id);
         if(index === 0) return;
 
+        const tempId1 = array[index].id;
+        const tempId2 = array[index - 1].id;
+
         const tempLesson = array[index];
         array[index] = array[index - 1];
         array[index - 1] = tempLesson;
+
+        array[index].id = tempId1;
+        array[index - 1].id = tempId2;
 
         setLessons(array);
         localStorage.setItem('lessons', JSON.stringify(array));
@@ -71,14 +78,35 @@ export default function CreateCoursePage() {
         const index = array.findIndex((item) => item.id === id);
         if(index === array.length - 1) return;
         
+        const tempId1 = array[index].id;
+        const tempId2 = array[index + 1].id;
+
         const tempLesson = array[index];
         array[index] = array[index + 1];
         array[index + 1] = tempLesson;
+
+        array[index].id = tempId1;
+        array[index + 1].id = tempId2;
 
         setLessons(array);
         localStorage.setItem('lessons', JSON.stringify(array));
     }
     const handleOpenForEdit = (item) => localStorage.setItem('lessonForEdit', JSON.stringify(item));
+    const handleDeleteItem = (id) => {
+        const array = JSON.parse(localStorage.getItem('lessons'));
+        const tempArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+            if(array[i].id < id) tempArray.push(array[i]);
+            else if (array[i].id > id) {
+                array[i].id--;
+                tempArray.push(array[i]);
+            }
+        }
+
+        setLessons(tempArray);
+        localStorage.setItem('lessons', JSON.stringify(tempArray));
+    }
 
 
     return (
@@ -146,7 +174,8 @@ export default function CreateCoursePage() {
                         canGoDown={lesson.id === lessons[lessons.length - 1].id}
                         goUpHandler={handleGoUp}
                         goDownHandler={handleGoDown}
-                        openEditHandler={handleOpenForEdit}/>
+                        openEditHandler={handleOpenForEdit}
+                        deleteHandler={handleDeleteItem}/>
                 ))}
             </ul>
         </div>
