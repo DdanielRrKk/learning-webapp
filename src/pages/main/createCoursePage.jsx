@@ -9,6 +9,7 @@ import { MAX_LENGTH } from "../../helpers/constants";
 export default function CreateCoursePage() {
     const [courseName, setCourseName] = React.useState('');
     const [lessons, setLessons] = React.useState([]);
+    const [courseIcon, setCourseIcon] = React.useState(null);
 
     const [isAddSectionOpen, setIsAddSectionOpen] = React.useState(false);
     const [sectionName, setSectionName] = React.useState('');
@@ -43,7 +44,13 @@ export default function CreateCoursePage() {
     }
 
     const handleAddIcon = () => {
-        console.log('clicked');
+        console.log('handleAddIcon');
+        // setCourseIcon();
+    }
+    const handleOnDragOver = (e) => e.preventDefault();
+    const handleOnDrop = (e) => {
+        const file = e.dataTransfer.files[0];
+        if(file) setCourseIcon(URL.createObjectURL(file));
     }
 
     const handleSaveCourse = () => {
@@ -120,6 +127,18 @@ export default function CreateCoursePage() {
                 maxLength={MAX_LENGTH}
                 placeholder="Course Name"/>
 
+            <div
+                className="w-64 h-64 border-dashed border-2 border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center"
+                onDrop={handleOnDrop}
+                onDragOver={handleOnDragOver}
+                >
+                {courseIcon ? (
+                    <img src={courseIcon} alt="Uploaded" className="w-full h-full object-cover" />
+                ) : (
+                    <div>Drag and drop an image here</div>
+                )}
+            </div>
+
             <div className="w-full flex justify-evenly">
                 <div className="flex gap-5">
                     <button 
@@ -133,12 +152,6 @@ export default function CreateCoursePage() {
                         to={'/write'}>
                         Add Lesson
                     </Link>
-
-                    <button 
-                        className="button-action"
-                        onClick={handleAddIcon}>
-                        Add Icon
-                    </button>
                 </div>
                 
                 <button 
