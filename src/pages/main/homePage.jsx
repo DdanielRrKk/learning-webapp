@@ -32,8 +32,8 @@ export default function HomePage() {
 
                 <Link 
                     className="button-action"
-                    to={'/create'}>
-                    Write a Course
+                    to={'/support'}>
+                    Offer Support
                 </Link>
             </div>
         </div>

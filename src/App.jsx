@@ -5,6 +5,7 @@ import ErrorPage from './pages/errorPage';
 import HomePage from './pages/main/homePage';
 import CoursePage from './pages/main/coursePage';
 import CreateCoursePage from './pages/main/createCoursePage';
+import SupportPage from './pages/main/supportPage';
 import WritePage from './pages/main/writePage';
 
 import {
@@ -27,6 +28,11 @@ export default function App() {
     {
       path: "/create",
       element: <CreateCoursePage />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: "/support",
+      element: <SupportPage />,
       errorElement: <ErrorPage />
     },
     {
