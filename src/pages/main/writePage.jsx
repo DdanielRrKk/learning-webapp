@@ -1,10 +1,14 @@
 import React from 'react';
 
+import { useSelector } from 'react-redux';
+
 import ContentItem from '../../components/contentItem';
 
 import { MAX_LENGTH, WRITE_PAGE_PLACEHOLDER } from '../../helpers/constants';
 
 export default function WritePage() {
+    const lessonForEdit = useSelector(state => state.lesson);
+
     const [lessonId, setLessonId] = React.useState(null);
     const [title, setTitle] = React.useState('');
 
@@ -29,12 +33,10 @@ export default function WritePage() {
         setContentString(tempStr);
     }
 
-    React.useEffect(() => {
-        const item = JSON.parse(localStorage.getItem('lessonForEdit'));
-        if(item === null) return;
 
-        handleSetEditorTextFromEditItem(item);
-        localStorage.removeItem('lessonForEdit');
+    React.useEffect(() => {
+        console.log('lessonForEdit', lessonForEdit);
+        handleSetEditorTextFromEditItem(lessonForEdit);
     }, []);
 
 

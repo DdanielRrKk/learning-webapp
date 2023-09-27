@@ -1,5 +1,8 @@
 import React from "react";
 
+import { useDispatch } from "react-redux";
+import { setLesson } from "../../redux/lessonSlice/lessonSlice";
+
 import { Link } from "react-router-dom";
 
 import CreateCourseItem from "../../components/createCourseItem";
@@ -7,6 +10,8 @@ import CreateCourseItem from "../../components/createCourseItem";
 import { MAX_LENGTH } from "../../helpers/constants";
 
 export default function CreateCoursePage() {
+    const dispatch = useDispatch();
+
     const [courseName, setCourseName] = React.useState('');
     const [lessons, setLessons] = React.useState([]);
     const [courseIcon, setCourseIcon] = React.useState(null);
@@ -98,7 +103,8 @@ export default function CreateCoursePage() {
         setLessons(array);
         localStorage.setItem('lessons', JSON.stringify(array));
     }
-    const handleOpenForEdit = (item) => localStorage.setItem('lessonForEdit', JSON.stringify(item));
+    const handleOpenForEdit = (item) => dispatch(setLesson(item));
+    // const handleOpenForEdit = (item) => localStorage.setItem('lessonForEdit', JSON.stringify(item));
     const handleDeleteItem = (id) => {
         const array = JSON.parse(localStorage.getItem('lessons'));
         const tempArray = [];
