@@ -53,51 +53,33 @@ export const ABOUT_CONTENT = [
 
 
 // J A V A S C R I P T   L E S S O N S   C O N T E N T
-const LESSON_ID_1_CONTENT = [
-    {   id: 0, type: 'title', data: [ 'History' ] },
-    {   id: 1, type: 'text',
-        data: [
-            'JavaScript, often abbreviated as JS, is a high-level, interpreted programming language that is widely used for front-end web development.',
-            'It was created by Brendan Eich in 1995 and originally developed for Netscape Navigator web browser.'
-        ]
-    },
-    {   id: 2, type: 'title', data: [ 'Overview' ] },
-    {   id: 3, type: 'text',
-        data: [
-            'JavaScript is known for its versatility and is primarily used for enhancing web pages by adding interactivity and dynamic behavior.'
-        ]
-    },
-    {   id: 4, type: 'list',
-        data: [
-            'JavaScript is a client-side scripting language',
-            'It is used on both the client-side (browser) and server-side (Node.js) of web applications',
-            'JavaScript is often abbreviated as JS'
-        ]
-    },
-    {   id: 5, type: 'code',
-        data: [
-            'let a = 5;',
-            'console.log(a);'
-        ]
-    },
-    {   id: 6, type: 'text',
-        data: [
-            'It has evolved over the years and is now commonly used on both the client-side (browser) and server-side (Node.js) of web applications.'
-        ]
-    },
-    {
-        id: 7, type: 'img',
-        data: [
-            'https://assets.toptal.io/images?url=https%3A%2F%2Fbs-uploads.toptal.io%2Fblackfish-uploads%2Fcomponents%2Fblog_post_page%2Fcontent%2Fcover_image_file%2Fcover_image%2F1085535%2Fstaging.toptal.net_javascript_functional-programming-javascript-3b5c20a73284cfe018fdde08bd2ef253.png'
-        ]
-    }
-];
+const LESSON_ID_1_CONTENT = 
+    '>title\n'
+    + 'History\n'
+    + '>text\n'
+    + 'JavaScript, often abbreviated as JS, is a high-level, interpreted programming language that is widely used for front-end web development.\n'
+    + 'It was created by Brendan Eich in 1995 and originally developed for Netscape Navigator web browser.\n'
+    + '>title\n'
+    + 'Overview\n'
+    + '>text\n'
+    + 'JavaScript is known for its versatility and is primarily used for enhancing web pages by adding interactivity and dynamic behavior.\n'
+    + '>list\n'
+    + 'JavaScript is a client-side scripting language\n'
+    + 'It is used on both the client-side (browser) and server-side (Node.js) of web applications\n'
+    + 'JavaScript is often abbreviated as JS\n'
+    + '>code\n'
+    + 'let a = 5;\n'
+    + 'console.log(a);\n'
+    + '>text\n'
+    + 'It has evolved over the years and is now commonly used on both the client-side (browser) and server-side (Node.js) of web applications.\n'
+    + '>img\n'
+    + 'https://assets.toptal.io/images?url=https%3A%2F%2Fbs-uploads.toptal.io%2Fblackfish-uploads%2Fcomponents%2Fblog_post_page%2Fcontent%2Fcover_image_file%2Fcover_image%2F1085535%2Fstaging.toptal.net_javascript_functional-programming-javascript-3b5c20a73284cfe018fdde08bd2ef253.png';
 
 
 
 export const JAVASCRIPT_LESSONS = [
     {   id: 0, title: 'Introduction to JavaScript' }, // title
-    {   id: 1, title: 'Understand what JavaScript is, its history, and its role in web development', content: LESSON_ID_1_CONTENT },
+    {   id: 1, title: 'Understand what JavaScript is, its history, and its role in web development', content: TEMP_LESSON },
     
     {   id: 2, title: 'Setting Up Your Development Environment' }, // title
     {   id: 3, title: 'Choose a code editor (e.g., VSCode) and install relevant extensions', content: [] },

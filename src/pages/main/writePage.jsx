@@ -1,86 +1,59 @@
 import React from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeLesson } from '../../redux/lessonSlice/lessonSlice';
 
 import ContentItem from '../../components/contentItem';
 
+import { HandleTransformContentStringToContentArray } from '../../helpers/helpers';
 import { MAX_LENGTH, WRITE_PAGE_PLACEHOLDER } from '../../helpers/constants';
 
 export default function WritePage() {
     const lessonForEdit = useSelector(state => state.lesson);
+    const dispatch = useDispatch();
 
     const [lessonId, setLessonId] = React.useState(null);
     const [title, setTitle] = React.useState('');
 
-    const [contentString, setContentString] = React.useState([]);
-    const [content, setContent] = React.useState([]);
+    const [contentString, setContentString] = React.useState('');
+    const [contentArray, setContentArray] = React.useState([]);
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-
-    const handleSetEditorTextFromEditItem = (item) => {
-        setLessonId(item.id);
-        setTitle(item.title);
-        setContent(item.content);
-        setIsMenuOpen(false);
-        
-        let tempStr = '';
-        for (let i = 0; i < item.content.length; i++) {
-            const tempItem = item.content[i];
-            tempStr += `>${tempItem.type}\n`;
-            for (let j = 0; j < tempItem.data.length; j++) tempStr += `${tempItem.data[j]}\n`;
-        }
-        setContentString(tempStr);
-    }
-
+    // console.log('content', content);
 
     React.useEffect(() => {
-        console.log('lessonForEdit', lessonForEdit);
-        handleSetEditorTextFromEditItem(lessonForEdit);
+        if(lessonForEdit) {
+            setLessonId(lessonForEdit.id);
+            setTitle(lessonForEdit.title);
+            setContentString(lessonForEdit.content);
+            setIsMenuOpen(false);
+            setContentArray(HandleTransformContentStringToContentArray(lessonForEdit.content));
+            dispatch(removeLesson());
+        }
     }, []);
 
 
     const handleTitleChange = (e) => setTitle(e.target.value);
-
-    const handleChangeContentStrings = (e) => {
+    const handleContentStringsChange = (e) => {
         setContentString(e.target.value);
-        if(e.target.value.charAt(e.target.value.length - 1) === '\n') handlTransformStringToContent();
-    }
-    const handlTransformStringToContent = () => {
-        if(contentString === '') { setContent([]); return; }
-
-        const array = contentString.split('\n');
-
-        let currentId = 0, currentType = "text", currentData = [];
-        const resultArray = [];
-
-        for (let i = 0; i < array.length; i++) {
-            const str = array[i];
-            
-            if (str.startsWith(">")) currentType = str.slice(1);
-            else {
-                currentData.push(str);
-            
-                if (i + 1 === array.length || array[i + 1].startsWith(">")) {
-                    resultArray.push({  id: currentId , type: currentType, data: currentData });
-                    
-                    currentId++; currentType = "text"; currentData = [];
-                }
-            }
-        }
-
-        setContent(resultArray);
+        setContentArray(HandleTransformContentStringToContentArray(e.target.value));
     }
 
-    const handleClearContentString = () => { setTitle(''); setContent([]); setContentString(''); setIsMenuOpen(false); }
+    const handleClearContentString = () => { 
+        setTitle(''); 
+        setContentArray([]); 
+        setContentString(''); 
+        setIsMenuOpen(false); 
+    }
 
     const handleSaveContentString = () => {
         const lessons = localStorage.getItem('lessons') ? JSON.parse(localStorage.getItem('lessons')) : [];
 
-        if(lessonId === null) lessons.push({ id: lessons.length + 1, title: title, content: content });
+        if(lessonId === null) lessons.push({ id: lessons.length + 1, title: title, content: contentString });
         else {
             const index = lessons.findIndex((item) => item.id === lessonId);
-            lessons[index] = { id: lessonId, title: title, content: content };
+            lessons[index] = { id: lessonId, title, content: contentString };
         }
 
         localStorage.setItem('lessons', JSON.stringify(lessons));
@@ -102,7 +75,7 @@ export default function WritePage() {
                     className="editor"
                     placeholder={WRITE_PAGE_PLACEHOLDER}
                     value={contentString}
-                    onChange={handleChangeContentStrings}/>
+                    onChange={handleContentStringsChange}/>
             </div>
 
             <div className='flex flex-col justify-center items-center absolute bottom-4 gap-4 transition-all'>
@@ -126,9 +99,9 @@ export default function WritePage() {
             </div>
 
             <div className="w-1/2 h-full p-4 pb-20 content gap-4">
-                {content.length !== 0 ?
+                {contentArray.length > 0 ?
                     <>
-                        {content.map((item) => (
+                        {contentArray.map((item) => (
                             <ContentItem key={item.id} type={item.type} data={item.data}/>
                         ))}
                     </>

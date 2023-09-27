@@ -11,9 +11,10 @@ export const LessonSlice = createSlice({
     initialState,
     reducers: {
         setLesson: (state, action) => state = action.payload,
+        removeLesson: (state) => state = initialState
     }
 });
 
-export const { setLesson } = LessonSlice.actions;
+export const { setLesson, removeLesson } = LessonSlice.actions;
 
 export default LessonSlice.reducer;

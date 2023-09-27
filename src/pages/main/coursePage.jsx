@@ -1,17 +1,13 @@
 import React from "react";
 
+import { GetCourseFromDatabase } from "../../database/testRequestsAPI";
+
 import { useParams } from "react-router-dom";
 
 import SidebarItem from "../../components/sidebarItem";
 import ContentItem from "../../components/contentItem";
 
-import { 
-    JAVASCRIPT_LESSONS,
-    REACT_LESSONS,
-    GOLANG_LESSONS,
-
-    COBOL_LESSONS
-} from "../../helpers/constants";
+import { HandleTransformContentStringToContentArray } from "../../helpers/helpers";
 
 export default function CoursePage() {
     const { courseId } = useParams();
@@ -21,18 +17,15 @@ export default function CoursePage() {
     const [content, setContent] = React.useState([]);
 
     React.useEffect(() => {
-        switch(courseId) {
-            case 'javascript': setCourse(JAVASCRIPT_LESSONS); setContent(JAVASCRIPT_LESSONS[1]?.content); break;
-            case 'react': setCourse(REACT_LESSONS); setContent(REACT_LESSONS[1]?.content); break;
-            case 'golang': setCourse(GOLANG_LESSONS); setContent(GOLANG_LESSONS[1]?.content); break;
-            // case 'firebase': setCourse(JAVASCRIPT_LESSONS); setContent(JAVASCRIPT_LESSONS[1]?.content); break;
-            case 'cobol': setCourse(COBOL_LESSONS); setContent(COBOL_LESSONS[1]?.content); break;
-        }
+        GetCourseFromDatabase(courseId).then((selectedCourse) => {
+            setCourse(selectedCourse);
+            setContent(HandleTransformContentStringToContentArray(selectedCourse[1]?.content));
+        });
     }, []);
 
     const handleSelectLessonChange = (lessonId) => setSelectedLessonId(lessonId);
 
-    // console.log(content);
+    console.log('content', content);
 
     return (
         <div className='container-main flex-row'>
