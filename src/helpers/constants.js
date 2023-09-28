@@ -79,7 +79,7 @@ const LESSON_ID_1_CONTENT =
 
 export const JAVASCRIPT_LESSONS = [
     {   id: 0, title: 'Introduction to JavaScript' }, // title
-    {   id: 1, title: 'Understand what JavaScript is, its history, and its role in web development', content: TEMP_LESSON },
+    {   id: 1, title: 'Understand what JavaScript is, its history, and its role in web development', content: LESSON_ID_1_CONTENT },
     
     {   id: 2, title: 'Setting Up Your Development Environment' }, // title
     {   id: 3, title: 'Choose a code editor (e.g., VSCode) and install relevant extensions', content: [] },
