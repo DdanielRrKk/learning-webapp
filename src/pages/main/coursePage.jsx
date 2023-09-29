@@ -25,7 +25,31 @@ export default function CoursePage() {
 
     const handleSelectLessonChange = (lessonId) => setSelectedLessonId(lessonId);
 
+    const handleChangeToPreviousLesson = () => {
+        if(selectedLessonId <= 1) return;
+        else if(!course[selectedLessonId - 1]?.content) {
+            setContent(HandleTransformContentStringToContentArray(course[selectedLessonId - 2]?.content));
+            setSelectedLessonId(selectedLessonId - 2);
+        }
+        else {
+            setContent(HandleTransformContentStringToContentArray(course[selectedLessonId - 1]?.content));
+            setSelectedLessonId(selectedLessonId - 1);
+        }
+    }
+    const handleChangeToNextLesson = () => {
+        if(selectedLessonId >= course.length - 1) return;
+        else if (!course[selectedLessonId + 1]?.content) {
+            setContent(HandleTransformContentStringToContentArray(course[selectedLessonId + 2]?.content));
+            setSelectedLessonId(selectedLessonId + 2);
+        }
+        else {
+            setContent(HandleTransformContentStringToContentArray(course[selectedLessonId + 1]?.content));
+            setSelectedLessonId(selectedLessonId + 1);
+        }
+    }
+
     console.log('content', content);
+    console.log('course', course);
 
     return (
         <div className='container-main flex-row'>
@@ -47,11 +71,25 @@ export default function CoursePage() {
                                 key={item.id} 
                                 type={item.type} 
                                 data={item.data}/>
-                    ))}
+                        ))}
                     </>
                 : 
                     <p className="text-4xl">Still in progress...</p>
                 }
+
+                <div className="w-full flex justify-evenly items-center mt-10">
+                    <button 
+                        className="button-action py-2"
+                        onClick={handleChangeToPreviousLesson}>
+                            Previous
+                    </button>
+
+                    <button 
+                        className="button-action py-2"
+                        onClick={handleChangeToNextLesson}>
+                            Next
+                    </button>
+                </div>
             </main>
         </div>
     );
