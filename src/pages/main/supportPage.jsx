@@ -17,11 +17,11 @@ export default function SupportPage() {
                 Give Idea
             </button>
 
-            <button
+            <Link 
                 className="button-action"
-                onClick={() => console.log('clicked')}>
+                to={'/problem'}>
                 Report a Problem
-            </button>
+            </Link>
         </div>
     );
 }

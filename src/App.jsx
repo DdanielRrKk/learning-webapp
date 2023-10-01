@@ -8,6 +8,8 @@ import CreateCoursePage from './pages/main/createCoursePage';
 import SupportPage from './pages/main/supportPage';
 import WritePage from './pages/main/writePage';
 
+import ReportProblemPage from './pages/support/reportProblemPage';
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -33,6 +35,11 @@ export default function App() {
     {
       path: "/support",
       element: <SupportPage />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: "/problem",
+      element: <ReportProblemPage />,
       errorElement: <ErrorPage />
     },
     {
