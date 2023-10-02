@@ -1,65 +1,54 @@
 import React, { useState } from 'react';
 
+import { MAX_LENGTH } from '../../helpers/constants';
+
 export default function ReportProblemPage() {
+    const [problemTitle, setProblemTitle] = useState('');
     const [problemDescription, setProblemDescription] = useState('');
-    const [reportedBy, setReportedBy] = useState('');
+
+
+    const handleProblemTitleChange = (e) => setProblemTitle(e.target.value);
+    const handleProblemDescriptionChange = (e) => setProblemDescription(e.target.value);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const problemReport = {
-            description: problemDescription,
-            reportedBy: reportedBy,
+            title: problemTitle,
+            description: problemDescription
         };
 
         console.log('Problem Report:', problemReport);
 
         setProblemDescription('');
-        setReportedBy('');
     };
 
     return (
-        <div className="container-main">
-            <div className="bg-white p-8 rounded-lg shadow-md w-96">
-                
-                <h2 className="text-2xl font-semibold mb-4">Report a Problem</h2>
+        <div className="container-main flex flex-col gap-10 p-4 ">
+            <p className="text-5xl font-semibold">Report a Problem</p>
 
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label htmlFor="description" className="block text-gray-700 font-bold mb-2">
-                        Problem Description
-                        </label>
-                        <textarea
-                            name="description"
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                            rows="4"
-                            placeholder="Describe the problem..."
-                            value={problemDescription}
-                            onChange={(e) => setProblemDescription(e.target.value)}
-                            required />
-                    </div>
+            <form className="w-full flex flex-col gap-10" onSubmit={handleSubmit}>
+                <input
+                    className="input-action"
+                    value={problemTitle}
+                    onChange={handleProblemTitleChange}
+                    maxLength={MAX_LENGTH}
+                    placeholder="Problem Title"/>
 
-                    <div className="mb-4">
-                        <label htmlFor="reportedBy" className="block text-gray-700 font-bold mb-2">
-                            Reported By
-                        </label>
-                        <input
-                            type="text"
-                            name="reportedBy"
-                            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300"
-                            placeholder="Your name or email"
-                            value={reportedBy}
-                            onChange={(e) => setReportedBy(e.target.value)}
-                            required />
-                    </div>
+                <textarea
+                    className="input-action resize-none"
+                    rows="4"
+                    placeholder="Describe the problem..."
+                    value={problemDescription}
+                    onChange={handleProblemDescriptionChange}
+                    required />
 
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">
-                        Submit Report
-                    </button>
-                </form>
-            </div>
+                <button
+                    type="submit"
+                    className="button-action">
+                    Submit Report
+                </button>
+            </form>
         </div>
     );
 }
