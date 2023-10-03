@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .container-main {
+        @apply  w-full min-h-screen max-h-fit
+                flex flex-col justify-center items-center
+                bg-neutral-900
+                text-white
+                overflow-hidden;
+    }
+    .container-body {
+        @apply  w-fit h-fit
+                p-4
+                grid justify-center items-center gap-24
+                xl:grid-cols-4
+                lg:grid-cols-3
+                md:grid-cols-2
+                sm:grid-cols-1 sm:gap-16;
+    }
+
+    .box {
+        @apply  w-52 h-52;
+    }
+    .box img {
+        @apply  w-full h-full bg-gray-100 rounded-xl;
+    }
+
+
+    .sidebar {
+        @apply  w-96 h-screen 
+                flex flex-col justify-start items-start
+                px-6 py-4
+                overflow-y-scroll;
+    }
+    .content {
+        @apply  w-full h-screen
+                px-12 py-4
+                flex flex-col
+                overflow-y-scroll;
+    }
+
+
+    .course-item {
+        @apply  w-full
+                px-2 py-1
+                cursor-pointer;
+    }
+    .course-item p {
+        @apply  py-2 text-base;
+    }
+    .course-item-title {
+        @apply  hover:pl-2;
+    }
+    .course-item-title-selected {
+        @apply  pl-2 bg-neutral-800;
+    }
+    .course-item-breaker {
+        @apply  text-lg text-neutral-500;
+    }
+
+
+    .editor-title {
+        @apply  w-full h-[7%]
+                text-xl font-semibold
+                p-4
+                bg-neutral-800
+                border-b-4 border-neutral-700
+
+                outline-none
+    }
+    .editor {
+        @apply  w-full h-[93%]
+                p-4 
+                bg-neutral-800 
+                resize-none outline-none
+                overflow-y-scroll;
+    }
+
+
+
+
+    .button-action {
+        @apply  py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white;
+    }
+    .input-action {
+        @apply  w-full
+                p-4 
+                bg-neutral-800 
+                outline-none;
+    }
+}
+
+/* S C R O L L B A R   S T Y L E S */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #262626; }
+::-webkit-scrollbar-thumb { background: #404040; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #525252; }
