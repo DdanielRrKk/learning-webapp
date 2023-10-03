@@ -4,12 +4,15 @@
   "description": "This website is created to show all the things I have learned over the years and to help other people to advance in the field of Programming.",
   "main": "index.js",
   "scripts": {
-    "start:client": "cd client && npm run dev",
-    "start:server": "cd server && node server.js",
-    "start": "concurently \"npm run start:client\" \"npm run start:server\"",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && node server.js",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.1"
+  }
 }
