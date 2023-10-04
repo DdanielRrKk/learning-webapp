@@ -24,7 +24,7 @@ export default function ReportProblemPage() {
     };
 
     return (
-        <div className="container-main flex flex-col gap-10 p-4 ">
+        <div className="container-main flex flex-col gap-10 sm:px-10 md:px-24 lg:px-40 xl:px-60">
             <p className="text-5xl font-semibold">Report a Problem</p>
 
             <form className="w-full flex flex-col gap-10" onSubmit={handleSubmit}>
