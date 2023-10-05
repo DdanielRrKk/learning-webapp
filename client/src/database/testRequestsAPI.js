@@ -12,5 +12,6 @@ export async function GetCourseFromDatabase(index) {
         case 'golang': return GOLANG_LESSONS;
         // case 'firebase': return JAVASCRIPT_LESSONS;
         case 'cobol': return COBOL_LESSONS;
+        default: return [];
     }
 }

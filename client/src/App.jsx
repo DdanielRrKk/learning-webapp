@@ -4,10 +4,10 @@ import ErrorPage from './pages/errorPage';
 
 import HomePage from './pages/main/homePage';
 import CoursePage from './pages/main/coursePage';
-import CreateCoursePage from './pages/main/createCoursePage';
 import SupportPage from './pages/main/supportPage';
-import WritePage from './pages/main/writePage';
 
+import CreateCoursePage from './pages/support/createCoursePage';
+import WritePage from './pages/support/writePage';
 import ReportProblemPage from './pages/support/reportProblemPage';
 
 import {

@@ -33,11 +33,11 @@ code 3
 
 
 export const BOXES = [
-    {   id: 0, courseId: 'javascript', image: JS },
-    {   id: 1, courseId: 'react', image: ReactJS },
-    {   id: 2, courseId: 'golang', image: Golang },
-    {   id: 3, courseId: 'firebase', image: Firebase },
-    {   id: 4, courseId: 'cobol', image: Cobol },
+    {   id: 0,  courseId: 'javascript', image: JS,          title: 'JavaScript' },
+    {   id: 1,  courseId: 'react',      image: ReactJS,     title: 'React' },
+    {   id: 2,  courseId: 'golang',     image: Golang,      title: 'Golang' },
+    {   id: 3,  courseId: 'firebase',   image: Firebase,    title: 'Firebase' },
+    {   id: 4,  courseId: 'cobol',      image: Cobol,       title: 'Cobol' },
 ];
 
 

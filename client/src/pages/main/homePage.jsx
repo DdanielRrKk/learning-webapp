@@ -4,7 +4,15 @@ import { Link } from "react-router-dom";
 
 import { BOXES } from '../../helpers/constants';
 
+import CourseItem from "../../components/courseItem";
+
 export default function HomePage() {
+    const [courses, setCourses] = React.useState(BOXES);
+
+    const handleBuyMeACoffeeClick = () => {
+        console.log('clicked')
+    }
+
     return (
         <div className='container-main p-4 gap-10 text-center overflow-y-scroll'>
             <h1 className="text-7xl font-semibold">Want to learn programming languages?</h1>
@@ -12,27 +20,18 @@ export default function HomePage() {
             
             <p className="text-2xl font-semibold">Courses:</p>
             
-            <div className="container-body">
-                {BOXES.map((box) => (
-                    <Link 
-                        key={box.id}
-                        className="box"
-                        to={`/course/${box.courseId}`}>
-                        <img src={box.image} alt={box.text} title={box.courseId}/>
-                    </Link>
+            <div className="container-body gap-y-16">
+                {courses.map((box) => (
+                    <CourseItem box={box} />
                 ))}
             </div>
 
             <div className="flex gap-5 flex-col md:gap-20 md:flex-row">
-                <button
-                    className="button-action"
-                    onClick={() => console.log('clicked')}>
+                <button className="button-action" onClick={handleBuyMeACoffeeClick}>
                     Buy me a Coffee
                 </button>
 
-                <Link 
-                    className="button-action"
-                    to={'/support'}>
+                <Link className="button-action" to={'/support'}>
                     Offer Support
                 </Link>
             </div>
