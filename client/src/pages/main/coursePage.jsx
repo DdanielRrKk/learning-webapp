@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GetCourseFromDatabase } from "../../database/testRequestsAPI";
+import { GetCourseFromDatabaseById } from "../../database/testRequestsAPI";
 
 import { useParams } from "react-router-dom";
 
@@ -17,7 +17,7 @@ export default function CoursePage() {
     const [content, setContent] = React.useState([]);
 
     React.useEffect(() => {
-        GetCourseFromDatabase(courseId).then((selectedCourse) => {
+        GetCourseFromDatabaseById(courseId).then((selectedCourse) => {
             setCourse(selectedCourse);
             setContent(HandleTransformContentStringToContentArray(selectedCourse[1]?.content));
         });

@@ -2,16 +2,22 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { BOXES } from '../../helpers/constants';
-
 import CourseItem from "../../components/courseItem";
 
+import { GetAllContentFromDatabase } from "../../database/testRequestsAPI";
+
 export default function HomePage() {
-    const [courses, setCourses] = React.useState(BOXES);
+    const [courses, setCourses] = React.useState([]);
 
     const handleBuyMeACoffeeClick = () => {
         console.log('clicked')
     }
+
+    React.useEffect(() => {
+        GetAllContentFromDatabase().then((data) => {
+            setCourses(data);
+        })
+    }, []);
 
     return (
         <div className='container-main p-4 gap-10 text-center overflow-y-scroll'>
