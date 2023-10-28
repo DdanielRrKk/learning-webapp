@@ -8,7 +8,7 @@ import SupportPage from './pages/main/supportPage';
 
 import CreateCoursePage from './pages/support/createCoursePage';
 import WritePage from './pages/support/writePage';
-import ReportProblemPage from './pages/support/reportProblemPage';
+import FeedbackPage from './pages/support/feedbackPage';
 
 import {
   createBrowserRouter,
@@ -38,8 +38,8 @@ export default function App() {
       errorElement: <ErrorPage />
     },
     {
-      path: "/problem",
-      element: <ReportProblemPage />,
+      path: "/feedback/:feedbackId",
+      element: <FeedbackPage />,
       errorElement: <ErrorPage />
     },
     {

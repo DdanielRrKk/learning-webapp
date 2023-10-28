@@ -6,6 +6,7 @@ import Cobol from '../assets/cobol-logo.png';
 
 
 export const MAX_LENGTH = 50;
+export const MAX_LONG_LENGTH = 1000;
 
 
 export const WRITE_PAGE_PLACEHOLDER = `Write your lesson here...
@@ -30,6 +31,19 @@ code 1
 code 2
 code 3
 `;
+
+export const FeedbackIdeaSet = {
+    title: 'Give an Idea',
+    buttonText: 'Submit Idea',
+    titlePlaceholder: 'Title of the Idea',
+    messagePlaceholder: 'Describe the Idea...'
+}
+export const FeedbackProblemSet = {
+    title: 'Report Problem',
+    buttonText: 'Submit Problem',
+    titlePlaceholder: 'Problem Title',
+    messagePlaceholder: 'Describe the problem...'
+}
 
 
 export const BOXES = [

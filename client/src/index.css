@@ -21,13 +21,6 @@
                 sm:grid-cols-1 sm:gap-16;
     }
 
-    .box {
-        @apply  w-52 h-52;
-    }
-    .box img {
-        @apply  w-full h-full bg-gray-100 rounded-xl;
-    }
-
 
     .sidebar {
         @apply  w-96 h-screen 
