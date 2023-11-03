@@ -134,15 +134,27 @@ export default function CreateCoursePage() {
                 placeholder="Course Name"/>
 
             <div
-                className="w-64 h-64 border-dashed border-2 border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center"
+                className="w-64 h-64 border-dashed border-2 border-gray-300 rounded-lg p-1 flex flex-col items-center justify-center"
                 onDrop={handleOnDrop}
                 onDragOver={handleOnDragOver}
                 >
                 {courseIcon ? (
-                    <img src={courseIcon} alt="Uploaded" className="w-full h-full object-cover" />
+                    <>
+                        <img src={courseIcon} alt="Uploaded" className="w-full h-full object-cover" />
+                        
+                    </>
                 ) : (
-                    <div>Drag and drop an image here</div>
+                    <div className="flex flex-col items-center">
+                        Drag and drop an image here
+                    </div>
                 )}
+            </div>
+
+            <div>
+                <input
+                    type="file"
+                    onChange={(e) => setCourseIcon(URL.createObjectURL(e.target.files[0]))}
+                />
             </div>
 
             <div className="w-full flex justify-evenly">
