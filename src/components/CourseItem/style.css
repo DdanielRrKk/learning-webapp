@@ -1,4 +1,4 @@
-.box {
+.box-course {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,18 +6,18 @@
     gap: 0.5rem;
 }
 
-.box > img {
+.box-course > img {
     width: 13rem;
     height: 13rem;
-    background-color: rgb(243 244 246 / 1);
+    background-color: var(--light);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0.75rem;
 }
 
-.box > p {
-    color: rgb(255 255 255 / 1);
+.box-course > p {
+    color: var(--light);
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;

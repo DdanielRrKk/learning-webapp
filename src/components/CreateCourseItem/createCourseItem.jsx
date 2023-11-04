@@ -1,4 +1,5 @@
 import React from "react";
+import './style.css';
 
 import { 
     IoCaretUpOutline, 
@@ -8,8 +9,6 @@ import {
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
-import './createCourseItem.css';
-
 
 export default function CreateCourseItem({ canGoUp, canGoDown, item, goUpHandler, goDownHandler, openEditHandler, deleteHandler }) {
     const handleGoUp = () => goUpHandler(item.id);
@@ -18,7 +17,7 @@ export default function CreateCourseItem({ canGoUp, canGoDown, item, goUpHandler
     const handleDelete = () => deleteHandler(item.id);
 
     return (
-        <li className="box">
+        <li className="box-create-course">
             <div>
                 {!canGoUp ? <IoCaretUpOutline className="icon" onClick={handleGoUp}/> : null}
                 {!canGoDown ? <IoCaretDownOutline className="icon" onClick={handleGoDown}/> : null}

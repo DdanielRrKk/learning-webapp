@@ -1,7 +1,9 @@
 import React from "react";
+import './style.css';
+
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { stackoverflowDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import './contentItem.css';
+
 
 export default function ContentItem({ type, data }) {
     switch (type) {

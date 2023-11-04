@@ -2,8 +2,8 @@ import React from 'react';
 
 import ErrorPage from './pages/errorPage';
 
-import HomePage from './pages/main/homePage';
-import CoursePage from './pages/main/coursePage';
+import HomePage from './pages/main/HomePage/homePage';
+import CoursePage from './pages/main/CoursePage/coursePage';
 import SupportPage from './pages/main/supportPage';
 
 import CreateCoursePage from './pages/support/createCoursePage';

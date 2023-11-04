@@ -1,16 +1,13 @@
-.title > p {
+.title-sidebar > p {
     width: 100%;
     padding: 0.5rem;
     font-size: 1.125rem;
     line-height: 1.75rem;
 }
-.title > p:hover {
+.title-sidebar > p:hover {
     padding-left: 1rem;
 }
-.title .selected {
-    background-color: rgb(38 38 38 / 1);
+.title-sidebar .selected-sidebar-item {
+    background-color: var(--dark-secondary);
     padding-left: 1rem;
-}
-.breaker {
-    color: rgb(115 115 115 / 1);
 }

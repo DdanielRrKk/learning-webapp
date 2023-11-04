@@ -1,13 +1,14 @@
 import React from "react";
+import './style.css';
 
-import { GetCourseFromDatabaseById } from "../../database/testRequestsAPI";
+import { GetCourseFromDatabaseById } from "../../../database/testRequestsAPI.js";
 
 import { useParams } from "react-router-dom";
 
-import SidebarItem from "../../components/SidebarItem/sidebarItem.jsx";
-import ContentItem from "../../components/ContentItem/contentItem.jsx";
+import SidebarItem from "../../../components/SidebarItem/sidebarItem.jsx";
+import ContentItem from "../../../components/ContentItem/contentItem.jsx";
 
-import { HandleTransformContentStringToContentArray } from "../../helpers/helpers";
+import { HandleTransformContentStringToContentArray } from "../../../helpers/helpers.js";
 
 export default function CoursePage() {
     const { courseId } = useParams();
@@ -52,7 +53,7 @@ export default function CoursePage() {
     console.log('course', course);
 
     return (
-        <div className='container-main flex-row'>
+        <div className='container-main container-main-course'>
             <ul className="sidebar">
                 {course.map((lesson) => 
                     <SidebarItem 
@@ -63,7 +64,7 @@ export default function CoursePage() {
                         setContent={setContent}/>)}
             </ul>
 
-            <main className="content gap-4">
+            <main className="content">
                 {content.length !== 0 ? 
                     <>
                         {content.map((item) => (
@@ -74,18 +75,18 @@ export default function CoursePage() {
                         ))}
                     </>
                 : 
-                    <p className="text-4xl">Still in progress...</p>
+                    <p className="title">Still in progress...</p>
                 }
 
-                <div className="w-full flex justify-evenly items-center mt-10">
+                <div className="navigation">
                     <button 
-                        className="button-action py-2"
+                        className="button-action"
                         onClick={handleChangeToPreviousLesson}>
                             Previous
                     </button>
 
                     <button 
-                        className="button-action py-2"
+                        className="button-action"
                         onClick={handleChangeToNextLesson}>
                             Next
                     </button>

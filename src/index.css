@@ -2,20 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --light: rgb(229 231 235 / 1);
+    --dark: rgb(23 23 23 / 1);
+
+    --dark-secondary: rgb(38 38 38 / 1); 
+}
+
+.container-main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark);
+    color: var(--light);
+    overflow: hidden;
+}
+.container-body {
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    display: grid;
+    gap: 6rem;
+}
+@media screen and (min-width: 1280px) {
+    .container-body {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .container-body {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .container-body {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media screen and (min-width: 640px) and (max-width: 767px) {
+    .container-body {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 4rem;
+    }
+}
+
+.breaker {
+    color: rgb(115 115 115 / 1);
+}
+
 .button-action {
     padding: 0.75rem 1.5rem;
     margin-bottom: 2.5rem;
-    color: rgb(0 0 0 / 1);
+    color: var(--dark);
     font-size: 1.125rem;
     line-height: 1.75rem;
     font-weight: 600;
     border-width: 1px;
-    border-color: rgb (229 231 235 / 1);
-    background-color: rgb(229 231 235 / 1);
+    border-color: var(--light);
+    background-color: var(--light);
 }
 .button-action:hover {
     background-color: transparent;
-    color: rgb(229 231 235 / 1);
+    color: var(--light);
 }
 
 .icon {
@@ -26,57 +77,6 @@
 
 
 @layer components {
-    .container-main {
-        @apply  w-full min-h-screen max-h-fit
-                flex flex-col justify-center items-center
-                bg-neutral-900
-                text-white
-                overflow-hidden;
-    }
-    .container-body {
-        @apply  w-fit h-fit
-                p-4
-                grid justify-center items-center gap-24
-                xl:grid-cols-4
-                lg:grid-cols-3
-                md:grid-cols-2
-                sm:grid-cols-1 sm:gap-16;
-    }
-
-
-    .sidebar {
-        @apply  w-96 h-screen 
-                flex flex-col justify-start items-start
-                px-6 py-4
-                overflow-y-scroll;
-    }
-    .content {
-        @apply  w-full h-screen
-                px-12 py-4
-                flex flex-col
-                overflow-y-scroll;
-    }
-
-
-    /* .course-item {
-        @apply  w-full
-                px-2 py-1
-                cursor-pointer;
-    }
-    .course-item p {
-        @apply  py-2 text-base;
-    }
-    .course-item-title {
-        @apply  hover:pl-2;
-    }
-    .course-item-title-selected {
-        @apply  pl-2 bg-neutral-800;
-    }
-    .course-item-breaker {
-        @apply  text-lg text-neutral-500;
-    } */
-
-
     .editor-title {
         @apply  w-full h-[7%]
                 text-xl font-semibold
@@ -94,12 +94,6 @@
                 overflow-y-scroll;
     }
 
-
-
-
-    /* .button-action {
-        @apply  py-3 px-6 mb-10 text-lg font-semibold border border-gray-200 bg-gray-200 text-black hover:bg-transparent hover:text-white;
-    } */
     .input-action {
         @apply  w-full
                 p-4 
