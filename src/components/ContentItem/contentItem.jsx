@@ -1,13 +1,14 @@
 import React from "react";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { stackoverflowDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import './contentItem.css';
 
 export default function ContentItem({ type, data }) {
     switch (type) {
         case "img": return (
-            <div className="w-full flex justify-center items-center">
+            <div className="img-box">
                 {data.map((item, index) => (
-                    <img key={index} className="w-4/6 h-fit" src={item} alt={item}/>
+                    <img key={index} src={item} alt={item}/>
                 ))}
             </div>
         );
@@ -15,7 +16,7 @@ export default function ContentItem({ type, data }) {
         case "title": return (
             <>
                 {data.map((item, index) => (
-                    <p key={index} className="text-4xl">{item}</p>
+                    <p key={index} className="text-box">{item}</p>
                 ))}
             </>
         );
@@ -29,7 +30,7 @@ export default function ContentItem({ type, data }) {
         );
         
         case "code": return (
-            <div className="h-fit">
+            <div className="code-box">
                 <SyntaxHighlighter language="javascript" style={stackoverflowDark}>
                     {data.join("\n")}
                 </SyntaxHighlighter>
@@ -39,7 +40,7 @@ export default function ContentItem({ type, data }) {
         case "list": return (
             <ul>
                 {data.map((item, index) => (
-                    <li key={index} className="pl-4 py-2">
+                    <li key={index} className="list-box">
                         - {item}
                     </li>
                 ))}

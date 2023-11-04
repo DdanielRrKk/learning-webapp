@@ -1,0 +1,23 @@
+.img-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-box > img {
+    width: 66.666667%;
+    height: auto;
+}
+
+.text-box {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+
+.code-box {
+    height: auto;
+}
+
+.list-box {
+    padding: 1rem 0.5rem 0rem 0.5rem;
+}

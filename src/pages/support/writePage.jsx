@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeLesson } from '../../redux/lessonSlice/lessonSlice';
 
-import ContentItem from '../../components/contentItem';
+import ContentItem from '../../components/ContentItem/contentItem';
 
 import { HandleTransformContentStringToContentArray } from '../../helpers/helpers';
 import { MAX_LENGTH, WRITE_PAGE_PLACEHOLDER } from '../../helpers/constants';
