@@ -1,0 +1,24 @@
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.box > img {
+    width: 13rem;
+    height: 13rem;
+    background-color: rgb(243 244 246 / 1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.75rem;
+}
+
+.box > p {
+    color: rgb(255 255 255 / 1);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+}

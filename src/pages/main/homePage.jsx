@@ -2,7 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import CourseItem from "../../components/courseItem";
+import CourseItem from "../../components/CourseItem/courseItem";
 
 import { GetAllContentFromDatabase } from "../../database/testRequestsAPI";
 

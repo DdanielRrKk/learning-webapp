@@ -8,6 +8,8 @@ import {
 } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
+import './createCourseItem.css';
+
 
 export default function CreateCourseItem({ canGoUp, canGoDown, item, goUpHandler, goDownHandler, openEditHandler, deleteHandler }) {
     const handleGoUp = () => goUpHandler(item.id);
@@ -16,23 +18,21 @@ export default function CreateCourseItem({ canGoUp, canGoDown, item, goUpHandler
     const handleDelete = () => deleteHandler(item.id);
 
     return (
-        <li className="flex gap-4">
-            <div className="flex flex-col justify-center items-center">
-                {!canGoUp ? <IoCaretUpOutline className="text-2xl cursor-pointer" onClick={handleGoUp}/> : null}
-                {!canGoDown ? <IoCaretDownOutline className="text-2xl cursor-pointer" onClick={handleGoDown}/> : null}
+        <li className="box">
+            <div>
+                {!canGoUp ? <IoCaretUpOutline className="icon" onClick={handleGoUp}/> : null}
+                {!canGoDown ? <IoCaretDownOutline className="icon" onClick={handleGoDown}/> : null}
             </div>
 
-            <div key={item.id} className="course-item text-3xl cursor-default">
-                <p className={item?.content ? "" : "course-item-breaker"}>{item.title}</p>
-            </div>
+            <p key={item.id} className={item?.content ? null : "breaker"}>{item.title}</p>
 
             {!item?.content ? null : 
                 <Link to={'/write'} onClick={handleOpenEdit}>
-                    <IoPencilSharp className="text-2xl"/>
+                    <IoPencilSharp className="icon"/>
                 </Link>
             }
 
-            <IoTrashSharp className="text-2xl cursor-pointer" onClick={handleDelete}/>
+            <IoTrashSharp className="icon" onClick={handleDelete}/>
         </li>
     );
 }

@@ -4,7 +4,7 @@ import { GetCourseFromDatabaseById } from "../../database/testRequestsAPI";
 
 import { useParams } from "react-router-dom";
 
-import SidebarItem from "../../components/sidebarItem";
+import SidebarItem from "../../components/SidebarItem/sidebarItem.jsx";
 import ContentItem from "../../components/ContentItem/contentItem.jsx";
 
 import { HandleTransformContentStringToContentArray } from "../../helpers/helpers";

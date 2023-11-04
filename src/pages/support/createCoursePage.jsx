@@ -5,7 +5,7 @@ import { setLesson } from "../../redux/lessonSlice/lessonSlice";
 
 import { Link } from "react-router-dom";
 
-import CreateCourseItem from "../../components/createCourseItem";
+import CreateCourseItem from "../../components/CreateCourseItem/createCourseItem";
 
 import { MAX_LENGTH } from "../../helpers/constants";
 

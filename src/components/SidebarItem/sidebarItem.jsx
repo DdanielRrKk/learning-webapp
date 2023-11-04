@@ -1,4 +1,5 @@
 import React from "react";
+import './sidebarItem.css';
 
 export default function SidebarItem({ isSelected, item, selectLessonHandler, setContent }) {
     const handleSelect = () => {
@@ -8,8 +9,8 @@ export default function SidebarItem({ isSelected, item, selectLessonHandler, set
     
     if(item?.content) {
         return (
-            <li key={item.id} className="course-item">
-                <p  className={isSelected ? "course-item-title-selected" : "course-item-title"} 
+            <li key={item.id} className="title">
+                <p className={isSelected ? "selected" : null} 
                     onClick={handleSelect}>
                         {item.title}
                 </p>
@@ -18,8 +19,8 @@ export default function SidebarItem({ isSelected, item, selectLessonHandler, set
     }
 
     return (
-        <li key={item.id} className="course-item">
-            <p className="course-item-breaker">{item.title}</p>
+        <li key={item.id} className="breaker">
+            <p>{item.title}</p>
         </li>
     );
 }
