@@ -1,7 +1,7 @@
 import React from "react";
 import './style.css';
 
-import { GetCourseFromDatabaseById } from "../../../database/testRequestsAPI.js";
+// import { GetCourseFromDatabaseById } from "../../../database/testRequestsAPI.js";
 
 import { useParams } from "react-router-dom";
 

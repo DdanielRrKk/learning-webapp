@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 import CourseItem from "../../../components/CourseItem/courseItem";
 
-import { GetAllContentFromDatabase } from "../../../database/testRequestsAPI";
+// import { GetAllContentFromDatabase } from "../../../database/testRequestsAPI";
+import { GetAllCourses } from "../../../api/coursesAPI";
 
 export default function HomePage() {
     const [courses, setCourses] = React.useState([]);
@@ -15,8 +16,12 @@ export default function HomePage() {
     }
 
     React.useEffect(() => {
-        GetAllContentFromDatabase().then((data) => {
-            setCourses(data);
+        // GetAllContentFromDatabase().then((data) => {
+        //     setCourses(data);
+        // });
+
+        GetAllCourses().then((data) => {
+            console.log('Received courses:', data);
         })
     }, []);
 
