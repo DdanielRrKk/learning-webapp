@@ -3,7 +3,7 @@ import axios from "axios";
 
 export async function GetAllCourses() {
     try {
-        const response = await axios.get('http://localhost/learning-webapp/database/get_all_courses.php');
+        const response = await axios.get('http://localhost/learning-webapp/database/controllers/get_all_courses.php');
         console.log('Response:', response);
         return response.data;
     } catch (error) {

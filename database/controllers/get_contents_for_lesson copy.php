@@ -1,5 +1,5 @@
 <?php
-    include('db_connection.php');
+    include('../db_connection.php');
 
     // Query the database
     $sql = "SELECT * FROM Contents WHERE LessonId = " . intval($_POST['id']);
