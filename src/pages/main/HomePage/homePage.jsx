@@ -16,12 +16,9 @@ export default function HomePage() {
     }
 
     React.useEffect(() => {
-        // GetAllContentFromDatabase().then((data) => {
-        //     setCourses(data);
-        // });
-
         GetAllCourses().then((data) => {
-            console.log('Received courses:', data);
+            console.log('Response received:', data);
+            setCourses(data)
         })
     }, []);
 

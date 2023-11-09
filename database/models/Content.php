@@ -21,5 +21,7 @@
         public function setType($Type) { $this->Type = $Type; }
         public function setData($Data) { $this->Data = $Data; }
         public function setLessonId($LessonId) { $this->LessonId = $LessonId; }
+
+        public function __toJSON() { return '{"Id":'.$this->Id.',"Type":"'.$this->Type.'","Data":"'.$this->Data.'","LessonId":"'.$this->LessonId.'"}'; }
     }
 ?>

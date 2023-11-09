@@ -13,16 +13,13 @@
     // Fetch the data from the query result
     $data = array();
     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $data[] = new Course($row['Id'], $row['Title'], bin2hex($row['Image']));
+        $course = new Course($row['Id'], $row['CourseId'], $row['Title'], bin2hex($row['Image']));
+        $data[] = $course->__toJSON();
     }
 
     // Check if data is retrieved
     if (empty($data)) die('No data found');
-
-    // $json = json_encode($data);
-
-    // echo 'JSON: ' . print_r($json, true) . '<br><br> Data: ' . print_r($data, true);
-
+    
     // Convert the data to JSON and return it
     // header('Content-Type: application/json');
     echo json_encode($data);

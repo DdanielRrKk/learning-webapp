@@ -25,5 +25,7 @@
         public function setTitle($Title) { $this->Title = $Title; }
         public function setIsSeparator($IsSeparator) { $this->IsSeparator = $IsSeparator; }
         public function setCourseId($CourseId) { $this->CourseId = $CourseId; }
+
+        public function __toJSON() { return '{ "Id": '.$this->Id.', "OrderNumber": '.$this->OrderNumber.', "Title": "'.$this->Title.'", "IsSeparator": '.$this->IsSeparator.', "CourseId": '.$this->CourseId.' }'; }
     }
 ?>
