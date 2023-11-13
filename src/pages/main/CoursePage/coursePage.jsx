@@ -1,14 +1,15 @@
 import React from "react";
 import './style.css';
 
-// import { GetCourseFromDatabaseById } from "../../../database/testRequestsAPI.js";
-
 import { useParams } from "react-router-dom";
 
 import SidebarItem from "../../../components/SidebarItem/sidebarItem.jsx";
 import ContentItem from "../../../components/ContentItem/contentItem.jsx";
 
 import { HandleTransformContentStringToContentArray } from "../../../helpers/helpers.js";
+
+import { GetCourseById } from "../../../api/coursesAPI.js";
+
 
 export default function CoursePage() {
     const { courseId } = useParams();
@@ -18,7 +19,7 @@ export default function CoursePage() {
     const [content, setContent] = React.useState([]);
 
     React.useEffect(() => {
-        GetCourseFromDatabaseById(courseId).then((selectedCourse) => {
+        GetCourseById(courseId).then((selectedCourse) => {
             setCourse(selectedCourse);
             setContent(HandleTransformContentStringToContentArray(selectedCourse[1]?.content));
         });
