@@ -1,14 +1,13 @@
 import React from "react";
-import './style.css';
 
 import { useParams } from "react-router-dom";
 
-import SidebarItem from "../../../components/SidebarItem/sidebarItem.jsx";
-import ContentItem from "../../../components/ContentItem/contentItem.jsx";
+import SidebarItem from "../../view/components/sidebarItem";
+import ContentItem from "../../view/components/contentItem";
 
-import { HandleTransformContentStringToContentArray } from "../../../helpers/helpers.js";
+import { HandleTransformContentStringToContentArray } from "../../helpers/helpers";
 
-import { GetCourseById } from "../../../api/coursesAPI.js";
+import { GetCourseById } from "../../api/coursesAPI";
 
 
 export default function CoursePage() {
@@ -54,7 +53,7 @@ export default function CoursePage() {
     console.log('course', course);
 
     return (
-        <div className='container-main container-main-course'>
+        <div className='container container-main-course'>
             <ul className="sidebar">
                 {course.map((lesson) => 
                     <SidebarItem 
@@ -62,7 +61,9 @@ export default function CoursePage() {
                         isSelected={lesson.id === selectedLessonId}
                         item={lesson}
                         selectLessonHandler={handleSelectLessonChange}
-                        setContent={setContent}/>)}
+                        setContent={setContent}
+                    />
+                )}
             </ul>
 
             <main className="content">
@@ -72,11 +73,14 @@ export default function CoursePage() {
                             <ContentItem 
                                 key={item.id} 
                                 type={item.type} 
-                                data={item.data}/>
+                                data={item.data}
+                            />
                         ))}
                     </>
                 : 
-                    <p className="title">Still in progress...</p>
+                    <p className="title">
+                        Still in progress...
+                    </p>
                 }
 
                 <div className="navigation">

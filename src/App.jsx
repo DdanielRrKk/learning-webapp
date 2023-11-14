@@ -1,14 +1,14 @@
 import React from 'react';
 
-import ErrorPage from './pages/errorPage';
+import ErrorPage from './view/pages/errorPage';
 
-import HomePage from './pages/main/HomePage/homePage';
-import CoursePage from './pages/main/CoursePage/coursePage';
-import SupportPage from './pages/main/supportPage';
+import HomePage from './view/pages/homePage';
+import CoursePage from './view/pages/coursePage';
+import SupportPage from './view/pages/supportPage';
 
-import CreateCoursePage from './pages/support/createCoursePage';
-import WritePage from './pages/support/writePage';
-import FeedbackPage from './pages/support/feedbackPage';
+import CreateCoursePage from './view/pages/createCoursePage';
+import WritePage from './view/pages/writePage';
+import FeedbackPage from './view/pages/feedbackPage';
 
 import {
   createBrowserRouter,

@@ -5,7 +5,7 @@ import { setLesson } from "../../redux/lessonSlice/lessonSlice";
 
 import { Link } from "react-router-dom";
 
-import CreateCourseItem from "../../components/CreateCourseItem/createCourseItem";
+import CreateCourseItem from "../../view/components/createCourseItem";
 
 import { MAX_LENGTH } from "../../helpers/constants";
 
@@ -123,31 +123,33 @@ export default function CreateCoursePage() {
 
 
     return (
-        <div className="container-main gap-10 sm:px-10 md:px-24 lg:px-40 xl:px-60">
-            <p className="text-5xl font-semibold">Course Creation Page</p>
+        <div className="container container-main-create-course">
+            <p>Course Creation Page</p>
 
             <input
                 className="input-action"
                 value={courseName}
                 onChange={handleCourseNameChange}
                 maxLength={MAX_LENGTH}
-                placeholder="Course Name"/>
+                placeholder="Course Name"
+            />
 
             <div
-                className="w-64 h-64 border-dashed border-2 border-gray-300 rounded-lg p-1 flex flex-col items-center justify-center"
+                id='dragArea'
                 onDrop={handleOnDrop}
-                onDragOver={handleOnDragOver}
-                >
-                {courseIcon ? (
-                    <>
-                        <img src={courseIcon} alt="Uploaded" className="w-full h-full object-cover" />
-                        
-                    </>
-                ) : (
-                    <div className="flex flex-col items-center">
-                        Drag and drop an image here
-                    </div>
-                )}
+                onDragOver={handleOnDragOver} >
+                    {courseIcon ? (
+                        <>
+                            <img 
+                                src={courseIcon} 
+                                alt="Uploaded"
+                            />
+                        </>
+                    ) : (
+                        <div>
+                            Drag and drop an image here
+                        </div>
+                    )}
             </div>
 
             <div>
@@ -157,8 +159,8 @@ export default function CreateCoursePage() {
                 />
             </div>
 
-            <div className="w-full flex justify-evenly">
-                <div className="flex gap-5">
+            <div className="container-secondary">
+                <div>
                     <button 
                         className="button-action"
                         onClick={handleAddSectionOpen}>
@@ -175,28 +177,29 @@ export default function CreateCoursePage() {
                 <button 
                     className="button-action"
                     onClick={handleSaveCourse}>
-                    Save Course
+                        Save Course
                 </button>
             </div>
 
             {!isAddSectionOpen ? null :
-                <div className="w-full h-14 flex gap-5">
+                <div id='addSection'>
                     <input 
                         className="input-action"
                         value={sectionName}
                         onChange={handleSectionNameChange}
                         maxLength={MAX_LENGTH}
-                        placeholder="Section Name"/>
+                        placeholder="Section Name"
+                    />
 
                     <button 
-                        className="button-action h-full"
+                        className="button-action"
                         onClick={handleAddingSection}>
-                        Add
+                            Add
                     </button>
                 </div>
             }
 
-            <ul className="w-full flex flex-col gap-6 px-8">
+            <ul>
                 {lessons.map((lesson) => (
                     <CreateCourseItem 
                         key={lesson.id} 

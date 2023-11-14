@@ -1,0 +1,87 @@
+.container-main-create-course {
+    gap: 2.5rem;
+}
+.container-main-create-course > p {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 600;
+}
+.container-main-create-course > ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+
+#dragArea {
+    width: 16rem;
+    height: 16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    border: 2px var(--light) dashed;
+    border-radius: 0.5rem;
+}
+#dragArea img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#dragArea div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container-secondary {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.container-secondary > div {
+    display: flex;
+    gap: 1.25rem;
+}
+
+
+#addSection {
+    width: 100%;
+    height: 3.5rem;
+    display: flex;
+    gap: 1.25rem;
+}
+#addSection > button {
+    height: 100%;
+}
+
+
+@media screen and (min-width: 640px) {
+    .container-main-create-course {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}
+@media screen and (min-width: 768px) {
+    .container-main-create-course {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .container-main-create-course {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+}
+@media screen and (min-width: 1280px) {
+    .container-main-create-course {
+        padding-left: 15rem;
+        padding-right: 15rem;
+    }
+}

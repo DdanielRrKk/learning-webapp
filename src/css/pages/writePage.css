@@ -1,0 +1,76 @@
+.container-main-write {
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+    flex-direction: row !important;;
+}
+
+#write,
+#show {
+    width: 50%;
+    height: 100%;
+    min-height: 100vh;
+}
+
+#write > input {
+    width: 100%;
+    height: 7%;
+    min-height: 7vh;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    padding: 1rem;
+    background-color: var(--dark-secondary);
+    border-bottom-width: 4px;
+    border-color: var(--dark-tertiary);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+#write > textarea {
+    width: 100%;
+    height: 93%;
+    min-height: 93vh;
+    padding: 1rem;
+    background-color: var(--dark-secondary);
+    resize: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    overflow-y: scroll;
+}
+
+#show {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 1rem 5rem;
+    gap: 1rem;
+    overflow-y: scroll;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 1rem;
+    gap: 1rem;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+#menu > button {
+    width: 4rem;
+    height: 4rem;
+    padding: 0.5rem;
+    background-color: rgb(82 82 82 / 1);
+    opacity: 0.9;
+    border-radius: 100px;
+}
+.button-hide {
+    display: none;
+}
+
+#menu:last-child(button) {
+    width: 5rem;
+    height: 5rem;
+}
