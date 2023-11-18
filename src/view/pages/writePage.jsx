@@ -63,8 +63,8 @@ export default function WritePage() {
 
 
     return (
-        <div className='container container-main-write'>
-            <div id='write'>
+        <div id="write-course" className='container'>
+            <div className='write-section'>
                 <input
                     className="editor-title"
                     value={title}
@@ -81,25 +81,7 @@ export default function WritePage() {
                 />
             </div>
 
-            <div id='menu'>
-                <button 
-                    className={!isMenuOpen ? 'button-hide' : ''}
-                    onClick={handleSaveContentString}>
-                        Save
-                </button>
-
-                <button 
-                    className={!isMenuOpen ? 'button-hide' : ''}
-                    onClick={handleClearContentString}>
-                        Clear
-                </button>
-
-                <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                    Menu
-                </button>
-            </div>
-
-            <div id='show'>
+            <div className='show-section'>
                 {contentArray.length > 0 ?
                     <>
                         {contentArray.map((item) => (
@@ -114,6 +96,26 @@ export default function WritePage() {
                     <p className="text-4xl">
                         Place for visualizing your content
                     </p>}
+            </div>
+
+            <div id='menu'>
+                <button 
+                    className={!isMenuOpen ? 'button-hide' : ''}
+                    onClick={handleSaveContentString}>
+                        Save
+                </button>
+
+                <button 
+                    className={!isMenuOpen ? 'button-hide' : ''}
+                    onClick={handleClearContentString}>
+                        Clear
+                </button>
+
+                <button 
+                    className='main-menu-button'
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                    Menu
+                </button>
             </div>
         </div>
     );

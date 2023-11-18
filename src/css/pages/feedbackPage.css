@@ -1,47 +1,44 @@
-.container-main-feedback {
+#feedback .content {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
 }
-.container-main-feedback > p {
+#feedback .content > p {
     font-size: 3rem;
     line-height: 1;
     font-weight: 600;
 }
-.container-main-feedback > form {
+#feedback .content > form {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
 }
-.container-main-feedback > form textarea{
+#feedback .content > form textarea{
     resize: none;
 }
 
 
-
-
-
 @media screen and (min-width: 640px) {
-    .container-main-feedback {
+    #feedback {
         padding-left: 2.5rem;
         padding-right: 2.5rem;
     }
 }
 @media screen and (min-width: 768px) {
-    .container-main-feedback {
+    #feedback {
         padding-left: 6rem;
         padding-right: 6rem;
     }
 }
 @media screen and (min-width: 1024px) {
-    .container-main-feedback {
+    #feedback {
         padding-left: 10rem;
         padding-right: 10rem;
     }
 }
 @media screen and (min-width: 1280px) {
-    .container-main-feedback {
+    #feedback {
         padding-left: 15rem;
         padding-right: 15rem;
     }

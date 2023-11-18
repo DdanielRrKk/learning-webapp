@@ -42,8 +42,21 @@ a {
     justify-content: center;
     align-items: center;
     background-color: var(--dark);
-    color: var(--light);
-    overflow: hidden;
+    /* color: var(--light); */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.content {
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: auto;
 }
 
 .breaker {

@@ -45,36 +45,38 @@ export default function FeedbackPage() {
     };
 
     return (
-        <div className="container container-main-feedback">
-            <p>
-                {set.title}
-            </p>
+        <div id='feedback' className="container">
+            <div className='content'>
+                <p>
+                    {set.title}
+                </p>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    className="input-action"
-                    value={title}
-                    onChange={handleTitleChange}
-                    maxLength={MAX_LENGTH}
-                    placeholder={set.titlePlaceholder}
-                />
+                <form onSubmit={handleSubmit}>
+                    <input
+                        className="input-action"
+                        value={title}
+                        onChange={handleTitleChange}
+                        maxLength={MAX_LENGTH}
+                        placeholder={set.titlePlaceholder}
+                    />
 
-                <textarea
-                    className="input-action"
-                    rows="4"
-                    value={message}
-                    onChange={handleMessageChange}
-                    maxLength={MAX_LONG_LENGTH}
-                    placeholder={set.messagePlaceholder}
-                    required
-                />
+                    <textarea
+                        className="input-action"
+                        rows="4"
+                        value={message}
+                        onChange={handleMessageChange}
+                        maxLength={MAX_LONG_LENGTH}
+                        placeholder={set.messagePlaceholder}
+                        required
+                    />
 
-                <button
-                    type="submit"
-                    className="button-action">
-                        {set.buttonText}
-                </button>
-            </form>
+                    <button
+                        type="submit"
+                        className="button-action">
+                            {set.buttonText}
+                    </button>
+                </form>
+            </div>
         </div>
     );
 }

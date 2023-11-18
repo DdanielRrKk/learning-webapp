@@ -1,59 +1,76 @@
-.container-main-home {
-    padding: 1rem;
-    text-align: center;
-    overflow-y: scroll !important;
+#home {
     gap:2.5rem;
 }
-.container-main-home > h1 {
-    font-size: 4.5rem !important;
-    line-height: 1 !important;
+#home .content > h1 {
+    font-size: 4.5rem;
+    line-height: 1;
     font-weight: 600;
 }
-.container-main-home > h3 {
+#home .content > p {
+    padding: 30px 150px;
+    text-align: justify;
+
+}
+#home .content > h3 {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
 }
+#home .content > img {
+    width: 25%;
+    max-width: 300px;
+    min-width: 150px;
+}
 
-.container-body-home {
-    /* width: 100%; */
-    /* height: 100%; */
-    /* padding: 1rem; */
+.content-grid {
     display: grid;
     gap: 6rem;
     row-gap: 4rem;
+    margin-bottom: 60px;
 }
+
+#home .content .buttons-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+
+
 @media screen and (min-width: 1280px) {
-    .container-body-home {
+    .content-grid {
         grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    #home .content > p {
+        text-align: center;
     }
 }
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
-    .container-body-home {
+    .content-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    .container-body-home {
+    .content-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-}
-@media screen and (min-width: 640px) and (max-width: 767px) {
-    .container-body-home {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 4rem;
+    #home .content > p {
+        padding: 30px 60px;
     }
 }
-
-
-.content-home {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-@media screen and (min-width: 640px) {
-    .content-home {
-        flex-direction: row;
-        gap: 5rem;
+@media screen and (max-width: 767px) {
+    #home .content > h1 {
+        font-size: 2.5rem;
+    }
+    #home .content > p {
+        padding: 30px 60px;
+    }
+    .content-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 2rem;
+    }
+    #home .content .buttons-container {
+        flex-direction: column;
+        gap: 1.25rem;
     }
 }

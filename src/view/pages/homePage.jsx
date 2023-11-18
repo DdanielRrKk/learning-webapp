@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import CourseItem from "../../view/components/courseItem";
 
 import { GetAllCourses } from "../../api/coursesAPI";
+import { BOXES } from "../../helpers/constants";
 
 
 export default function HomePage() {
-    const [courses, setCourses] = React.useState([]);
+    const [courses, setCourses] = React.useState(BOXES);
 
     const handleBuyMeACoffeeClick = () => {
         console.log('clicked')
@@ -22,40 +23,42 @@ export default function HomePage() {
     // }, []);
 
     return (
-        <div className='container container-main-home'>
-            <h1>Want to learn programming languages?</h1>
+        <div id="home" className='container'>
+            <div className="content">
+                <h1>Want to learn programming languages?</h1>
 
-            <img
-                src="./src/assets/prime-code-academy-logo-light.svg"
-                alt="PrimeCode Academy"
-            />
+                <img
+                    src="./src/assets/prime-code-academy-logo-light.svg"
+                    alt="PrimeCode Academy"
+                />
 
-            <p>
-                PrimeCode Academy allows you to learn programming languages from the comfort of your own home. Weather your goal is to become a full-stack developer or just learn the basics, we have a course for you.
-            </p>
-            
-            <h3>Courses:</h3>
-            
-            <div className="container-body-home">
-                {courses.map((box) => (
-                    <CourseItem 
-                        box={box} 
-                    />
-                ))}
-            </div>
+                <p>
+                    PrimeCode Academy allows you to learn programming languages from the comfort of your own home. Weather your goal is to become a full-stack developer or just learn the basics, we have a course for you.
+                </p>
+                
+                <h3>Courses:</h3>
+                
+                <div className="content-grid">
+                    {courses.map((box) => (
+                        <CourseItem 
+                            box={box} 
+                        />
+                    ))}
+                </div>
 
-            <div className="content-home">
-                <button 
-                    className="button-action" 
-                    onClick={handleBuyMeACoffeeClick}>
-                        Buy me a Coffee
-                </button>
+                <div className="buttons-container">
+                    <button 
+                        className="button-action" 
+                        onClick={handleBuyMeACoffeeClick}>
+                            Buy me a Coffee
+                    </button>
 
-                <Link 
-                    className="button-action" 
-                    to={'/support'}>
-                        Offer Support
-                </Link>
+                    <Link 
+                        className="button-action" 
+                        to={'/support'}>
+                            Offer Support
+                    </Link>
+                </div>
             </div>
         </div>
     );
