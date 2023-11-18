@@ -14,16 +14,21 @@ export default function HomePage() {
         console.log('clicked')
     }
 
-    React.useEffect(() => {
-        GetAllCourses().then((data) => {
-            console.log('Response received:', data);
-            setCourses(data)
-        })
-    }, []);
+    // React.useEffect(() => {
+    //     GetAllCourses().then((data) => {
+    //         console.log('Response received:', data);
+    //         setCourses(data)
+    //     })
+    // }, []);
 
     return (
         <div className='container container-main-home'>
             <h1>Want to learn programming languages?</h1>
+
+            <img
+                src="./src/assets/prime-code-academy-logo-light.svg"
+                alt="PrimeCode Academy"
+            />
 
             <p>
                 PrimeCode Academy allows you to learn programming languages from the comfort of your own home. Weather your goal is to become a full-stack developer or just learn the basics, we have a course for you.
