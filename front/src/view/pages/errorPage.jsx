@@ -6,7 +6,7 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div className="container-error">
+    <div id="error">
       <h1>Oops!</h1>
       <h4>Sorry, an unexpected error has occurred.</h4>
       <p>{error.statusText || error.message}</p>

@@ -1,12 +1,12 @@
-.container-main-create-course {
+#create-course {
     gap: 2.5rem;
 }
-.container-main-create-course > p {
+#create-course > p {
     font-size: 3rem;
     line-height: 1;
     font-weight: 600;
 }
-.container-main-create-course > ul {
+#create-course > ul {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -17,12 +17,13 @@
 
 
 #dragArea {
-    width: 16rem;
-    height: 16rem;
+    width: 12rem;
+    height: 12rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 0.25rem;
     border: 2px var(--light) dashed;
     border-radius: 0.5rem;
@@ -61,26 +62,31 @@
 }
 
 
-@media screen and (min-width: 640px) {
-    .container-main-create-course {
+#course-list li {
+    cursor: grab;
+}
+
+
+@media screen and (max-width: 767px) {
+    #create-course {
         padding-left: 2.5rem;
         padding-right: 2.5rem;
     }
 }
 @media screen and (min-width: 768px) {
-    .container-main-create-course {
+    #create-course {
         padding-left: 6rem;
         padding-right: 6rem;
     }
 }
 @media screen and (min-width: 1024px) {
-    .container-main-create-course {
+    #create-course {
         padding-left: 10rem;
         padding-right: 10rem;
     }
 }
 @media screen and (min-width: 1280px) {
-    .container-main-create-course {
+    #create-course {
         padding-left: 15rem;
         padding-right: 15rem;
     }

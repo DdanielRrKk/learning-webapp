@@ -11,3 +11,7 @@
     background-color: var(--dark-secondary);
     padding-left: 1rem;
 }
+
+.breaker > p {
+    color: var(--breaker-text);
+}

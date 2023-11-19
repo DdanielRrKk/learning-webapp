@@ -1,13 +1,17 @@
 #home {
     gap:2.5rem;
 }
+#home .content {
+    gap: 2.5rem;
+}
 #home .content > h1 {
     font-size: 4.5rem;
     line-height: 1;
     font-weight: 600;
 }
 #home .content > p {
-    padding: 30px 150px;
+    padding-left: 150px;
+    padding-right: 150px;
     text-align: justify;
 
 }

@@ -123,7 +123,7 @@ export default function CreateCoursePage() {
 
 
     return (
-        <div className="container container-main-create-course">
+        <div id="create-course" className="container">
             <p>Course Creation Page</p>
 
             <input
@@ -152,10 +152,14 @@ export default function CreateCoursePage() {
                     )}
             </div>
 
-            <div>
+            <div className="select-file">
+                <label for="file">Select a file:</label>
                 <input
+                    id="file"
+                    className="input-action"
                     type="file"
                     onChange={(e) => setCourseIcon(URL.createObjectURL(e.target.files[0]))}
+                    accept="image/*"
                 />
             </div>
 
@@ -199,7 +203,7 @@ export default function CreateCoursePage() {
                 </div>
             }
 
-            <ul>
+            <ul id="course-list">
                 {lessons.map((lesson) => (
                     <CreateCourseItem 
                         key={lesson.id} 
@@ -209,7 +213,8 @@ export default function CreateCoursePage() {
                         goUpHandler={handleGoUp}
                         goDownHandler={handleGoDown}
                         openEditHandler={handleOpenForEdit}
-                        deleteHandler={handleDeleteItem}/>
+                        deleteHandler={handleDeleteItem}
+                    />
                 ))}
             </ul>
         </div>

@@ -8,12 +8,13 @@ import ContentItem from "../../view/components/contentItem";
 import { HandleTransformContentStringToContentArray } from "../../helpers/helpers";
 
 import { GetCourseById } from "../../api/coursesAPI";
+import { JAVASCRIPT_LESSONS } from "../../helpers/constants";
 
 
 export default function CoursePage() {
     const { courseId } = useParams();
     
-    const [course, setCourse] = React.useState([]);
+    const [course, setCourse] = React.useState(JAVASCRIPT_LESSONS);
     const [selectedLessonId, setSelectedLessonId] = React.useState(1);
     const [content, setContent] = React.useState([]);
 
@@ -53,7 +54,7 @@ export default function CoursePage() {
     console.log('course', course);
 
     return (
-        <div className='container container-main-course'>
+        <div id="course" className='container'>
             <ul className="sidebar">
                 {course.map((lesson) => 
                     <SidebarItem 
@@ -66,7 +67,7 @@ export default function CoursePage() {
                 )}
             </ul>
 
-            <main className="content">
+            <main className="article">
                 {content.length !== 0 ? 
                     <>
                         {content.map((item) => (
