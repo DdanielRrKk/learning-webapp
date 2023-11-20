@@ -14,15 +14,17 @@ import { JAVASCRIPT_LESSONS } from "../../helpers/constants";
 export default function CoursePage() {
     const { courseId } = useParams();
     
-    const [course, setCourse] = React.useState(JAVASCRIPT_LESSONS);
+    const [course, setCourse] = React.useState([]);
     const [selectedLessonId, setSelectedLessonId] = React.useState(1);
     const [content, setContent] = React.useState([]);
 
     React.useEffect(() => {
-        GetCourseById(courseId).then((selectedCourse) => {
-            setCourse(selectedCourse);
-            setContent(HandleTransformContentStringToContentArray(selectedCourse[1]?.content));
-        });
+        // GetCourseById(courseId).then((selectedCourse) => {
+            // setCourse(selectedCourse);
+            // setContent(HandleTransformContentStringToContentArray(selectedCourse[1]?.content));
+        // });
+        setCourse(JAVASCRIPT_LESSONS);
+        setContent(HandleTransformContentStringToContentArray(JAVASCRIPT_LESSONS[1]?.content));
     }, []);
 
     const handleSelectLessonChange = (lessonId) => setSelectedLessonId(lessonId);
