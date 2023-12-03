@@ -1,82 +1,87 @@
-import React from 'react';
+import React from "react";
 
-import { useParams } from 'react-router';
+import { useParams } from "react-router";
 
-import { 
-    MAX_LENGTH,
-    MAX_LONG_LENGTH,
-    FeedbackIdeaSet,
-    FeedbackProblemSet
-} from '../../helpers/constants';
-
+import {
+	MAX_LENGTH,
+	MAX_LONG_LENGTH,
+	FeedbackIdeaSet,
+	FeedbackProblemSet,
+} from "../../helpers/constants";
 
 export default function FeedbackPage() {
-    const { feedbackId } = useParams();
+	const { feedbackId } = useParams();
 
-    const [title, setTitle] = React.useState('');
-    const [message, setMessage] = React.useState('');
+	const [title, setTitle] = React.useState("");
+	const [message, setMessage] = React.useState("");
 
-    const [set, setSet] = React.useState({});
+	const [set, setSet] = React.useState({});
 
+	React.useEffect(() => {
+		switch (feedbackId) {
+			case "problem":
+				setSet(FeedbackProblemSet);
+				break;
+			case "idea":
+				setSet(FeedbackIdeaSet);
+				break;
+			default:
+				break;
+		}
+	}, []);
 
-    React.useEffect(() => {
-        switch (feedbackId) {
-            case 'problem': setSet(FeedbackProblemSet); break;
-            case 'idea': setSet(FeedbackIdeaSet); break;
-            default: break;
-        }
-    }, []);
+	const handleTitleChange = (e) => setTitle(e.target.value);
+	const handleMessageChange = (e) => setMessage(e.target.value);
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
-    const handleTitleChange = (e) => setTitle(e.target.value);
-    const handleMessageChange = (e) => setMessage(e.target.value);
+		const feedback = {
+			title: title,
+			description: message,
+		};
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+		console.log("feedback:", feedback);
 
-        const feedback = {
-            title: title,
-            description: message
-        };
+		setMessage("");
+	};
 
-        console.log('feedback:', feedback);
+	return (
+		<div id="feedback" className="container">
+			<div className="content">
+				<p>{set.title}</p>
 
-        setMessage('');
-    };
+				<form onSubmit={handleSubmit}>
+					<input
+						className="input-action"
+						value={title}
+						onChange={handleTitleChange}
+						maxLength={MAX_LENGTH}
+						placeholder={
+							set.titlePlaceholder
+						}
+					/>
 
-    return (
-        <div id='feedback' className="container">
-            <div className='content'>
-                <p>
-                    {set.title}
-                </p>
+					<textarea
+						className="input-action"
+						rows="4"
+						value={message}
+						onChange={handleMessageChange}
+						maxLength={MAX_LONG_LENGTH}
+						placeholder={
+							set.messagePlaceholder
+						}
+						required
+					/>
 
-                <form onSubmit={handleSubmit}>
-                    <input
-                        className="input-action"
-                        value={title}
-                        onChange={handleTitleChange}
-                        maxLength={MAX_LENGTH}
-                        placeholder={set.titlePlaceholder}
-                    />
-
-                    <textarea
-                        className="input-action"
-                        rows="4"
-                        value={message}
-                        onChange={handleMessageChange}
-                        maxLength={MAX_LONG_LENGTH}
-                        placeholder={set.messagePlaceholder}
-                        required
-                    />
-
-                    <button
-                        type="submit"
-                        className="button-action">
-                            {set.buttonText}
-                    </button>
-                </form>
-            </div>
-        </div>
-    );
+					<button
+						type="submit"
+						className="button-action"
+					>
+						{set.buttonText}
+					</button>
+				</form>
+			</div>
+		</div>
+	);
 }

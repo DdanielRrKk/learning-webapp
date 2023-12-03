@@ -46,6 +46,26 @@ export const FeedbackProblemSet = {
 }
 
 
+export const MigrationConcept = [
+    {   id: 0,  data: 'Variables declaration' },
+    {   id: 1,  data: 'Data types' },
+    {   id: 2,  data: 'Operators' },
+    {   id: 3,  data: 'Functions' },
+];
+export const MigrationJavaScript = [
+    {   id: 0,  data: `let, var, const` },
+    {   id: 1,  data: `string, number, boolean` },
+    {   id: 2,  data: `array, object` },
+    {   id: 3,  data: `function` },
+];
+export const MigrationPython = [
+    {   id: 0,  data: `int, float, string` },
+    {   id: 1,  data: `list, tuple, set` },
+    {   id: 2,  data: `dict` },
+    {   id: 3,  data: `function` },
+];
+
+
 export const BOXES = [
     {   id: 0,  courseId: 'javascript', image: JS,          title: 'JavaScript' },
     {   id: 1,  courseId: 'react',      image: ReactJS,     title: 'React' },

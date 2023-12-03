@@ -5,6 +5,7 @@
 @import url('./pages/feedbackPage.css');
 @import url('./pages/writePage.css');
 @import url('./pages/errorPage.css');
+@import url('./pages/languageComparePage.css');
 
 @import url('./components/contentItem.css');
 @import url('./components/sidebarItem.css');
