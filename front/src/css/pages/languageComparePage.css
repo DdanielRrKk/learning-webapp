@@ -33,6 +33,15 @@
     border-radius: 20px;
 }
 
+.languages-dropdown > div > select option {
+    color: var(--light);
+    background-color: var(--dark);
+}
+.languages-dropdown > div > select option:checked {
+    color: var(--dark);
+    background-color: var(--light);
+}
+
 .comparison {
     display: flex;
     flex-direction: row;
