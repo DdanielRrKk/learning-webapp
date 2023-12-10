@@ -1,28 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import { useParams } from "react-router";
+import {useParams} from 'react-router';
 
-import {
-	MAX_LENGTH,
-	MAX_LONG_LENGTH,
-	FeedbackIdeaSet,
-	FeedbackProblemSet,
-} from "../../helpers/constants";
+import {MAX_LENGTH, MAX_LONG_LENGTH, FeedbackIdeaSet, FeedbackProblemSet} from '../../helpers/constants';
 
 export default function FeedbackPage() {
-	const { feedbackId } = useParams();
+	const {feedbackId} = useParams();
 
-	const [title, setTitle] = React.useState("");
-	const [message, setMessage] = React.useState("");
+	const [title, setTitle] = React.useState('');
+	const [message, setMessage] = React.useState('');
 
 	const [set, setSet] = React.useState({});
 
 	React.useEffect(() => {
 		switch (feedbackId) {
-			case "problem":
+			case 'problem':
 				setSet(FeedbackProblemSet);
 				break;
-			case "idea":
+			case 'idea':
 				setSet(FeedbackIdeaSet);
 				break;
 			default:
@@ -30,10 +25,10 @@ export default function FeedbackPage() {
 		}
 	}, []);
 
-	const handleTitleChange = (e) => setTitle(e.target.value);
-	const handleMessageChange = (e) => setMessage(e.target.value);
+	const handleTitleChange = e => setTitle(e.target.value);
+	const handleMessageChange = e => setMessage(e.target.value);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = e => {
 		e.preventDefault();
 
 		const feedback = {
@@ -41,42 +36,41 @@ export default function FeedbackPage() {
 			description: message,
 		};
 
-		console.log("feedback:", feedback);
+		console.log('feedback:', feedback);
 
-		setMessage("");
+		setMessage('');
 	};
 
 	return (
-		<div id="feedback" className="container">
-			<div className="content">
+		<div
+			id='feedback'
+			className='container'
+		>
+			<div className='content'>
 				<p>{set.title}</p>
 
 				<form onSubmit={handleSubmit}>
 					<input
-						className="input-action"
+						className='input-action'
 						value={title}
 						onChange={handleTitleChange}
 						maxLength={MAX_LENGTH}
-						placeholder={
-							set.titlePlaceholder
-						}
+						placeholder={set.titlePlaceholder}
 					/>
 
 					<textarea
-						className="input-action"
-						rows="4"
+						className='input-action'
+						rows='4'
 						value={message}
 						onChange={handleMessageChange}
 						maxLength={MAX_LONG_LENGTH}
-						placeholder={
-							set.messagePlaceholder
-						}
+						placeholder={set.messagePlaceholder}
 						required
 					/>
 
 					<button
-						type="submit"
-						className="button-action"
+						type='submit'
+						className='button-action'
 					>
 						{set.buttonText}
 					</button>

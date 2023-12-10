@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import {stackoverflowDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-export default function ContentItem({ type, data }) {
+export default function ContentItem({type, data}) {
 	switch (type) {
-		case "img":
+		case 'img':
 			return (
-				<div className="img-box">
+				<div className='img-box'>
 					{data.map((item, index) => (
 						<img
 							key={index}
@@ -18,13 +18,13 @@ export default function ContentItem({ type, data }) {
 				</div>
 			);
 
-		case "title":
+		case 'title':
 			return (
 				<>
 					{data.map((item, index) => (
 						<p
 							key={index}
-							className="title-box"
+							className='title-box'
 						>
 							{item}
 						</p>
@@ -32,13 +32,13 @@ export default function ContentItem({ type, data }) {
 				</>
 			);
 
-		case "text":
+		case 'text':
 			return (
 				<>
 					{data.map((item, index) => (
 						<p
 							key={index}
-							className="text-box"
+							className='text-box'
 						>
 							{item}
 						</p>
@@ -46,25 +46,25 @@ export default function ContentItem({ type, data }) {
 				</>
 			);
 
-		case "code":
+		case 'code':
 			return (
-				<div className="code-box">
+				<div className='code-box'>
 					<SyntaxHighlighter
-						language="javascript"
+						language='javascript'
 						style={stackoverflowDark}
 					>
-						{data.join("\n")}
+						{data.join('\n')}
 					</SyntaxHighlighter>
 				</div>
 			);
 
-		case "list":
+		case 'list':
 			return (
 				<ul>
 					{data.map((item, index) => (
 						<li
 							key={index}
-							className="list-box"
+							className='list-box'
 						>
 							{item}
 						</li>

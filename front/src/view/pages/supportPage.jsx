@@ -1,27 +1,30 @@
-import React from "react";
+import React from 'react';
 
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 export default function SupportPage() {
 	return (
-		<div className="container container-main-support">
+		<div className='container container-main-support'>
 			<p>Support Our Page</p>
 
 			<div>
-				<Link className="button-action" to={"/create"}>
+				<Link
+					className='button-action'
+					to={'/create'}
+				>
 					Write a Course
 				</Link>
 
 				<Link
-					className="button-action"
-					to={"/feedback/idea"}
+					className='button-action'
+					to={'/feedback/idea'}
 				>
 					Give an Idea
 				</Link>
 
 				<Link
-					className="button-action"
-					to={"/feedback/problem"}
+					className='button-action'
+					to={'/feedback/problem'}
 				>
 					Report a Problem
 				</Link>

@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
+import {configureStore} from '@reduxjs/toolkit';
 
 import LessonReducer from './lessonSlice/lessonSlice';
 
 export default configureStore({
-    reducer: {
-        lesson: LessonReducer,
-    },
+	reducer: {
+		lesson: LessonReducer,
+	},
 });

@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import { useParams } from "react-router-dom";
+import {useParams} from 'react-router-dom';
 
-import SidebarItem from "../../view/components/sidebarItem";
-import ContentItem from "../../view/components/contentItem";
+import SidebarItem from '../../view/components/sidebarItem';
+import ContentItem from '../../view/components/contentItem';
 
-import { HandleTransformContentStringToContentArray } from "../../helpers/helpers";
+import {HandleTransformContentStringToContentArray} from '../../helpers/helpers';
 
-import { GetCourseById } from "../../api/coursesAPI";
-import { JAVASCRIPT_LESSONS } from "../../helpers/constants";
+import {GetCourseById} from '../../api/coursesAPI';
+import {JAVASCRIPT_LESSONS} from '../../helpers/constants';
 
 export default function CoursePage() {
-	const { courseId } = useParams();
+	const {courseId} = useParams();
 
 	const [course, setCourse] = React.useState([]);
 	const [selectedLessonId, setSelectedLessonId] = React.useState(1);
@@ -23,79 +23,56 @@ export default function CoursePage() {
 		// setContent(HandleTransformContentStringToContentArray(selectedCourse[1]?.content));
 		// });
 		setCourse(JAVASCRIPT_LESSONS);
-		setContent(
-			HandleTransformContentStringToContentArray(
-				JAVASCRIPT_LESSONS[1]?.content
-			)
-		);
+		setContent(HandleTransformContentStringToContentArray(JAVASCRIPT_LESSONS[1]?.content));
 	}, []);
 
-	const handleSelectLessonChange = (lessonId) =>
-		setSelectedLessonId(lessonId);
+	const handleSelectLessonChange = lessonId => setSelectedLessonId(lessonId);
 
 	const handleChangeToPreviousLesson = () => {
 		if (selectedLessonId <= 1) return;
 		else if (!course[selectedLessonId - 1]?.content) {
-			setContent(
-				HandleTransformContentStringToContentArray(
-					course[selectedLessonId - 2]?.content
-				)
-			);
+			setContent(HandleTransformContentStringToContentArray(course[selectedLessonId - 2]?.content));
 			setSelectedLessonId(selectedLessonId - 2);
 		} else {
-			setContent(
-				HandleTransformContentStringToContentArray(
-					course[selectedLessonId - 1]?.content
-				)
-			);
+			setContent(HandleTransformContentStringToContentArray(course[selectedLessonId - 1]?.content));
 			setSelectedLessonId(selectedLessonId - 1);
 		}
 	};
 	const handleChangeToNextLesson = () => {
 		if (selectedLessonId >= course.length - 1) return;
 		else if (!course[selectedLessonId + 1]?.content) {
-			setContent(
-				HandleTransformContentStringToContentArray(
-					course[selectedLessonId + 2]?.content
-				)
-			);
+			setContent(HandleTransformContentStringToContentArray(course[selectedLessonId + 2]?.content));
 			setSelectedLessonId(selectedLessonId + 2);
 		} else {
-			setContent(
-				HandleTransformContentStringToContentArray(
-					course[selectedLessonId + 1]?.content
-				)
-			);
+			setContent(HandleTransformContentStringToContentArray(course[selectedLessonId + 1]?.content));
 			setSelectedLessonId(selectedLessonId + 1);
 		}
 	};
 
-	console.log("content", content);
-	console.log("course", course);
+	console.log('content', content);
+	console.log('course', course);
 
 	return (
-		<div id="course" className="container">
-			<ul className="sidebar">
-				{course.map((lesson) => (
+		<div
+			id='course'
+			className='container'
+		>
+			<ul className='sidebar'>
+				{course.map(lesson => (
 					<SidebarItem
 						key={lesson.id}
-						isSelected={
-							lesson.id ===
-							selectedLessonId
-						}
+						isSelected={lesson.id === selectedLessonId}
 						item={lesson}
-						selectLessonHandler={
-							handleSelectLessonChange
-						}
+						selectLessonHandler={handleSelectLessonChange}
 						setContent={setContent}
 					/>
 				))}
 			</ul>
 
-			<main className="article">
+			<main className='article'>
 				{content.length !== 0 ? (
 					<>
-						{content.map((item) => (
+						{content.map(item => (
 							<ContentItem
 								key={item.id}
 								type={item.type}
@@ -104,26 +81,20 @@ export default function CoursePage() {
 						))}
 					</>
 				) : (
-					<p className="title">
-						Still in progress...
-					</p>
+					<p className='title'>Still in progress...</p>
 				)}
 
-				<div className="navigation">
+				<div className='navigation'>
 					<button
-						className="button-action"
-						onClick={
-							handleChangeToPreviousLesson
-						}
+						className='button-action'
+						onClick={handleChangeToPreviousLesson}
 					>
 						Previous
 					</button>
 
 					<button
-						className="button-action"
-						onClick={
-							handleChangeToNextLesson
-						}
+						className='button-action'
+						onClick={handleChangeToNextLesson}
 					>
 						Next
 					</button>

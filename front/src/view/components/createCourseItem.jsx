@@ -1,12 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import {
-	IoCaretUpOutline,
-	IoCaretDownOutline,
-	IoPencilSharp,
-	IoTrashSharp,
-} from "react-icons/io5";
-import { Link } from "react-router-dom";
+import {IoCaretUpOutline, IoCaretDownOutline, IoPencilSharp, IoTrashSharp} from 'react-icons/io5';
+import {Link} from 'react-router-dom';
 
 export default function CreateCourseItem({
 	canGoUp,
@@ -23,18 +18,18 @@ export default function CreateCourseItem({
 	const handleDelete = () => deleteHandler(item.id);
 
 	return (
-		<li className="box-create-course">
+		<li className='box-create-course'>
 			<div>
 				{!canGoUp ? (
 					<IoCaretUpOutline
-						className="icon"
+						className='icon'
 						onClick={handleGoUp}
 					/>
 				) : null}
 
 				{!canGoDown ? (
 					<IoCaretDownOutline
-						className="icon"
+						className='icon'
 						onClick={handleGoDown}
 					/>
 				) : null}
@@ -42,18 +37,24 @@ export default function CreateCourseItem({
 
 			<p
 				key={item.id}
-				className={item?.content ? null : "breaker"}
+				className={item?.content ? null : 'breaker'}
 			>
 				{item.title}
 			</p>
 
 			{!item?.content ? null : (
-				<Link to={"/write"} onClick={handleOpenEdit}>
-					<IoPencilSharp className="icon" />
+				<Link
+					to={'/write'}
+					onClick={handleOpenEdit}
+				>
+					<IoPencilSharp className='icon' />
 				</Link>
 			)}
 
-			<IoTrashSharp className="icon" onClick={handleDelete} />
+			<IoTrashSharp
+				className='icon'
+				onClick={handleDelete}
+			/>
 		</li>
 	);
 }

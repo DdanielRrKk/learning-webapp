@@ -1,52 +1,52 @@
-import React from "react";
+import React from 'react';
 
-import ErrorPage from "./view/pages/errorPage";
+import ErrorPage from './view/pages/errorPage';
 
-import HomePage from "./view/pages/homePage";
-import CoursePage from "./view/pages/coursePage";
-import SupportPage from "./view/pages/supportPage";
-import LanguageComparePage from "./view/pages/languageComparePage";
+import HomePage from './view/pages/homePage';
+import CoursePage from './view/pages/coursePage';
+import SupportPage from './view/pages/supportPage';
+import LanguageComparePage from './view/pages/languageComparePage';
 
-import CreateCoursePage from "./view/pages/createCoursePage";
-import WritePage from "./view/pages/writePage";
-import FeedbackPage from "./view/pages/feedbackPage";
+import CreateCoursePage from './view/pages/createCoursePage';
+import WritePage from './view/pages/writePage';
+import FeedbackPage from './view/pages/feedbackPage';
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 
 export default function App() {
 	const router = createBrowserRouter([
 		{
-			path: "/",
+			path: '/',
 			element: <HomePage />,
 			errorElement: <ErrorPage />,
 		},
 		{
-			path: "/course/:courseId",
+			path: '/course/:courseId',
 			element: <CoursePage />,
 			errorElement: <ErrorPage />,
 		},
 		{
-			path: "/create",
+			path: '/create',
 			element: <CreateCoursePage />,
 			errorElement: <ErrorPage />,
 		},
 		{
-			path: "/support",
+			path: '/support',
 			element: <SupportPage />,
 			errorElement: <ErrorPage />,
 		},
 		{
-			path: "/feedback/:feedbackId",
+			path: '/feedback/:feedbackId',
 			element: <FeedbackPage />,
 			errorElement: <ErrorPage />,
 		},
 		{
-			path: "/write",
+			path: '/write',
 			element: <WritePage />,
 			errorElement: <ErrorPage />,
 		},
 		{
-			path: "/compare",
+			path: '/compare',
 			element: <LanguageComparePage />,
 			errorElement: <ErrorPage />,
 		},

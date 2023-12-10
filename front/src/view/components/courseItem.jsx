@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
-export default function CourseItem({ box }) {
+export default function CourseItem({box}) {
 	return (
 		<Link
 			key={box.id}
-			className="box-course"
+			className='box-course'
 			to={`/course/${box.courseId}`}
 		>
 			<img

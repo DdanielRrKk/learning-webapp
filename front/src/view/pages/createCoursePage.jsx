@@ -1,80 +1,80 @@
-import React from "react";
+import React from 'react';
 
-import { useDispatch } from "react-redux";
-import { setLesson } from "../../redux/lessonSlice/lessonSlice";
+import {useDispatch} from 'react-redux';
+import {setLesson} from '../../redux/lessonSlice/lessonSlice';
 
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
-import CreateCourseItem from "../../view/components/createCourseItem";
+import CreateCourseItem from '../../view/components/createCourseItem';
 
-import { MAX_LENGTH } from "../../helpers/constants";
+import {MAX_LENGTH} from '../../helpers/constants';
 
 export default function CreateCoursePage() {
 	const dispatch = useDispatch();
 
-	const [courseName, setCourseName] = React.useState("");
+	const [courseName, setCourseName] = React.useState('');
 	const [lessons, setLessons] = React.useState([]);
 	const [courseIcon, setCourseIcon] = React.useState(null);
 
 	const [isAddSectionOpen, setIsAddSectionOpen] = React.useState(false);
-	const [sectionName, setSectionName] = React.useState("");
+	const [sectionName, setSectionName] = React.useState('');
 
-	console.log("lessons", lessons);
+	console.log('lessons', lessons);
 
 	React.useEffect(() => {
 		// localStorage.removeItem('lessons');
-		const array = localStorage.getItem("lessons")
-			? JSON.parse(localStorage.getItem("lessons"))
-			: [];
+		const array = localStorage.getItem('lessons') ? JSON.parse(localStorage.getItem('lessons')) : [];
 		if (lessons.length !== array.length) setLessons(array);
 	}, [lessons]);
 
-	const handleCourseNameChange = (e) => setCourseName(e.target.value);
-	const handleSectionNameChange = (e) => setSectionName(e.target.value);
+	const handleCourseNameChange = e => setCourseName(e.target.value);
+	const handleSectionNameChange = e => setSectionName(e.target.value);
 
-	const handleAddSectionOpen = () =>
-		setIsAddSectionOpen(!isAddSectionOpen);
+	const handleAddSectionOpen = () => setIsAddSectionOpen(!isAddSectionOpen);
 
 	const handleAddingSection = () => {
-		if (sectionName === "") {
-			console.log("Please enter section name");
+		if (sectionName === '') {
+			console.log('Please enter section name');
 			return;
 		}
 
-		const array = localStorage.getItem("lessons")
-			? JSON.parse(localStorage.getItem("lessons"))
-			: [];
-		array.push({ id: array.length + 1, title: sectionName });
+		const array = localStorage.getItem('lessons') ? JSON.parse(localStorage.getItem('lessons')) : [];
+		array.push({id: array.length + 1, title: sectionName});
 		setLessons(array);
-		localStorage.setItem("lessons", JSON.stringify(array));
+		localStorage.setItem('lessons', JSON.stringify(array));
 
 		setIsAddSectionOpen(false);
-		setSectionName("");
+		setSectionName('');
 	};
 
 	const handleAddIcon = () => {
-		console.log("handleAddIcon");
+		console.log('handleAddIcon');
 		// setCourseIcon();
 	};
-	const handleOnDragOver = (e) => e.preventDefault();
-	const handleOnDrop = (e) => {
+	const handleOnDragOver = e => e.preventDefault();
+	const handleOnDrop = e => {
 		const file = e.dataTransfer.files[0];
 		if (file) setCourseIcon(URL.createObjectURL(file));
 	};
 
 	const handleSaveCourse = () => {
-		localStorage.removeItem("lessons");
+		localStorage.removeItem('lessons');
 		// const courseObject = {
 
 		// };
 		// console.log('courseObject', courseObject);
 	};
+	const handleClearData = () => {
+		localStorage.removeItem('lessons');
+		setCourseIcon(null);
+		setCourseName('');
+		setLessons([]);
+		setIsAddSectionOpen(false);
+	};
 
-	const handleGoUp = (id) => {
-		const array = localStorage.getItem("lessons")
-			? JSON.parse(localStorage.getItem("lessons"))
-			: [];
-		const index = array.findIndex((item) => item.id === id);
+	const handleGoUp = id => {
+		const array = localStorage.getItem('lessons') ? JSON.parse(localStorage.getItem('lessons')) : [];
+		const index = array.findIndex(item => item.id === id);
 		if (index === 0) return;
 
 		const tempId1 = array[index].id;
@@ -88,13 +88,11 @@ export default function CreateCoursePage() {
 		array[index - 1].id = tempId2;
 
 		setLessons(array);
-		localStorage.setItem("lessons", JSON.stringify(array));
+		localStorage.setItem('lessons', JSON.stringify(array));
 	};
-	const handleGoDown = (id) => {
-		const array = localStorage.getItem("lessons")
-			? JSON.parse(localStorage.getItem("lessons"))
-			: [];
-		const index = array.findIndex((item) => item.id === id);
+	const handleGoDown = id => {
+		const array = localStorage.getItem('lessons') ? JSON.parse(localStorage.getItem('lessons')) : [];
+		const index = array.findIndex(item => item.id === id);
 		if (index === array.length - 1) return;
 
 		const tempId1 = array[index].id;
@@ -108,12 +106,12 @@ export default function CreateCoursePage() {
 		array[index + 1].id = tempId2;
 
 		setLessons(array);
-		localStorage.setItem("lessons", JSON.stringify(array));
+		localStorage.setItem('lessons', JSON.stringify(array));
 	};
-	const handleOpenForEdit = (item) => dispatch(setLesson(item));
+	const handleOpenForEdit = item => dispatch(setLesson(item));
 	// const handleOpenForEdit = (item) => localStorage.setItem('lessonForEdit', JSON.stringify(item));
-	const handleDeleteItem = (id) => {
-		const array = JSON.parse(localStorage.getItem("lessons"));
+	const handleDeleteItem = id => {
+		const array = JSON.parse(localStorage.getItem('lessons'));
 		const tempArray = [];
 
 		for (let i = 0; i < array.length; i++) {
@@ -125,23 +123,26 @@ export default function CreateCoursePage() {
 		}
 
 		setLessons(tempArray);
-		localStorage.setItem("lessons", JSON.stringify(tempArray));
+		localStorage.setItem('lessons', JSON.stringify(tempArray));
 	};
 
 	return (
-		<div id="create-course" className="container">
+		<div
+			id='create-course'
+			className='container'
+		>
 			<p>Course Creation Page</p>
 
 			<input
-				className="input-action"
+				className='input-action'
 				value={courseName}
 				onChange={handleCourseNameChange}
 				maxLength={MAX_LENGTH}
-				placeholder="Course Name"
+				placeholder='Course Name'
 			/>
 
 			<div
-				id="dragArea"
+				id='dragArea'
 				onDrop={handleOnDrop}
 				onDragOver={handleOnDragOver}
 			>
@@ -149,7 +150,7 @@ export default function CreateCoursePage() {
 					<>
 						<img
 							src={courseIcon}
-							alt="Uploaded"
+							alt='Uploaded'
 						/>
 					</>
 				) : (
@@ -157,63 +158,62 @@ export default function CreateCoursePage() {
 				)}
 			</div>
 
-			<div className="select-file">
-				<label for="file">Select a file:</label>
+			<div className='select-file'>
+				<label for='file'>Select a file:</label>
 				<input
-					id="file"
-					className="input-action"
-					type="file"
-					onChange={(e) =>
-						setCourseIcon(
-							URL.createObjectURL(
-								e.target
-									.files[0]
-							)
-						)
-					}
-					accept="image/*"
+					id='file'
+					className='input-action'
+					type='file'
+					onChange={e => setCourseIcon(URL.createObjectURL(e.target.files[0]))}
+					accept='image/*'
 				/>
 			</div>
 
-			<div className="container-secondary">
+			<div className='container-secondary'>
 				<div>
 					<button
-						className="button-action"
+						className='button-action'
 						onClick={handleAddSectionOpen}
 					>
 						Add Section
 					</button>
 
 					<Link
-						className="button-action"
-						to={"/write"}
+						className='button-action'
+						to={'/write'}
 					>
 						Add Lesson
 					</Link>
 				</div>
 
-				<button
-					className="button-action"
-					onClick={handleSaveCourse}
-				>
-					Save Course
-				</button>
+				<div>
+					<button
+						className='button-action'
+						onClick={handleSaveCourse}
+					>
+						Save Course
+					</button>
+					<button
+						className='button-action'
+						onClick={handleClearData}
+					>
+						Clear Data
+					</button>
+				</div>
 			</div>
 
 			{!isAddSectionOpen ? null : (
-				<div id="addSection">
+				<div id='addSection'>
 					<input
-						className="input-action"
+						className='input-action'
 						value={sectionName}
-						onChange={
-							handleSectionNameChange
-						}
+						onChange={handleSectionNameChange}
 						maxLength={MAX_LENGTH}
-						placeholder="Section Name"
+						placeholder='Section Name'
 					/>
 
 					<button
-						className="button-action"
+						className='button-action'
 						onClick={handleAddingSection}
 					>
 						Add
@@ -221,27 +221,16 @@ export default function CreateCoursePage() {
 				</div>
 			)}
 
-			<ul id="course-list">
-				{lessons.map((lesson) => (
+			<ul id='course-list'>
+				{lessons.map(lesson => (
 					<CreateCourseItem
 						key={lesson.id}
 						item={lesson}
-						canGoUp={
-							lesson.id ===
-							lessons[0].id
-						}
-						canGoDown={
-							lesson.id ===
-							lessons[
-								lessons.length -
-									1
-							].id
-						}
+						canGoUp={lesson.id === lessons[0].id}
+						canGoDown={lesson.id === lessons[lessons.length - 1].id}
 						goUpHandler={handleGoUp}
 						goDownHandler={handleGoDown}
-						openEditHandler={
-							handleOpenForEdit
-						}
+						openEditHandler={handleOpenForEdit}
 						deleteHandler={handleDeleteItem}
 					/>
 				))}
