@@ -26,7 +26,12 @@ function useAuthDispatch() {
 
 const initialState = {
 	status: 0, // 0 - rejected, 1 - pending, 2 - resolved
-	user: null,
+	user: {
+		id: 1,
+		name: 'John',
+		email: 'john@do.com',
+		age: 30,
+	},
 	error: null,
 };
 

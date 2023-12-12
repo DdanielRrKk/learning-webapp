@@ -2,7 +2,7 @@ import React from 'react';
 
 import ErrorPage from './view/pages/errorPage';
 
-import Layout from './view/pages/layout';
+import Layout from './view/pages/layout/layout';
 
 import LoginPage from './view/pages/loginPage';
 import RegisterPage from './view/pages/registerPage';
@@ -22,24 +22,24 @@ import ProtectedRoute from './view/components/ProtectedRoute';
 function App() {
 	return (
 		<Routes>
-			{/* <Route
+			<Route
 				path='/'
 				element={
 					<ProtectedRoute>
 						<Layout />
 					</ProtectedRoute>
 				}
-			> */}
-			<Route
+			>
+				{/* <Route
 				path='/'
 				element={<Layout />}
-			>
+			> */}
 				<Route
 					path=''
 					element={<HomePage />}
 				/>
 				<Route
-					path='/course'
+					path='/course/:courseId'
 					element={<CoursePage />}
 				/>
 				<Route
@@ -47,11 +47,11 @@ function App() {
 					element={<SupportPage />}
 				/>
 				<Route
-					path='/language-compare'
+					path='/compare'
 					element={<LanguageComparePage />}
 				/>
 				<Route
-					path='/create-course'
+					path='/create'
 					element={<CreateCoursePage />}
 				/>
 				<Route
@@ -59,13 +59,13 @@ function App() {
 					element={<WritePage />}
 				/>
 				<Route
-					path='/feedback'
+					path='/feedback/:feedbackId'
 					element={<FeedbackPage />}
 				/>
-				<Route
+				{/* <Route
 					path='*'
 					element={<ErrorPage />}
-				/>
+				/> */}
 			</Route>
 			<Route
 				path='/login'

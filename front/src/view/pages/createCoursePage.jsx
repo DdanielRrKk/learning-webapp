@@ -10,7 +10,7 @@ import CreateCourseItem from '../../view/components/createCourseItem';
 import {MAX_LENGTH} from '../../utils/constants';
 
 export default function CreateCoursePage() {
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
 	const [courseName, setCourseName] = React.useState('');
 	const [lessons, setLessons] = React.useState([]);
@@ -108,8 +108,8 @@ export default function CreateCoursePage() {
 		setLessons(array);
 		localStorage.setItem('lessons', JSON.stringify(array));
 	};
-	const handleOpenForEdit = item => dispatch(setLesson(item));
-	// const handleOpenForEdit = (item) => localStorage.setItem('lessonForEdit', JSON.stringify(item));
+	// const handleOpenForEdit = item => dispatch(setLesson(item));
+	const handleOpenForEdit = item => localStorage.setItem('lessonForEdit', JSON.stringify(item));
 	const handleDeleteItem = id => {
 		const array = JSON.parse(localStorage.getItem('lessons'));
 		const tempArray = [];

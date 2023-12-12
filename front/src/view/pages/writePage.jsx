@@ -9,8 +9,8 @@ import {HandleTransformContentStringToContentArray} from '../../utils/helpers';
 import {MAX_LENGTH, WRITE_PAGE_PLACEHOLDER} from '../../utils/constants';
 
 export default function WritePage() {
-	const lessonForEdit = useSelector(state => state.lesson);
-	const dispatch = useDispatch();
+	// const lessonForEdit = useSelector(state => state.lesson);
+	// const dispatch = useDispatch();
 
 	const [lessonId, setLessonId] = React.useState(null);
 	const [title, setTitle] = React.useState('');
@@ -23,14 +23,14 @@ export default function WritePage() {
 	// console.log('content', content);
 
 	React.useEffect(() => {
-		if (lessonForEdit) {
-			setLessonId(lessonForEdit.id);
-			setTitle(lessonForEdit.title);
-			setContentString(lessonForEdit.content);
-			setIsMenuOpen(false);
-			setContentArray(HandleTransformContentStringToContentArray(lessonForEdit.content));
-			dispatch(removeLesson());
-		}
+		// if (lessonForEdit) {
+		// 	setLessonId(lessonForEdit.id);
+		// 	setTitle(lessonForEdit.title);
+		// 	setContentString(lessonForEdit.content);
+		// 	setIsMenuOpen(false);
+		// 	setContentArray(HandleTransformContentStringToContentArray(lessonForEdit.content));
+		// dispatch(removeLesson());
+		// }
 	}, []);
 
 	const handleTitleChange = e => setTitle(e.target.value);
