@@ -1,9 +1,11 @@
-import React from 'react';
-import {useAuth} from '../context/authContext';
+import {useState} from 'react';
 import {doArrayHaveEmptyStrings} from '../utils/validations';
+import {useAuthState, useAuthDispatch, doLogin} from '../context/authContext';
 
 function useLogin() {
-	const {login} = useAuth();
+	const {user, status, error} = useAuthState();
+	const dispatch = useAuthDispatch();
+
 	const [email, setEmail] = React.useState('');
 	const [password, setPassword] = React.useState('');
 
@@ -22,28 +24,21 @@ function useLogin() {
 			return;
 		}
 
-		fetch('/api/v1/login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				email,
-				password,
-			}),
-		})
-			.then(result => result.json())
-			.then(data => login(data))
-			.catch(error => console.log(error));
-
-		return {
-			email,
-			password,
-			handleEmailChange,
-			handlePasswordChange,
-			handleLoginForm,
-		};
+		doLogin(dispatch, email, password);
+		setEmail('');
+		setPassword('');
 	}
+
+	return {
+		email,
+		password,
+		handleEmailChange,
+		handlePasswordChange,
+		handleLoginForm,
+		user,
+		status,
+		error,
+	};
 }
 
 export {useLogin};

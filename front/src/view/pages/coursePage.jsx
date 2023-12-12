@@ -7,7 +7,7 @@ import ContentItem from '../../view/components/contentItem';
 
 import {HandleTransformContentStringToContentArray} from '../../utils/helpers';
 
-import {GetCourseById} from '../../api/coursesAPI';
+// import {GetCourseById} from '../../api/auth.services';
 import {JAVASCRIPT_LESSONS} from '../../utils/constants';
 
 export default function CoursePage() {

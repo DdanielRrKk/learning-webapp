@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 import CourseItem from '../../view/components/courseItem';
 
-import {GetAllCourses} from '../../api/coursesAPI';
+// import {GetAllCourses} from '../../api/course.services';
 import {BOXES} from '../../utils/constants';
 
 export default function HomePage() {

@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const API_URL = '';
+
 export async function GetAllCourses() {
 	try {
 		const response = await axios.get(
