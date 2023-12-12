@@ -5,8 +5,8 @@ import {removeLesson} from '../../redux/lessonSlice/lessonSlice';
 
 import ContentItem from '../../view/components/contentItem';
 
-import {HandleTransformContentStringToContentArray} from '../../helpers/helpers';
-import {MAX_LENGTH, WRITE_PAGE_PLACEHOLDER} from '../../helpers/constants';
+import {HandleTransformContentStringToContentArray} from '../../utils/helpers';
+import {MAX_LENGTH, WRITE_PAGE_PLACEHOLDER} from '../../utils/constants';
 
 export default function WritePage() {
 	const lessonForEdit = useSelector(state => state.lesson);

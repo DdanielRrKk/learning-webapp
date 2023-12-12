@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 import CreateCourseItem from '../../view/components/createCourseItem';
 
-import {MAX_LENGTH} from '../../helpers/constants';
+import {MAX_LENGTH} from '../../utils/constants';
 
 export default function CreateCoursePage() {
 	const dispatch = useDispatch();

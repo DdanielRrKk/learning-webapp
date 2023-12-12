@@ -5,10 +5,10 @@ import {useParams} from 'react-router-dom';
 import SidebarItem from '../../view/components/sidebarItem';
 import ContentItem from '../../view/components/contentItem';
 
-import {HandleTransformContentStringToContentArray} from '../../helpers/helpers';
+import {HandleTransformContentStringToContentArray} from '../../utils/helpers';
 
 import {GetCourseById} from '../../api/coursesAPI';
-import {JAVASCRIPT_LESSONS} from '../../helpers/constants';
+import {JAVASCRIPT_LESSONS} from '../../utils/constants';
 
 export default function CoursePage() {
 	const {courseId} = useParams();

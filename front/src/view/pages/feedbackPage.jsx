@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useParams} from 'react-router';
 
-import {MAX_LENGTH, MAX_LONG_LENGTH, FeedbackIdeaSet, FeedbackProblemSet} from '../../helpers/constants';
+import {MAX_LENGTH, MAX_LONG_LENGTH, FeedbackIdeaSet, FeedbackProblemSet} from '../../utils/constants';
 
 export default function FeedbackPage() {
 	const {feedbackId} = useParams();

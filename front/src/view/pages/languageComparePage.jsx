@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {MigrationConcept, MigrationJavaScript, MigrationPython} from '../../helpers/constants';
+import {MigrationConcept, MigrationJavaScript, MigrationPython} from '../../utils/constants';
 
 export default function LanguageComparePage() {
 	const [conceptArray, setConceptArray] = React.useState(MigrationConcept);
