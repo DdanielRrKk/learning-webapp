@@ -1,4 +1,4 @@
-import React from 'react';
+import {useEffect} from 'react';
 
 import ErrorPage from './view/pages/errorPage';
 
@@ -15,11 +15,25 @@ import LanguageComparePage from './view/pages/languageComparePage';
 import CreateCoursePage from './view/pages/createCoursePage';
 import WritePage from './view/pages/writePage';
 import FeedbackPage from './view/pages/feedbackPage';
+import SettingsPage from './view/pages/settingsPage';
 
 import {Route, Routes} from 'react-router-dom';
 import ProtectedRoute from './view/components/ProtectedRoute';
 
+import {useNavigate} from 'react-router-dom';
+import {useAuthDispatch} from './context/authContext';
+
 function App() {
+	const navigate = useNavigate();
+	const dispatch = useAuthDispatch();
+	useEffect(() => {
+		const storedUser = window.localStorage.getItem('user');
+		if (storedUser) {
+			const user = JSON.parse(storedUser);
+			dispatch({user});
+			navigate('/', {replace: true});
+		}
+	}, []);
 	return (
 		<Routes>
 			<Route
@@ -30,10 +44,6 @@ function App() {
 					</ProtectedRoute>
 				}
 			>
-				{/* <Route
-				path='/'
-				element={<Layout />}
-			> */}
 				<Route
 					path=''
 					element={<HomePage />}
@@ -62,10 +72,14 @@ function App() {
 					path='/feedback/:feedbackId'
 					element={<FeedbackPage />}
 				/>
-				{/* <Route
+				<Route
+					path='/settings'
+					element={<SettingsPage />}
+				/>
+				<Route
 					path='*'
 					element={<ErrorPage />}
-				/> */}
+				/>
 			</Route>
 			<Route
 				path='/login'
@@ -74,6 +88,10 @@ function App() {
 			<Route
 				path='register'
 				element={<RegisterPage />}
+			/>
+			<Route
+				path='*'
+				element={<ErrorPage />}
 			/>
 		</Routes>
 	);

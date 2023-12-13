@@ -1,8 +1,12 @@
 function PhoneInput({labelText, value, changeHandler}) {
 	return (
-		<label>
+		<label
+			htmlFor='phone'
+			className='form-input'
+		>
 			{labelText}:
 			<input
+				name='phone'
 				type='tel'
 				value={value}
 				onChange={changeHandler}

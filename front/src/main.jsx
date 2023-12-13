@@ -12,10 +12,10 @@ import {BrowserRouter} from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	// <Provider store={store}>
-	<AuthProvider>
-		<BrowserRouter>
+	<BrowserRouter>
+		<AuthProvider>
 			<App />
-		</BrowserRouter>
-	</AuthProvider>
+		</AuthProvider>
+	</BrowserRouter>
 	// </Provider>
 );

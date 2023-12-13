@@ -9,17 +9,24 @@ const testData = {
 	age: 30,
 };
 
-async function register(email, password) {
-	return axios.post(`${API_URL}/register`, {
-		email,
-		password,
+async function register(user) {
+	return new Promise((resolve, reject) => {
+		try {
+			setTimeout(() => {
+				resolve(user);
+			}, 1000);
+		} catch (error) {
+			reject('No such user.');
+		}
 	});
+	// return axios.post(`${API_URL}/register`, user);
 }
 
 async function login(email, password) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			if (email === 'admin@admin.com' && password === 'admin123') {
+				console.log('testData', testData);
 				resolve(testData);
 			} else {
 				reject('No such user.');

@@ -1,6 +1,6 @@
 import {createContext, useContext, useReducer} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {login} from '../api/auth.services';
+import {login, register} from '../api/auth.services';
 
 export const AuthStateContext = createContext();
 export const AuthDispatchContext = createContext();
@@ -26,12 +26,7 @@ function useAuthDispatch() {
 
 const initialState = {
 	status: 0, // 0 - rejected, 1 - pending, 2 - resolved
-	user: {
-		id: 1,
-		name: 'John',
-		email: 'john@do.com',
-		age: 30,
-	},
+	user: null,
 	error: null,
 };
 
@@ -49,6 +44,8 @@ async function doLogin(dispatch, email, password) {
 	try {
 		dispatch({status: 1});
 		const result = await login(email, password);
+		console.log('result', result);
+		window.localStorage.setItem('user', JSON.stringify(result));
 		dispatch({status: 2, user: result, error: null});
 	} catch (error) {
 		dispatch({status: 0, user: null, error});
@@ -56,9 +53,30 @@ async function doLogin(dispatch, email, password) {
 }
 
 async function doLogout(dispatch) {
-	const navigate = useNavigate();
-	dispatch(initialState);
-	navigate('/login', {replace: true});
+	try {
+		window.localStorage.removeItem('user');
+		dispatch(initialState);
+	} catch (error) {
+		dispatch({status: 0, user: null, error});
+	}
 }
 
-export {AuthProvider, useAuthState, useAuthDispatch, doLogin, doLogout};
+async function doRegister(dispatch, firstName, lastName, phone, email, password) {
+	try {
+		const user = {
+			firstName,
+			lastName,
+			phone,
+			email,
+			password,
+		};
+		dispatch({status: 1});
+		const result = await register(user);
+		window.localStorage.setItem('user', JSON.stringify(result));
+		dispatch({status: 2, user: result, error: null});
+	} catch (error) {
+		dispatch({status: 0, user: null, error});
+	}
+}
+
+export {AuthProvider, useAuthState, useAuthDispatch, doLogin, doLogout, doRegister};

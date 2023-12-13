@@ -1,0 +1,31 @@
+.content {
+    padding: 40px 80px;
+    border: 1px solid var(--light);
+    text-align: center;
+}
+
+.content > h1 {
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+/* form > input[type="submit"] {
+    margin-top: 1.5rem;
+} */
+
+.content > p > a {
+    font-weight: 600;
+    color: var(--light);
+}
+.content > p > a:hover {
+    font-weight: 600;
+    text-decoration: underline;
+}

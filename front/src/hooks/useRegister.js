@@ -1,7 +1,11 @@
 import {useState} from 'react';
 import {doArrayHaveEmptyStrings, isPasswordDifferent} from '../utils/validations';
+import {useAuthState, useAuthDispatch, doRegister} from '../context/authContext';
 
 function useRegister() {
+	const {user, status, error} = useAuthState();
+	const dispatch = useAuthDispatch();
+
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [phone, setPhone] = useState('');
@@ -44,39 +48,34 @@ function useRegister() {
 			return;
 		}
 
-		fetch('/api/v1/register', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				firstName,
-				lastName,
-				phone,
-				email,
-				password,
-			}),
-		})
-			.then(result => result.json())
-			.then(data => login(data))
-			.catch(error => console.log(error));
+		doRegister(dispatch, firstName, lastName, phone, email, password);
 
-		return {
-			firstName,
-			lastName,
-			phone,
-			email,
-			password,
-			confirmPassword,
-			handleFirstNameChange,
-			handleLastNameChange,
-			handlePhoneChange,
-			handleEmailChange,
-			handlePasswordChange,
-			handleConfirmPasswordChange,
-			handleRegisterForm,
-		};
+		setFirstName('');
+		setLastName('');
+		setPhone('');
+		setEmail('');
+		setPassword('');
+		setConfirmPassword('');
 	}
+
+	return {
+		firstName,
+		lastName,
+		phone,
+		email,
+		password,
+		confirmPassword,
+		handleFirstNameChange,
+		handleLastNameChange,
+		handlePhoneChange,
+		handleEmailChange,
+		handlePasswordChange,
+		handleConfirmPasswordChange,
+		handleRegisterForm,
+		user,
+		status,
+		error,
+	};
 }
 
 export {useRegister};

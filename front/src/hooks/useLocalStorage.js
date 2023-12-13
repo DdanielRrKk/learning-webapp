@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {getStorageData} from '../utils/storage';
 
-function useLocalStorage(key, defValue) {
+function useLocalStorage(key, defValue = null) {
 	const [value, setValue] = useState(getStorageData(key, defValue));
 
 	function setItem(newValue) {

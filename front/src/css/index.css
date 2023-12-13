@@ -68,6 +68,19 @@ button, a {
     overflow: auto;
 }
 
+.form-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.form-input > input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--dark-secondary);
+}
+
 .button-action {
     padding: 0.75rem 1.5rem;
     margin-bottom: 2.5rem;
@@ -77,6 +90,7 @@ button, a {
     font-weight: 600;
     border: 1px var(--light) solid;
     background-color: var(--light);
+    cursor: pointer;
 }
 .button-action:hover {
     background-color: transparent;

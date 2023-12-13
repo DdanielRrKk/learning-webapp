@@ -1,6 +1,9 @@
 function EmailInput({labelText, value, changeHandler}) {
 	return (
-		<label for='email'>
+		<label
+			htmlFor='email'
+			className='form-input'
+		>
 			{labelText}
 			<input
 				type='email'
