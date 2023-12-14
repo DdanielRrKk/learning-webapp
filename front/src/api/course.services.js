@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API_URL = '';
 
-export async function GetAllCourses() {
+export async function getAllCourses() {
 	try {
 		const response = await axios.get(
 			'http://localhost/learning-webapp/database/controllers/get_all_courses.php'
@@ -29,7 +29,7 @@ export async function GetAllCourses() {
 	}
 }
 
-export async function GetCourseById(courseId) {
+export async function getCourseById(courseId) {
 	try {
 		const response = await axios.get(
 			'http://localhost/learning-webapp/database/controllers/get_lessons_for_course.php',

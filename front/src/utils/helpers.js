@@ -1,4 +1,4 @@
-export function HandleTransformContentStringToContentArray(contentString) {
+export function handleTransformContentStringToContentArray(contentString) {
 	if (!typeof contentString === 'string' || !contentString instanceof String || contentString.length === 0) {
 		return [];
 	}

@@ -1,21 +1,22 @@
 import {useEffect} from 'react';
 
-import ErrorPage from './view/pages/errorPage';
+import ErrorPage from './view/pages/ErrorPage';
 
-import Layout from './view/pages/layout/layout';
+import Layout from './view/pages/layout/Layout';
 
-import LoginPage from './view/pages/loginPage';
-import RegisterPage from './view/pages/registerPage';
+import LoginPage from './view/pages/LoginPage';
+import RegisterPage from './view/pages/RegisterPage';
 
-import HomePage from './view/pages/homePage';
-import CoursePage from './view/pages/coursePage';
-import SupportPage from './view/pages/supportPage';
-import LanguageComparePage from './view/pages/languageComparePage';
+import HomePage from './view/pages/HomePage';
+import CoursePage from './view/pages/CoursePage';
+import SupportPage from './view/pages/SupportPage';
+import LanguageComparePage from './view/pages/LanguageComparePage';
 
-import CreateCoursePage from './view/pages/createCoursePage';
-import WritePage from './view/pages/writePage';
-import FeedbackPage from './view/pages/feedbackPage';
-import SettingsPage from './view/pages/settingsPage';
+import CreateCoursePage from './view/pages/CreateCoursePage';
+import WritePage from './view/pages/WritePage';
+import FeedbackPage from './view/pages/FeedbackPage';
+import SettingsPage from './view/pages/SettingsPage';
+import ProfilePage from './view/pages/ProfilePage';
 
 import {Route, Routes} from 'react-router-dom';
 import ProtectedRoute from './view/components/ProtectedRoute';
@@ -26,6 +27,7 @@ import {useAuthDispatch} from './context/authContext';
 function App() {
 	const navigate = useNavigate();
 	const dispatch = useAuthDispatch();
+
 	useEffect(() => {
 		const storedUser = window.localStorage.getItem('user');
 		if (storedUser) {
@@ -34,6 +36,7 @@ function App() {
 			navigate('/', {replace: true});
 		}
 	}, []);
+
 	return (
 		<Routes>
 			<Route
@@ -75,6 +78,10 @@ function App() {
 				<Route
 					path='/settings'
 					element={<SettingsPage />}
+				/>
+				<Route
+					path='/profile'
+					element={<ProfilePage />}
 				/>
 				<Route
 					path='*'

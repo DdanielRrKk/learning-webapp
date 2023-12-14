@@ -3,12 +3,12 @@ import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {removeLesson} from '../../redux/lessonSlice/lessonSlice';
 
-import ContentItem from '../../view/components/contentItem';
+import ContentItem from '../components/contentItem';
 
-import {HandleTransformContentStringToContentArray} from '../../utils/helpers';
+import {handleTransformContentStringToContentArray} from '../../utils/helpers';
 import {MAX_LENGTH, WRITE_PAGE_PLACEHOLDER} from '../../utils/constants';
 
-export default function WritePage() {
+function WritePage() {
 	// const lessonForEdit = useSelector(state => state.lesson);
 	// const dispatch = useDispatch();
 
@@ -36,7 +36,7 @@ export default function WritePage() {
 	const handleTitleChange = e => setTitle(e.target.value);
 	const handleContentStringsChange = e => {
 		setContentString(e.target.value);
-		setContentArray(HandleTransformContentStringToContentArray(e.target.value));
+		setContentArray(handleTransformContentStringToContentArray(e.target.value));
 	};
 
 	const handleClearContentString = () => {
@@ -131,3 +131,5 @@ export default function WritePage() {
 		</div>
 	);
 }
+
+export default WritePage;

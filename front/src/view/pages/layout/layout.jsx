@@ -1,6 +1,10 @@
-import {NavLink, Outlet, useNavigate} from 'react-router-dom';
-import styles from './layout.module.css';
+import {Outlet, useNavigate} from 'react-router-dom';
 import {useAuthState, useAuthDispatch, doLogout} from '../../../context/authContext';
+
+import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
+
+import styles from './Layout.module.css';
 
 function Layout() {
 	const {user} = useAuthState();
@@ -16,26 +20,17 @@ function Layout() {
 	return (
 		<div className={styles.container}>
 			<header>
-				<nav className={styles.navbar}>
-					<div>Logo</div>
-					<ul>
-						<NavLink to='/'>Home</NavLink>
-						<NavLink to='/course'>Courses</NavLink>
-						<NavLink to='/settings'>Settings</NavLink>
-					</ul>
-					<div>
-						<img
-							src='logo.png'
-							alt='logo'
-						/>
-						<button onClick={handleLogout}>Logout</button>
-					</div>
-				</nav>
+				<Navbar
+					user={user}
+					logoutHandler={handleLogout}
+				/>
 			</header>
 
 			<main className={styles.content}>
 				<Outlet />
 			</main>
+
+			<Footer />
 		</div>
 	);
 }

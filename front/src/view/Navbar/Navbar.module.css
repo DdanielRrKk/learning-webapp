@@ -1,0 +1,43 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: var(--dark);
+    box-shadow: 0px 2px 4px -1px rgba(255, 255, 255, 0.2), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+}
+
+.navbar > a {
+    font-size: 1.5rem;
+}
+.navbar > a > span {
+    font-weight: 600;
+}
+
+.navbar > ul, .navbar > div {
+    display: flex;
+    gap: 36px;
+}
+
+.navbar > div > a {
+    width: 40px;
+    border: 1px solid var(--light);
+    border-radius: 20px;
+}
+
+.navbar > ul > a:hover {
+    text-decoration: underline;
+}
+
+.navbar > div > button {
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    background-color: transparent;
+    border: 1px solid var(--light);
+}
+.navbar > div > button:hover {
+    color: var(--dark);
+    background-color: var(--light);
+    border: 1px solid var(--dark);
+}

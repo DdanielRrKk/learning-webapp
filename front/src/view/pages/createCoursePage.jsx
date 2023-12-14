@@ -5,11 +5,11 @@ import {setLesson} from '../../redux/lessonSlice/lessonSlice';
 
 import {Link} from 'react-router-dom';
 
-import CreateCourseItem from '../../view/components/createCourseItem';
+import CreateCourseItem from '../components/createCourseItem';
 
 import {MAX_LENGTH} from '../../utils/constants';
 
-export default function CreateCoursePage() {
+function CreateCoursePage() {
 	// const dispatch = useDispatch();
 
 	const [courseName, setCourseName] = React.useState('');
@@ -238,3 +238,5 @@ export default function CreateCoursePage() {
 		</div>
 	);
 }
+
+export default CreateCoursePage;

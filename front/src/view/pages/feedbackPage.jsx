@@ -4,7 +4,7 @@ import {useParams} from 'react-router';
 
 import {MAX_LENGTH, MAX_LONG_LENGTH, FeedbackIdeaSet, FeedbackProblemSet} from '../../utils/constants';
 
-export default function FeedbackPage() {
+function FeedbackPage() {
 	const {feedbackId} = useParams();
 
 	const [title, setTitle] = React.useState('');
@@ -79,3 +79,5 @@ export default function FeedbackPage() {
 		</div>
 	);
 }
+
+export default FeedbackPage;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {MigrationConcept, MigrationJavaScript, MigrationPython} from '../../utils/constants';
 
-export default function LanguageComparePage() {
+function LanguageComparePage() {
 	const [conceptArray, setConceptArray] = React.useState(MigrationConcept);
 	const [firstLanguageArrays, setFirstLanguageArrays] = React.useState(MigrationJavaScript);
 	const [secondLanguageArrays, setSecondLanguageArrays] = React.useState(MigrationPython);
@@ -68,3 +68,5 @@ export default function LanguageComparePage() {
 		</div>
 	);
 }
+
+export default LanguageComparePage;

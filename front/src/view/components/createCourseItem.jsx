@@ -3,15 +3,7 @@ import React from 'react';
 import {IoCaretUpOutline, IoCaretDownOutline, IoPencilSharp, IoTrashSharp} from 'react-icons/io5';
 import {Link} from 'react-router-dom';
 
-export default function CreateCourseItem({
-	canGoUp,
-	canGoDown,
-	item,
-	goUpHandler,
-	goDownHandler,
-	openEditHandler,
-	deleteHandler,
-}) {
+function CreateCourseItem({canGoUp, canGoDown, item, goUpHandler, goDownHandler, openEditHandler, deleteHandler}) {
 	const handleGoUp = () => goUpHandler(item.id);
 	const handleGoDown = () => goDownHandler(item.id);
 	const handleOpenEdit = () => openEditHandler(item);
@@ -58,3 +50,5 @@ export default function CreateCourseItem({
 		</li>
 	);
 }
+
+export default CreateCourseItem;

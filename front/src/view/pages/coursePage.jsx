@@ -2,15 +2,15 @@ import React from 'react';
 
 import {useParams} from 'react-router-dom';
 
-import SidebarItem from '../../view/components/sidebarItem';
-import ContentItem from '../../view/components/contentItem';
+import SidebarItem from '../components/sidebarItem';
+import ContentItem from '../components/contentItem';
 
-import {HandleTransformContentStringToContentArray} from '../../utils/helpers';
+import {handleTransformContentStringToContentArray} from '../../utils/helpers';
 
 // import {GetCourseById} from '../../api/auth.services';
 import {JAVASCRIPT_LESSONS} from '../../utils/constants';
 
-export default function CoursePage() {
+function CoursePage() {
 	const {courseId} = useParams();
 
 	const [course, setCourse] = React.useState([]);
@@ -20,10 +20,10 @@ export default function CoursePage() {
 	React.useEffect(() => {
 		// GetCourseById(courseId).then((selectedCourse) => {
 		// setCourse(selectedCourse);
-		// setContent(HandleTransformContentStringToContentArray(selectedCourse[1]?.content));
+		// setContent(handleTransformContentStringToContentArray(selectedCourse[1]?.content));
 		// });
 		setCourse(JAVASCRIPT_LESSONS);
-		setContent(HandleTransformContentStringToContentArray(JAVASCRIPT_LESSONS[1]?.content));
+		setContent(handleTransformContentStringToContentArray(JAVASCRIPT_LESSONS[1]?.content));
 	}, []);
 
 	const handleSelectLessonChange = lessonId => setSelectedLessonId(lessonId);
@@ -31,20 +31,20 @@ export default function CoursePage() {
 	const handleChangeToPreviousLesson = () => {
 		if (selectedLessonId <= 1) return;
 		else if (!course[selectedLessonId - 1]?.content) {
-			setContent(HandleTransformContentStringToContentArray(course[selectedLessonId - 2]?.content));
+			setContent(handleTransformContentStringToContentArray(course[selectedLessonId - 2]?.content));
 			setSelectedLessonId(selectedLessonId - 2);
 		} else {
-			setContent(HandleTransformContentStringToContentArray(course[selectedLessonId - 1]?.content));
+			setContent(handleTransformContentStringToContentArray(course[selectedLessonId - 1]?.content));
 			setSelectedLessonId(selectedLessonId - 1);
 		}
 	};
 	const handleChangeToNextLesson = () => {
 		if (selectedLessonId >= course.length - 1) return;
 		else if (!course[selectedLessonId + 1]?.content) {
-			setContent(HandleTransformContentStringToContentArray(course[selectedLessonId + 2]?.content));
+			setContent(handleTransformContentStringToContentArray(course[selectedLessonId + 2]?.content));
 			setSelectedLessonId(selectedLessonId + 2);
 		} else {
-			setContent(HandleTransformContentStringToContentArray(course[selectedLessonId + 1]?.content));
+			setContent(handleTransformContentStringToContentArray(course[selectedLessonId + 1]?.content));
 			setSelectedLessonId(selectedLessonId + 1);
 		}
 	};
@@ -103,3 +103,5 @@ export default function CoursePage() {
 		</div>
 	);
 }
+
+export default CoursePage;

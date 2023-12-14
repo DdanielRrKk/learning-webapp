@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Link} from 'react-router-dom';
 
-export default function SupportPage() {
+function SupportPage() {
 	return (
 		<div className='container container-main-support'>
 			<p>Support Our Page</p>
@@ -32,3 +32,5 @@ export default function SupportPage() {
 		</div>
 	);
 }
+
+export default SupportPage;

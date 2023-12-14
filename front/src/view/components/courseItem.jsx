@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Link} from 'react-router-dom';
 
-export default function CourseItem({box}) {
+function CourseItem({box}) {
 	return (
 		<Link
 			key={box.id}
@@ -18,3 +18,5 @@ export default function CourseItem({box}) {
 		</Link>
 	);
 }
+
+export default CourseItem;

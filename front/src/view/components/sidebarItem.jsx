@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SidebarItem({isSelected, item, selectLessonHandler, setContent}) {
+function SidebarItem({isSelected, item, selectLessonHandler, setContent}) {
 	const handleSelect = () => {
 		selectLessonHandler(item.id);
 		setContent(item.content);
@@ -31,3 +31,5 @@ export default function SidebarItem({isSelected, item, selectLessonHandler, setC
 		</li>
 	);
 }
+
+export default SidebarItem;

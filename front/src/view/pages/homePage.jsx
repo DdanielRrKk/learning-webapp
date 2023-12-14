@@ -2,12 +2,12 @@ import React from 'react';
 
 import {Link} from 'react-router-dom';
 
-import CourseItem from '../../view/components/courseItem';
+import CourseItem from '../components/courseItem';
 
 // import {GetAllCourses} from '../../api/course.services';
 import {BOXES} from '../../utils/constants';
 
-export default function HomePage() {
+function HomePage() {
 	const [courses, setCourses] = React.useState(BOXES);
 
 	const handleBuyMeACoffeeClick = () => {
@@ -76,3 +76,5 @@ export default function HomePage() {
 		</div>
 	);
 }
+
+export default HomePage;

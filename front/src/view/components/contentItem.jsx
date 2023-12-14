@@ -3,7 +3,7 @@ import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {stackoverflowDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-export default function ContentItem({type, data}) {
+function ContentItem({type, data}) {
 	switch (type) {
 		case 'img':
 			return (
@@ -76,3 +76,5 @@ export default function ContentItem({type, data}) {
 			return null;
 	}
 }
+
+export default ContentItem;
