@@ -1,8 +1,10 @@
+import styles from './form.module.css';
+
 function PhoneInput({labelText, value, changeHandler}) {
 	return (
 		<label
 			htmlFor='phone'
-			className='form-input'
+			className={styles.formInput}
 		>
 			{labelText}:
 			<input

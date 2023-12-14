@@ -1,8 +1,8 @@
 import {Outlet, useNavigate} from 'react-router-dom';
 import {useAuthState, useAuthDispatch, doLogout} from '../../../context/authContext';
 
-import Navbar from '../../Navbar/Navbar';
-import Footer from '../../Footer/Footer';
+import Navbar from '../../components/navbar/Navbar';
+import Footer from '../../components/footer/Footer';
 
 import styles from './Layout.module.css';
 
@@ -26,7 +26,7 @@ function Layout() {
 				/>
 			</header>
 
-			<main className={styles.content}>
+			<main>
 				<Outlet />
 			</main>
 

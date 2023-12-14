@@ -1,0 +1,29 @@
+.formInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.formInput > input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--dark-secondary);
+}
+
+.formSubmit { 
+    padding: 0.25rem 1rem;
+    margin-bottom: 2.5rem;
+    color: var(--dark);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    border: 1px solid var(--light);
+    background-color: var(--light);
+    cursor: pointer;
+}
+.formSubmit:hover { 
+    color: var(--light);
+    border: 1px solid var(--light);
+    background-color: var(--dark);
+}

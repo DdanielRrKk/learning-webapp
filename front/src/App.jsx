@@ -1,22 +1,22 @@
 import {useEffect} from 'react';
 
-import ErrorPage from './view/pages/ErrorPage';
+import ErrorPage from './view/pages/error/ErrorPage';
 
 import Layout from './view/pages/layout/Layout';
 
-import LoginPage from './view/pages/LoginPage';
-import RegisterPage from './view/pages/RegisterPage';
+import LoginPage from './view/pages/auth/LoginPage';
+import RegisterPage from './view/pages/auth/RegisterPage';
 
-import HomePage from './view/pages/HomePage';
-import CoursePage from './view/pages/CoursePage';
-import SupportPage from './view/pages/SupportPage';
-import LanguageComparePage from './view/pages/LanguageComparePage';
+import HomePage from './view/pages/home/HomePage';
+import CoursePage from './view/pages/course/CoursePage';
+import SupportPage from './view/pages/support/SupportPage';
+import LanguageComparePage from './view/pages/languageComparison/LanguageComparePage';
 
-import CreateCoursePage from './view/pages/CreateCoursePage';
-import WritePage from './view/pages/WritePage';
-import FeedbackPage from './view/pages/FeedbackPage';
-import SettingsPage from './view/pages/SettingsPage';
-import ProfilePage from './view/pages/ProfilePage';
+import CreateCoursePage from './view/pages/createCourse/CreateCoursePage';
+import WritePage from './view/pages/write/WritePage';
+import FeedbackPage from './view/pages/feedback/FeedbackPage';
+import SettingsPage from './view/pages/settings/SettingsPage';
+import ProfilePage from './view/pages/profile/ProfilePage';
 
 import {Route, Routes} from 'react-router-dom';
 import ProtectedRoute from './view/components/ProtectedRoute';

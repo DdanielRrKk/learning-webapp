@@ -1,0 +1,77 @@
+.content {
+    gap: 2.5rem;
+}
+.content > h1 {
+    font-size: 4.5rem;
+    line-height: 1;
+    font-weight: 600;
+}
+.content > p {
+    padding-left: 150px;
+    padding-right: 150px;
+    text-align: justify;
+
+}
+.content > h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+}
+.content > img {
+    width: 25%;
+    max-width: 300px;
+    min-width: 150px;
+}
+
+.contentGrid {
+    display: grid;
+    gap: 6rem;
+    row-gap: 4rem;
+    margin-bottom: 60px;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+
+
+@media screen and (min-width: 1280px) {
+    .contentGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .content > p {
+        text-align: center;
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .contentGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .contentGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .content > p {
+        padding: 30px 60px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .content > h1 {
+        font-size: 2.5rem;
+    }
+    .content > p {
+        padding: 30px 60px;
+    }
+    .contentGrid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 2rem;
+    }
+    .content .buttonsContainer {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+}

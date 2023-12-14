@@ -1,7 +1,9 @@
+import styles from './form.module.css';
+
 function SubmitInput({value}) {
 	return (
 		<input
-			className='button-action'
+			className={styles.formSubmit}
 			type='submit'
 			value={value}
 		/>

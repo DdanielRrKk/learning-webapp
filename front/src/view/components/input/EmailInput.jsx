@@ -1,8 +1,10 @@
+import styles from './form.module.css';
+
 function EmailInput({labelText, value, changeHandler}) {
 	return (
 		<label
 			htmlFor='email'
-			className='form-input'
+			className={styles.formInput}
 		>
 			{labelText}
 			<input

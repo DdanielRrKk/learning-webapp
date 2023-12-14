@@ -1,0 +1,42 @@
+.navbar {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.navbar > a {
+    font-size: 1.5rem;
+}
+.navbar > a > span {
+    font-weight: 600;
+}
+
+.navbar > ul, .navbar > div {
+    display: flex;
+    gap: 36px;
+}
+
+.navbar > div > a {
+    width: 40px;
+    border: 1px solid var(--light);
+    border-radius: 20px;
+}
+
+.navbar > ul > a:hover {
+    text-decoration: underline;
+}
+
+.navbar > div > button {
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    background-color: transparent;
+    border: 1px solid var(--light);
+}
+.navbar > div > button:hover {
+    color: var(--dark);
+    background-color: var(--light);
+    border: 1px solid var(--dark);
+}

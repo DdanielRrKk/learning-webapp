@@ -1,0 +1,24 @@
+.boxCourse {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.boxCourse > img {
+    width: 13rem;
+    height: 13rem;
+    background-color: var(--light);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.75rem;
+}
+
+.boxCourse > p {
+    color: var(--light);
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+}

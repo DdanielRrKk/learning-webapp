@@ -1,8 +1,10 @@
+import styles from './form.module.css';
+
 function PasswordInput({labelText, value, changeHandler}) {
 	return (
 		<label
 			htmlFor='password'
-			className='form-input'
+			className={styles.formInput}
 		>
 			{labelText}
 			<input

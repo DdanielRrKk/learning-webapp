@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+
+:root {
+    --light: rgb(229 231 235 / 1);
+    --dark: rgb(23 23 23 / 1);
+
+    --dark-secondary: rgb(38 38 38 / 1); 
+    --dark-tertiary: rgb(64 64 64 / 1); 
+
+    --breaker-text: rgb(115 115 115 / 1);
+}
+* {
+    padding: 0px;
+    margin: 0px;
+    border-width: 0px;
+    box-sizing: border-box;
+    font-family: 'Fira Code', monospace;
+    color: var(--light);
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+button, a {
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark);
+    /* color: var(--light); */
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.content {
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: auto;
+}
+
+
+
+.button-action {
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--dark);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    border: 1px var(--light) solid;
+    background-color: var(--light);
+    cursor: pointer;
+}
+.button-action:hover {
+    background-color: transparent;
+    color: var(--light);
+}
+
+.icon {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    cursor: pointer;
+}
+
+.input-action {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--dark-secondary);
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+/* .flexColumnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+
+/* S C R O L L B A R   S T Y L E S */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: rgb(38, 38, 38) }
+::-webkit-scrollbar-thumb { background: rgb(64, 64, 64); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(82, 82, 82); }

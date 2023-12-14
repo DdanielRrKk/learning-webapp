@@ -1,8 +1,10 @@
+import styles from './form.module.css';
+
 function TextInput({labelText, value, changeHandler}) {
 	return (
 		<label
 			htmlFor='text'
-			className='form-input'
+			className={styles.formInput}
 		>
 			{labelText}:
 			<input

@@ -1,0 +1,20 @@
+.box {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.box > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box > p {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    cursor: default;
+}
