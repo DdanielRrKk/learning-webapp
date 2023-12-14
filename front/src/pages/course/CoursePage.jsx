@@ -5,10 +5,10 @@ import {useParams} from 'react-router-dom';
 import SidebarItem from '../../components/sidebarItem/SidebarItem';
 import ContentItem from '../../components/contentItems/ContentItem';
 
-import {handleTransformContentStringToContentArray} from '../../../utils/helpers';
+import {handleTransformContentStringToContentArray} from '../../utils/helpers';
 
 // import {GetCourseById} from '../../api/auth.services';
-import {JAVASCRIPT_LESSONS} from '../../../utils/constants';
+import {JAVASCRIPT_LESSONS} from '../../utils/constants';
 
 import styles from './CoursePage.module.css';
 

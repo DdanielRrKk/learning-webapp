@@ -1,5 +1,5 @@
 import {Link, useNavigate} from 'react-router-dom';
-import {useRegister} from '../../../hooks/useRegister';
+import {useRegister} from '../../hooks/useRegister';
 import TextInput from '../../components/input/TextInput';
 import PhoneInput from '../../components/input/PhoneInput';
 import EmailInput from '../../components/input/EmailInput';

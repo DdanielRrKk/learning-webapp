@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 import CreateCourseItem from '../../components/createCourseItem/CreateCourseItem';
 
-import {MAX_LENGTH} from '../../../utils/constants';
+import {MAX_LENGTH} from '../../utils/constants';
 
 import styles from './CreateCoursePage.module.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {MigrationConcept, MigrationJavaScript, MigrationPython} from '../../../utils/constants';
+import {MigrationConcept, MigrationJavaScript, MigrationPython} from '../../utils/constants';
 
 import styles from './LanguageComparePage.module.css';
 

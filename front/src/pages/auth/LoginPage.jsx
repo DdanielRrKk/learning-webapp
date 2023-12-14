@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import EmailInput from '../../components/input/EmailInput';
 import PasswordInput from '../../components/input/PasswordInput';
 import SubmitInput from '../../components/input/SubmitInput';
-import {useLogin} from '../../../hooks/useLogin';
+import {useLogin} from '../../hooks/useLogin';
 import styles from './authPage.module.css';
 
 function LoginPage() {

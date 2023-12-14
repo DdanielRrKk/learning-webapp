@@ -2,30 +2,19 @@ import React from 'react';
 
 import {useParams} from 'react-router';
 
-import {MAX_LENGTH, MAX_LONG_LENGTH, FeedbackIdeaSet, FeedbackProblemSet} from '../../../utils/constants';
+import {MAX_LENGTH, MAX_LONG_LENGTH} from '../../utils/constants';
 
 import styles from './FeedbackPage.module.css';
 
+import {useLocation} from 'react-router-dom';
+
 function FeedbackPage() {
 	const {feedbackId} = useParams();
+	const location = useLocation();
+	const {headerText, buttonText, titlePlaceholder, messagePlaceholder} = location.data;
 
 	const [title, setTitle] = React.useState('');
 	const [message, setMessage] = React.useState('');
-
-	const [set, setSet] = React.useState({});
-
-	React.useEffect(() => {
-		switch (feedbackId) {
-			case 'problem':
-				setSet(FeedbackProblemSet);
-				break;
-			case 'idea':
-				setSet(FeedbackIdeaSet);
-				break;
-			default:
-				break;
-		}
-	}, []);
 
 	const handleTitleChange = e => setTitle(e.target.value);
 	const handleMessageChange = e => setMessage(e.target.value);
@@ -46,7 +35,7 @@ function FeedbackPage() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.content}>
-				<p>{set.title}</p>
+				<p>{headerText}</p>
 
 				<form onSubmit={handleSubmit}>
 					<input
@@ -54,7 +43,7 @@ function FeedbackPage() {
 						value={title}
 						onChange={handleTitleChange}
 						maxLength={MAX_LENGTH}
-						placeholder={set.titlePlaceholder}
+						placeholder={titlePlaceholder}
 					/>
 
 					<textarea
@@ -63,7 +52,7 @@ function FeedbackPage() {
 						value={message}
 						onChange={handleMessageChange}
 						maxLength={MAX_LONG_LENGTH}
-						placeholder={set.messagePlaceholder}
+						placeholder={messagePlaceholder}
 						required
 					/>
 
@@ -71,7 +60,7 @@ function FeedbackPage() {
 						type='submit'
 						className='button-action'
 					>
-						{set.buttonText}
+						{buttonText}
 					</button>
 				</form>
 			</div>

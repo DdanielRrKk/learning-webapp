@@ -1,5 +1,5 @@
 import {Outlet, useNavigate} from 'react-router-dom';
-import {useAuthState, useAuthDispatch, doLogout} from '../../../context/authContext';
+import {useAuthState, useAuthDispatch, doLogout} from '../../context/authContext';
 
 import Navbar from '../../components/navbar/Navbar';
 import Footer from '../../components/footer/Footer';

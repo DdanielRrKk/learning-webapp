@@ -30,19 +30,6 @@ code 2
 code 3
 `;
 
-export const FeedbackIdeaSet = {
-	title: 'Give an Idea',
-	buttonText: 'Submit Idea',
-	titlePlaceholder: 'Title of the Idea',
-	messagePlaceholder: 'Describe the Idea...',
-};
-export const FeedbackProblemSet = {
-	title: 'Report Problem',
-	buttonText: 'Submit Problem',
-	titlePlaceholder: 'Problem Title',
-	messagePlaceholder: 'Describe the problem...',
-};
-
 export const MigrationConcept = [
 	{id: 0, data: 'Variables declaration'},
 	{id: 1, data: 'Data types'},

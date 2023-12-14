@@ -5,8 +5,8 @@ import React from 'react';
 
 import ContentItem from '../../components/contentItems/ContentItem';
 
-import {handleTransformContentStringToContentArray} from '../../../utils/helpers';
-import {MAX_LENGTH, WRITE_PAGE_PLACEHOLDER} from '../../../utils/constants';
+import {handleTransformContentStringToContentArray} from '../../utils/helpers';
+import {MAX_LENGTH, WRITE_PAGE_PLACEHOLDER} from '../../utils/constants';
 
 import styles from './WritePage.module.css';
 

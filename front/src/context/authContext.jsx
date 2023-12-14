@@ -1,11 +1,14 @@
 import {createContext, useContext, useReducer} from 'react';
-import {useNavigate} from 'react-router-dom';
 import {login, register} from '../api/auth.services';
 
 export const AuthStateContext = createContext();
 export const AuthDispatchContext = createContext();
 
-function reducer(currentState, newState) {
+function reducer(state, action) {
+	switch (action.type) {
+		case 'LOGIN':
+			return doLogin(state, action.email, action.password);
+	}
 	return {...currentState, ...newState};
 }
 

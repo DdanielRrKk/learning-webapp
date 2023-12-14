@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import CourseItem from '../../components/courseItem/CourseItem';
 
 // import {GetAllCourses} from '../../api/course.services';
-import {BOXES} from '../../../utils/constants';
+import {BOXES} from '../../utils/constants';
 import styles from './HomePage.module.css';
 
 function HomePage() {
