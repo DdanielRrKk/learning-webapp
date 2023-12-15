@@ -3,7 +3,7 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 
 import SidebarItem from '../../components/sidebarItem/SidebarItem';
-import ContentItem from '../../components/contentItems/ContentItem';
+import ContentList from '../../components/list/ContentList';
 
 import {handleTransformContentStringToContentArray} from '../../utils/helpers';
 
@@ -70,15 +70,7 @@ function CoursePage() {
 
 			<div className={styles.article}>
 				{content.length !== 0 ? (
-					<>
-						{content.map(item => (
-							<ContentItem
-								key={item.id}
-								type={item.type}
-								data={item.data}
-							/>
-						))}
-					</>
+					<ContentList data={content} />
 				) : (
 					<p className={styles.title}>Still in progress...</p>
 				)}
