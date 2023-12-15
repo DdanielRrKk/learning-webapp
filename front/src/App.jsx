@@ -22,19 +22,17 @@ import {Route, Routes} from 'react-router-dom';
 import ProtectedRoute from './routes/ProtectedRoute';
 
 import {useNavigate} from 'react-router-dom';
-import {useAuthDispatch} from './context/authContext';
 
 function App() {
 	const navigate = useNavigate();
-	const dispatch = useAuthDispatch();
 
 	useEffect(() => {
-		const storedUser = window.localStorage.getItem('user');
-		if (storedUser) {
-			const user = JSON.parse(storedUser);
-			dispatch({user});
-			navigate('/', {replace: true});
-		}
+		// const storedUser = window.localStorage.getItem('user');
+		// if (storedUser) {
+		// 	const user = JSON.parse(storedUser);
+		// 	dispatch({user});
+		// 	navigate('/', {replace: true});
+		// }
 	}, []);
 
 	return (

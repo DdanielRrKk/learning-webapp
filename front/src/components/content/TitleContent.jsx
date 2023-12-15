@@ -1,14 +1,7 @@
-import styles from './ContentItem.module.css';
+import styles from './Content.module.css';
 
-function TitleContent({key, data}) {
-	return (
-		<p
-			key={key}
-			className={styles.titleBox}
-		>
-			{data}
-		</p>
-	);
+function TitleContent({data}) {
+	return <p className={styles.titleBox}>{data}</p>;
 }
 
 export default TitleContent;

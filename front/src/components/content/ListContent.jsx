@@ -1,8 +1,8 @@
-import styles from './ContentItem.module.css';
+import styles from './Content.module.css';
 
-function ListContent({key, data}) {
+function ListContent({data}) {
 	return (
-		<ul key={key}>
+		<ul>
 			{data.map((item, index) => (
 				<p
 					key={index}

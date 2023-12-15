@@ -14,7 +14,7 @@ function Navbar({user, logoutHandler}) {
 			<div>
 				<NavLink to='/profile'>
 					<img
-						src='logo.png'
+						src='https://placehold.co/40x40'
 						alt='logo'
 					/>
 				</NavLink>

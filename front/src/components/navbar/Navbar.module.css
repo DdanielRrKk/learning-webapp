@@ -19,9 +19,8 @@
     gap: 36px;
 }
 
-.navbar > div > a {
+.navbar > div > a > img {
     width: 40px;
-    border: 1px solid var(--light);
     border-radius: 20px;
 }
 

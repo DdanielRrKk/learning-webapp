@@ -1,14 +1,7 @@
-import styles from './ContentItem.module.css';
+import styles from './Content.module.css';
 
-function TextContent({key, data}) {
-	return (
-		<p
-			key={key}
-			className={styles.textBox}
-		>
-			{data}
-		</p>
-	);
+function TextContent({data}) {
+	return <p className={styles.textBox}>{data}</p>;
 }
 
 export default TextContent;

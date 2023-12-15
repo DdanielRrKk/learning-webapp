@@ -6,7 +6,7 @@ import './index.css';
 // import store from './redux/store.js';
 // import {Provider} from 'react-redux';
 
-import {AuthProvider} from './context/authContext.jsx';
+import AuthProvider from './context/authContext.jsx';
 
 import {BrowserRouter} from 'react-router-dom';
 

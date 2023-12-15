@@ -1,16 +1,14 @@
 import {useState} from 'react';
 import {doArrayHaveEmptyStrings} from '../utils/validations';
-import {useAuthState, useAuthDispatch, doLogin} from '../context/authContext';
+import {useAuth} from './useAuth';
 import {useNavigate} from 'react-router-dom';
 
 function useLogin() {
-	const {user, status, error} = useAuthState();
-	const dispatch = useAuthDispatch();
+	const {state, doLogin} = useAuth();
+	const navigate = useNavigate();
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-
-	const navigate = useNavigate();
 
 	function handleEmailChange(e) {
 		setEmail(e.target.value);
@@ -30,7 +28,7 @@ function useLogin() {
 		setEmail('');
 		setPassword('');
 
-		doLogin(dispatch, email, password).then(() => {
+		doLogin(email, password).then(() => {
 			navigate('/', {replace: true});
 		});
 	}
@@ -41,9 +39,7 @@ function useLogin() {
 		handleEmailChange,
 		handlePasswordChange,
 		handleLoginForm,
-		user,
-		status,
-		error,
+		user: state.user,
 	};
 }
 

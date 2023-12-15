@@ -49,8 +49,11 @@ function HomePage() {
 			<h3>Learn new Language:</h3>
 
 			<div className={styles.contentGrid}>
-				{courses.map(box => (
-					<CourseItem box={box} />
+				{courses.map((box, index) => (
+					<CourseItem
+						key={index}
+						box={box}
+					/>
 				))}
 			</div>
 

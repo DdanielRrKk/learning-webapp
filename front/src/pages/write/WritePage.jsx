@@ -3,7 +3,7 @@ import React from 'react';
 // import {useSelector, useDispatch} from 'react-redux';
 // import {removeLesson} from '../../../redux/lessonSlice/lessonSlice';
 
-import ContentItem from '../../components/contentItems/ContentItem';
+import ContentList from '../../components/list/ContentList';
 
 import {handleTransformContentStringToContentArray} from '../../utils/helpers';
 import {MAX_LENGTH, WRITE_PAGE_PLACEHOLDER} from '../../utils/constants';
@@ -91,15 +91,7 @@ function WritePage() {
 
 			<div className={styles.showSection}>
 				{contentArray.length > 0 ? (
-					<>
-						{contentArray.map(item => (
-							<ContentItem
-								key={item.id}
-								type={item.type}
-								data={item.data}
-							/>
-						))}
-					</>
+					<ContentList data={contentArray} />
 				) : (
 					<p className='text-4xl'>Place for visualizing your content</p>
 				)}

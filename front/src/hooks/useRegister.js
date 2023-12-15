@@ -1,10 +1,9 @@
 import {useState} from 'react';
 import {doArrayHaveEmptyStrings, isPasswordDifferent} from '../utils/validations';
-import {useAuthState, useAuthDispatch, doRegister} from '../context/authContext';
+import {useAuth} from './useAuth';
 
 function useRegister() {
-	const {user, status, error} = useAuthState();
-	const dispatch = useAuthDispatch();
+	const {status, doRegister} = useAuth();
 
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
@@ -72,9 +71,7 @@ function useRegister() {
 		handlePasswordChange,
 		handleConfirmPasswordChange,
 		handleRegisterForm,
-		user,
-		status,
-		error,
+		user: state.user,
 	};
 }
 

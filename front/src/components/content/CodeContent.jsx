@@ -1,14 +1,11 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {stackoverflowDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import styles from './ContentItem.module.css';
+import styles from './Content.module.css';
 
-function CodeContent({key, data}) {
+function CodeContent({data}) {
 	return (
-		<div
-			key={key}
-			className={styles.codeBox}
-		>
+		<div className={styles.codeBox}>
 			<SyntaxHighlighter
 				language='javascript'
 				style={stackoverflowDark}

@@ -1,5 +1,5 @@
 import {Outlet, useNavigate} from 'react-router-dom';
-import {useAuthState, useAuthDispatch, doLogout} from '../../context/authContext';
+import {useAuth} from '../../hooks/useAuth';
 
 import Navbar from '../../components/navbar/Navbar';
 import Footer from '../../components/footer/Footer';
@@ -7,12 +7,11 @@ import Footer from '../../components/footer/Footer';
 import styles from './Layout.module.css';
 
 function Layout() {
-	const {user} = useAuthState();
-	const dispatch = useAuthDispatch();
+	const {state, doLogout} = useAuth();
 	const navigate = useNavigate();
 
 	function handleLogout() {
-		doLogout(dispatch).then(() => {
+		doLogout().then(() => {
 			navigate('/login', {replace: true});
 		});
 	}
@@ -21,7 +20,7 @@ function Layout() {
 		<div className={styles.container}>
 			<header>
 				<Navbar
-					user={user}
+					user={state.user}
 					logoutHandler={handleLogout}
 				/>
 			</header>
