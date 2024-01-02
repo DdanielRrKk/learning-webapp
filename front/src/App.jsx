@@ -1,5 +1,3 @@
-import {useEffect} from 'react';
-
 import ErrorPage from './pages/error/ErrorPage';
 
 import Layout from './pages/layout/Layout';
@@ -21,20 +19,7 @@ import ProfilePage from './pages/profile/ProfilePage';
 import {Route, Routes} from 'react-router-dom';
 import ProtectedRoute from './routes/ProtectedRoute';
 
-import {useNavigate} from 'react-router-dom';
-
 function App() {
-	const navigate = useNavigate();
-
-	useEffect(() => {
-		// const storedUser = window.localStorage.getItem('user');
-		// if (storedUser) {
-		// 	const user = JSON.parse(storedUser);
-		// 	dispatch({user});
-		// 	navigate('/', {replace: true});
-		// }
-	}, []);
-
 	return (
 		<Routes>
 			<Route

@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react';
 import {Outlet, useNavigate} from 'react-router-dom';
 import {useAuth} from '../../hooks/useAuth';
 
@@ -16,8 +17,41 @@ function Layout() {
 		});
 	}
 
+	let timer = null;
+	const [scrollState, setScrollState] = useState(false);
+
+	useEffect(() => {
+		function handleScroll() {
+			if (timer !== null) {
+				clearTimeout(timer);
+				setScrollState(true);
+				console.log('scrolling');
+				const main = document.querySelector('body');
+				main.classList.remove('not-scrolling');
+				main.classList.add('scrolling');
+			}
+
+			timer = setTimeout(() => {
+				setScrollState(false);
+				console.log('not scrolling');
+				const main = document.querySelector('body');
+				main.classList.remove('scrolling');
+				main.classList.add('not-scrolling');
+			}, 150);
+		}
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [scrollState]);
+
 	return (
-		<div className={styles.container}>
+		<div
+			id='mainDiv'
+			className={styles.container}
+		>
 			<header>
 				<Navbar
 					user={state.user}
